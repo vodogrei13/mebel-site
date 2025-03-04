@@ -1,6 +1,6 @@
 import { IconLogo } from "../../../../public/svg/Logo"
 
-const Header = () => {
+export const Header = () => {
     return (
         <div className="header__container">
             <div>
@@ -18,5 +18,3 @@ const Header = () => {
         </div>
     );
 };
-
-export default Header;
