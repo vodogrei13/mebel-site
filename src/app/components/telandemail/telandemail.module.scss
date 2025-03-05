@@ -1,0 +1,8 @@
+.header__contact {
+    a[href^="mailto:"] {
+        font-weight: 600;
+      }
+    a[href^="tel:"] {
+        font-weight: 600;
+    } 
+}

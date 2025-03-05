@@ -1,19 +1,21 @@
 import { IconLogo } from "../../../../public/svg/Logo"
+import { Navigation } from "../navigation/navigation"
+import { TelandEmail } from "../telandemail/telandemail"
+import css from './header.module.scss'
 
 export const Header = () => {
     return (
-        <div className="header__container">
-            <div>
-                <IconLogo/>
-            </div>
-            <div className="header__nav">
-                <ul className="header__list">
-                    <li className="header__item"><a href="!#" className="header__nav_link">Услуги</a></li>
-                    <li className="header__item"><a href="!#" className="header__nav_link">Наши Клиенты</a></li>
-                    <li className="header__item"><a href="!#" className="header__nav_link">Отзывы</a></li>
-                    <li className="header__item"><a href="!#" className="header__nav_link">Доставка</a></li>
-                    <li className="header__item"><a href="!#" className="header__nav_link">Контакты</a></li>
-                </ul>
+        <div className={css.header__wrapper}>
+            <div className={css.header__container}>
+                <div>
+                    <IconLogo/>
+                </div>
+                <div>
+                    <Navigation/>
+                </div>
+                <div>
+                    <TelandEmail/>
+                </div>
             </div>
         </div>
     );

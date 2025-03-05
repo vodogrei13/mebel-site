@@ -1,0 +1,15 @@
+.container__nav {
+    display: flex;
+    .nav__list {
+        display: flex;
+        gap: 1.042vw;
+        .nav__item {
+            margin: 0;
+            padding: 1.375em 2.125em;
+            border: 2px solid transparent;
+                &:hover {
+                    border-color: black;
+            }
+        }
+    }
+}
