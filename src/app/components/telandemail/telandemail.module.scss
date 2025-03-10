@@ -1,4 +1,12 @@
 .header__contact {
+    display: flex;
+    flex-direction: column;
+    gap: 0.495em;
+    p {
+        font-weight: 400;
+        line-height: 100%;
+        letter-spacing: 0.3px;
+    }
     a[href^="mailto:"] {
         font-weight: 600;
       }

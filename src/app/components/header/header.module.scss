@@ -1,12 +1,20 @@
 .header__wrapper{
     width: 100%;
+    margin-top: 3.9vh;
     border-bottom: 1px solid #000000;
     .header__container {
         display: flex;
         max-width: 59.792vw;
         margin: 0 auto;
-        justify-content: space-between;
         align-items: center;
-        height: 13.058vh;
+        height: 6.96vh;
+        .header__logo {
+            margin-top: 6.5px;
+            margin-left: -5px;
+        }
+        .header__nav {
+            margin-left: 2.34vw;
+            margin-right: 5.31vw;
+        }
     }
 }

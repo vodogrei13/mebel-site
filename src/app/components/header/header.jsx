@@ -7,10 +7,10 @@ export const Header = () => {
     return (
         <div className={css.header__wrapper}>
             <div className={css.header__container}>
-                <div>
+                <div className={css.header__logo}>
                     <IconLogo/>
                 </div>
-                <div>
+                <div className={css.header__nav}>
                     <Navigation/>
                 </div>
                 <div>

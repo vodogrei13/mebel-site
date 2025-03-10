@@ -7,9 +7,9 @@ export const Navigation= () => {
             <ul className={css.nav__list}>
                 <li className={css.nav__item}><a href="!#" className="container__nav_link">Услуги</a></li>
                 <li className={css.nav__item}><a href="!#" className="container__nav_link">Наши клиенты</a></li>
-                <li className={css.nav__item}><a href="!#" className="container__nav_link">Отзывы</a></li>
                 <li className={css.nav__item}><a href="!#" className="container__nav_link">Доставка</a></li>
                 <li className={css.nav__item}><a href="!#" className="container__nav_link">Контакты</a></li>
+                <li className={css.nav__item}><a href="!#" className="container__nav_link">Отзывы</a></li>
             </ul>
         </div>
     )
