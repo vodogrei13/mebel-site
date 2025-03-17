@@ -1,7 +1,36 @@
-import css from './hero_2.module.scss'
+"use client";
+import { useEffect } from 'react';
+import css from './block-advantages.module.scss'
 import classNames from 'classnames';
 
-export const Hero_2 = () => {
+export const Block_Advantages = () => {
+
+    useEffect(() => {
+        const options = {
+            threshold: [0],
+        };
+        const observer = new IntersectionObserver(onEntry, options);
+
+        const elements = document.querySelectorAll(`.${css.hero__2_item}`);
+        elements.forEach((elm) => {
+            observer.observe(elm);
+        });
+
+        function onEntry(entry) {
+            entry.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add(css['elem-show']);
+              }
+            });
+        }
+        // Очистка observer при размонтировании
+        return () => {
+            elements.forEach((elm) => {
+                observer.unobserve(elm);
+            });
+        }
+}, []);
+
     return (
       <div className={css.hero__2_container}>
         <div className={css.hero__2_title}>

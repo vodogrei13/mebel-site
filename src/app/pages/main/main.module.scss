@@ -4,10 +4,9 @@
     linear-gradient(to right, rgba(177, 177, 177, 1) 1px, transparent 1px), /* Вторая полоса */
     linear-gradient(to right, rgba(177, 177, 177, 1) 1px, transparent 1px), /* Третья полоса */
     linear-gradient(to right, rgba(177, 177, 177, 1) 1px, transparent 1px); /* Четвертая полоса */
-  background-size: 1px 100%; /* Ширина полосы и высота 100% */
-  background-position: 19.3% 0, 47.2% 0, 64.6% 0, 68.5% 0; /* Позиции полос */
+  background-size: 1px; /* Ширина полосы и высота 100% */
+  background-position: 19.6% 0, 42.6% 0, 65.6% 0, 70.9% 0; /* Позиции полос */
   background-repeat: no-repeat; /* Не повторять градиент */
   /* Другие стили контента */
   padding: 20px;
-  min-height: 100%;
 }

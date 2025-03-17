@@ -27,16 +27,19 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-/* 32px  MEDIUM */
+/* 36px  MEDIUM */
 h2 {
-  font-size: clamp(16px, 1.67vw , 100px);
+  font-size: clamp(16px, 1.875vw , 100px);
+  font-weight: 400;
   line-height: 100%;
   letter-spacing: 0%;
+  text-transform: uppercase;
 }
 /* 64px BOLD */
 h1 {
   font-size: clamp(16px, 3.33vw , 100px);
   line-height: 90%;
+  font-weight: 400;
   letter-spacing: -4%;
 }
 

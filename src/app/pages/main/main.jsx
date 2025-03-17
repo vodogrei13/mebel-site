@@ -1,7 +1,8 @@
 import React from 'react';
-import { Header } from "../../components/header/header"
-import { Hero_1 } from "../../components/hero_1/hero_1"
-import { Hero_2 } from "../../components/hero_2/hero_2"
+import { Header } from "../../components/header/header";
+import { Block_Welcome } from "../../components/block-welcome/block-welcome";
+import { Block_Advantages } from "../../components/block-advantages/block-advantages";
+import { Form } from "../../components/form/form";
 import css from './main.module.scss'
 
 export const Main = () => {
@@ -10,18 +11,15 @@ export const Main = () => {
         <div>
           <Header/>  
         </div>
-        <div className={css.main__border}>
-            <div className={css.border}></div>
-            <div className={css.border}></div>
-            <div className={css.border}></div>
-            <div className={css.border}></div>
-        </div>
         <section className={css.main__container}>
           <div>
-            <Hero_1/>
+            <Block_Welcome/>
           </div>
           <div>
-            <Hero_2/>
+            <Block_Advantages/>
+          </div>
+          <div>
+            <Form/>
           </div>
         </section>
         </div>

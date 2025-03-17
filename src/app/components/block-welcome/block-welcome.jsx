@@ -1,8 +1,8 @@
-import css from './hero_1.module.scss'
-import { Button } from "../../components/button/button"
+import css from './block-welcome.module.scss'
+import { Button } from "../button/button"
 
 
-export const Hero_1 = () => {
+export const Block_Welcome = () => {
     return (
       <div className={css.hero__1_container}>
         <div className={css.hero__1_box1}>
