@@ -1,14 +1,17 @@
 import Link from "next/link";
-import "./globals.css";
+import "./globals.scss";
 import { Main } from "../app/pages/main/main";
 
 export default function Page() {
+
   return (
     <div>
       {/* Главная страница */}
-      <Link href="/">
+      {/* <Link href='/'> */}
         <Main/>
-      </Link>
+      {/* </Link> */}
+      {/* Изготовление дверей-купе */}
+      
   </div>
   );
 }

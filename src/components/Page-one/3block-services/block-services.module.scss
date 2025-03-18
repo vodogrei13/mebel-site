@@ -1,0 +1,57 @@
+.container {
+    width: 60.3vw;
+    margin: 0 auto;
+    margin-top: 12.085vh;
+    display: flex;
+    flex-direction: column;
+    gap: 3.75em;
+    min-height: 400px;
+    .title {
+        margin: 0 auto;
+        text-align: center;
+        color: #000;
+        width: 28.75vw;
+    }
+    .cards__serv {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5em;
+        .card_item {
+        width: 18.75vw;
+        height: 39.98vh;
+        background-repeat: no-repeat;
+        display: flex;
+        flex-direction: column;
+        padding: 1.5em 1em;
+        justify-content: space-between;
+        h3 {
+            background-color: #162953;
+            color: #f4f4f4;
+            text-transform: uppercase;
+            font-size: clamp(16px, 1.25vw , 100px);
+            font-weight: 400;
+            letter-spacing: -0.05em;
+            line-height: 100%;
+            padding-left: 0.375em;
+        }
+        }
+        .card__one {
+        background-image: url('../../../../public/png/dveri-kupe.png');
+        }
+        .card__two {
+        background-image: url('../../../../public/png/raskroi-online.png');
+        }
+        .card__three {
+        background-image: url('../../../../public/png/bazis.png');
+        }
+        .card__for {
+        background-image: url('../../../../public/png/calc-vitrin.png'); 
+        }
+        .card__five {
+        background-image: url('../../../../public/png/raschet-fasad.png'); 
+        }
+        .card__six {
+        background-image: url('../../../../public/png/delivery.png');
+        }
+    }
+}

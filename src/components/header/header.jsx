@@ -1,4 +1,4 @@
-import { IconLogo } from "../../../../public/svg/Logo"
+import { IconLogo } from "../../../public/svg/Logo"
 import { Navigation } from "../navigation/navigation"
 import { TelandEmail } from "../telandemail/telandemail"
 import css from './header.module.scss'

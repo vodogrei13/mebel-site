@@ -1,0 +1,46 @@
+.container {
+    width: 60.3vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+    margin-top: 12.085vh;
+    .title {
+        color: #000;
+        font-weight: 400;
+        letter-spacing: -0.05em;
+        line-height: 100%;
+        text-align: center;
+    }
+    .slider {
+        margin-top: 5em;
+        margin-bottom: 6.5em;
+        position: relative;
+        width: 100%;
+        height: auto;
+        overflow: hidden;
+        .slider__images {
+            display: flex;
+            width: 100%;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            display: flex;
+            gap: 1.75em;
+            transition: opacity 0.5s ease-in-out;
+            overflow: hidden;
+            .image {
+                flex-shrink: 0;
+                background-size: cover;
+                background-position: center;
+                width: 261px;
+                height: 261px;
+                opacity: 1;
+                scroll-snap-align: start;
+                &:active {
+                    background-color: transparent;
+                    opacity: 1; /*  Делаем активный слайд полностью видимым */
+                }
+            }
+        }
+    }
+}
