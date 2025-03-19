@@ -1,10 +1,32 @@
 .footer__wrapper {
     background-color: #132141;
+    height: 39.173vh;
     .footer__container {
-        width: 59.948vw;
+        width: 60.3vw;
+        height: 27.53vh;
         margin: 0 auto;
-        .header__nav {
-
+        padding-top: 3em;
+        padding-bottom: 3.688em;
+        display: flex;
+        flex-direction: row;
+        gap: 12.812vw;
+        .footer__nav {
+        display: flex;
+        flex-direction: row;
+        gap: 4.219vw;
+            .nav__list {
+                display: flex;
+                flex-direction: column;
+                gap: 1.5em;
+                flex-wrap: wrap;
+                .nav__item {
+                    color: #f4f4f4;
+                    line-height: 100%;
+                }
+            }
         }
+        // .footer__contact {
+
+        // }
     }
 }
