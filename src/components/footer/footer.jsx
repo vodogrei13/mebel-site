@@ -1,5 +1,9 @@
 import Link from "next/link";
 import css from "./footer.module.scss";
+import { TelandEmail } from "../telandemail/telandemail";
+import { IconTelegram } from "../../../public/svg/Telegram";
+import { IconWhatsApp } from "../../../public/svg/WhatsApp";
+
 
 export const Footer = () => {
   return (
@@ -90,6 +94,17 @@ export const Footer = () => {
                     style={{position:'relative'}}
                     ></iframe>
                 </div>
+          </div>
+          <div className={css.contact__info}>
+            <h3>Контакты:</h3>
+              <TelandEmail/>
+            <div className={css.social}>
+              <p>Социальные сети:</p>
+              <div className={css.items}>
+                <a href='#' className={css.telegram}><IconTelegram/></a>
+                <a href='#' className={css.whatsApp}><IconWhatsApp/></a>
+              </div>
+            </div>
           </div>
         </section>
       </div>
