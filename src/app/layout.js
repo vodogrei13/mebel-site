@@ -3,7 +3,7 @@ import "./globals.scss";
 
 const inter = Roboto({
   subsets: ["latin"],
-  weights: ["400", "700"],
+  weights: ["400","500", "700"],
 });
 
 export const metadata = {

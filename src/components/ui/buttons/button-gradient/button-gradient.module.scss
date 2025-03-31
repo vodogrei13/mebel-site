@@ -1,7 +1,9 @@
 .button__container {
     button {
         cursor: pointer;
-        padding: 1.688em 3.747em;
+        width: 11.667vw;
+        height: 6.042vh;
+        padding: 1.28125em 0.75em 1.28125em 1.5em;
         display: block;
         text-align: center;
         text-transform: uppercase;
@@ -10,9 +12,12 @@
         color: white;            
         box-shadow: 0 0 20px #eee;
         border: none;
-        background-image: linear-gradient(to right, #1A2980 0%, #26D0CE  51%, #1A2980  100%);
+        background-image: linear-gradient(to right, #1A2980 0%, #26D0CE 51%, #1A2980  100%);
+        a {
+            font-size: clamp(16px, 0.83vw , 100px);
+        }
         &:hover {
-            background-position: right center; /* change the direction of the change here */
+            background-position: right center;
             color: #fff;
             text-decoration: none;
         }

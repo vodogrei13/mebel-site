@@ -1,13 +1,36 @@
 .container__nav {
     display: flex;
     margin: 0;
+    width: 49.531vw;
     .nav__list {
         display: flex;
         .nav__item {
+            cursor: pointer;
+            text-align: center;
+            
             margin: 0;
-            padding: 1.375em 2.125em;
-            border: 2px solid transparent;
+            padding: 0.96875em 2.125em;
             text-wrap: nowrap;
+            &:nth-child(1) {
+                text-wrap: wrap;
+            }
+            &:nth-child(2) {
+                text-wrap: wrap;
+            }
+            &:nth-child(3) {
+                text-wrap: wrap;
+            }
+            &:nth-child(4) {
+                padding-top: 1.5625em;
+                
+            }
+            &:nth-child(5) {
+                padding-top: 1.5625em;
+            }
+            &:nth-child(6) {
+                padding-top: 1.5625em;
+            }
+            border: 2px solid transparent;
                 &:hover {
                     border-color: black;
             }

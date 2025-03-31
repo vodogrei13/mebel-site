@@ -87,10 +87,10 @@ export const Footer = () => {
                     </a>
                     <iframe
                     src="https://yandex.ru/map-widget/v1/?ll=39.818495%2C57.676193&mode=poi&poi%5Bpoint%5D=39.816762%2C57.676539&poi%5Buri%5D=ymapsbm1%3A%2F%2Forg%3Foid%3D60072063603&z=18.38"
-                    width="360"
-                    height="214"
-                    frameborder="1"
-                    allowfullscreen="true"
+                    width={360}
+                    height={214}
+                    frameBorder={1}
+                    allowFullScreen={true}
                     style={{position:'relative'}}
                     ></iframe>
                 </div>

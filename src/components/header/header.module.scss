@@ -3,8 +3,9 @@
     margin-top: 3.9vh;
     border-bottom: 1px solid #000000;
     .header__container {
+        padding-left: 18.667vw;
         display: flex;
-        max-width: 59.792vw;
+        width: 100%;
         margin: 0 auto;
         align-items: center;
         height: 6.96vh;
@@ -15,8 +16,8 @@
             margin-bottom: 0.3vh;
         }
         .header__nav {
-            margin-left: 2.34vw;
-            margin-right: 5.31vw;
+            margin-left: 0.833vw;
+            margin-right: 1.042vw;
         }
     }
 }

@@ -7,6 +7,7 @@ import { Block_Services } from "../../../components/Page-one/3block-services/blo
 import { Block_Slider } from '@/components/Page-one/4block-slider/block-slider';
 import { Footer } from '@/components/footer/footer';
 import css from './main.module.scss'
+import { Block_Cards } from '@/components/Page-one/3block-cards/block-cards';
 
 export const Main = () => {
     return (
@@ -27,10 +28,7 @@ export const Main = () => {
               </div>
           </div>
           <div>
-            <Block_Services/>
-          </div>
-          <div>
-            <Block_Slider/>
+            <Block_Cards/>
           </div>
         </section>
         <div>
