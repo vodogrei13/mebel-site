@@ -28,7 +28,7 @@
             gap: 6em;
             background-color: #BBEDEE;
             width: 58.75vw;
-            height: 48.436vh;
+            height: 30em;
             padding: 1.875em 2.625em;
             &:not(:last-child) {
                 margin-bottom: 50px;
@@ -38,19 +38,19 @@
                 top: 0;
             }
             &:nth-child(2) { 
-                position: sticky;
+                
                 top: 20px;
             }
             &:nth-child(3) { 
-                position: sticky;
+                
                 top: 40px;
             }
             &:nth-child(4) { 
-                position: sticky;
+                
                 top: 60px;
             }
             &:nth-child(5) { 
-                position: sticky;
+                
                 top: 80px;
             }
             .hero__3_info {
@@ -58,8 +58,8 @@
                 flex-direction: column;
                 gap: 0.875em;
                 width: 27.5vw;
+                justify-content: center;
                 .info__title {
-                    margin-top: 1.4375em;
                     font-weight: 500 ;
                     font-size: clamp(16px, 1.667vw , 100px);
                     line-height: auto;

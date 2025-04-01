@@ -11,7 +11,7 @@ export const Navigation= () => {
                 <li className={css.nav__item}><Link href="#" id='ssilka' className="container__nav_link">Мебельные фасады</Link></li>
                 <li className={css.nav__item}><Link href="#" id='ssilka' className="container__nav_link">Мебель для мебельщика</Link></li>
                 <li className={css.nav__item}><Link href="#" id='ssilka' className="container__nav_link">Двери-купе</Link></li>
-                <li className={css.nav__item}><Link href="#" id='ssilka' className="container__nav_link">Столешницы</Link></li>
+                <li className={css.nav__item}><Link href="/countertops" id='ssilka' className="container__nav_link">Столешницы</Link></li>
                 <li className={css.nav__item}><Link href="#" id='ssilka' className="container__nav_link">О нас</Link></li>
             </ul>
         </div>

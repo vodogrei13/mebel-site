@@ -1,13 +1,13 @@
 .container__nav {
     display: flex;
     margin: 0;
+    margin-bottom: 8px;
     width: 49.531vw;
     .nav__list {
         display: flex;
         .nav__item {
             cursor: pointer;
             text-align: center;
-            
             margin: 0;
             padding: 0.96875em 2.125em;
             text-wrap: nowrap;
