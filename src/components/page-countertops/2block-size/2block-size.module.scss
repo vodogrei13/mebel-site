@@ -1,0 +1,128 @@
+.block__size_container {
+    width: 56.719vw;
+    margin: 0 auto;
+    margin-top: 7.5em;
+    margin-bottom: 7.5em;
+    .hidden {
+        display: none !important;
+    }
+    .block__size_text {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75em;
+        width: 27.5vw;
+        margin: 0 auto;
+        p {
+            line-height: auto;
+            letter-spacing: 0;
+            color: #606060;
+        }
+    }
+    .block__size_info {
+        margin-top: 7.875em;
+        .size_button {
+            display: flex;
+            gap: 8.75em;
+            button {
+                cursor: pointer;
+                width: 10.625vw;
+                height: 6.964vh;
+                color: #101010;
+                font-size: clamp(16px, 1.875vw , 100px);
+                font-weight: 500;
+                border: 0.125em solid #101010;
+                text-align: center;
+                margin: 0 auto;
+                span {
+                    font-size: clamp(16px, 0.83vw , 100px);
+                    font-weight: 500;
+                }
+                &:active {
+                    background-color: #253F7A;
+                    color: #f4f4f4;
+                    border: none;
+                }
+                &:hover {
+                    background-color: #253F7A;
+                    color: #f4f4f4;
+                    border: none;
+                }
+            }
+            .size_button_text {
+                display: flex;
+                flex-direction: column;
+            }
+        }
+        .size__cards {
+            margin-top: 7.125em;
+            margin: 0 auto;
+            display: flex;
+            gap: 3.9375em;
+            /* Стили для каждой вкладки */
+            &.size__cards_26mm {
+                justify-content: center; 
+            }
+          
+            &.size__cards_36mm {
+                justify-content: flex-start; 
+            }
+          
+            &.size__cards_12mm {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 5em;
+            }
+
+            .info__item {
+                width: 16.719vw;
+                margin: 0 auto;
+                margin-top: 7.125em;
+                text-align: center;
+                font-size: clamp(16px, 0.9vw , 100px);
+                display: flex;
+                flex-direction: column;
+                gap: 0.75em;
+                h3 {
+                    font-size: clamp(16px, 1.167vw , 100px);
+                    text-decoration: underline;
+                    color: #353535;
+                }
+                p {
+                    text-decoration: underline;
+                    color: #353535;
+                }
+                ul {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 0.5em;
+                    text-decoration: underline;
+                }
+            }
+        }
+        .info__bottom {
+            margin: 0 auto;
+            margin-top: 7.125em;
+            width: 27.5vw;
+            text-align: center;
+            p {
+                color: #606060;
+            }
+            .info__bottom_btn {
+                width: 13.854vw;
+                margin: 0 auto; 
+                margin-top: 2em;
+            }
+        }
+    }
+}
+@media (max-width: 768px) {
+    .block__size_container .block__size_info .size__cards {
+        flex-direction: column; /* Отображать в один столбец на маленьких экранах */
+        align-items: center; /* Центрировать элементы */
+    }
+
+    /* Для случая 12mm на мобильных устройствах */
+    .block__size_container .block__size_info .size__cards_12mm {
+        justify-content: center; /* Равномерно распределить пространство */
+    }
+}

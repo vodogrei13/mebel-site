@@ -18,24 +18,29 @@
                 font-weight: 400;
                 font-size: clamp(16px, 2.083vw , 100px);
                 letter-spacing: -0.05em;
+                padding-bottom: 0.2em;
             }
         }
         .block__countertops_text {
-            margin-bottom: 1.25;
+            margin-bottom: 1.25em;
             p {
                 color: #606060;
-                line-height: 100%;
+                line-height: auto;
+                letter-spacing: 0;
             }
         }
         .block__countertops_text2 {
             list-style-type: disc;
             color: #606060;
-            line-height: 100%;
+            line-height: auto;
             .block__countertops_list {
+                padding-left: 2em;
+                padding-top: 1em;
                 .block__countertops_item {
                     list-style-type: disc;
                     color: #606060;
-                    line-height: 100%;
+                    line-height: auto;
+                    padding-bottom: 1em;
                 }
             }
         }

@@ -5,7 +5,7 @@ import { Footer } from "@/components/footer/footer";
 
 const inter = Roboto({
   subsets: ["latin"],
-  weights: ["400","500", "700"],
+  weights: ["400", "500", "700"],
 });
 
 export const metadata = {

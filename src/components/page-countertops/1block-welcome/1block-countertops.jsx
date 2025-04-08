@@ -17,7 +17,7 @@ export const Block_Countertops = () => {
         const interval = setInterval(() => {
             setDirection('right');
             setCurrentSlide((prev) => (prev === sliderImages.length - 1 ? 0 : prev + 1));
-        }, 10000);
+        }, 7000);
 
         return () => clearInterval(interval);
     }, []);
