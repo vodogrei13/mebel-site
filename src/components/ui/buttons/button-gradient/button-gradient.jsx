@@ -6,10 +6,9 @@ export const Button_Gradient = ({
     width = "11.667vw",       // Значение по умолчанию
     height = "6.042vh",       // Значение по умолчанию
     href = "/",               // Ссылка по умолчанию
-    className = ""            // Дополнительные классы
 }) => {
     return (
-        <div className={`${css.button__container} ${className}`}>
+        <div className={`${css.button__container} ${css.className}`}>
             <button style={{ width, height }}>
                 <Link href={href}>
                     {text}

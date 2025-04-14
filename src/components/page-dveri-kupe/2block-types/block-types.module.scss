@@ -1,0 +1,74 @@
+.block_types_dveri_kupe__container {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 74.896vw;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    .bottom__title {
+        width: 27.708vw;
+        margin: 0 auto;
+        text-align: center;
+        margin-bottom: 3.25em;
+        h3 {
+            color: #060606;
+            line-height: 100%;
+            letter-spacing: -0.05em;
+            font-size: clamp(16px, 2.083vw , 100px);
+            text-transform: uppercase;
+            font-weight: 400;
+        }
+    }
+    .form {
+        margin-bottom: 7.5em;
+    }
+    .cards {
+        width: 100%;
+        max-width: 58.75vw;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        gap: 3.25em;
+        .card {
+            width: 100%;
+            height: auto;
+            background-color: #2DB3B3;
+            border-radius: 12px;
+            &:last-child {
+                margin-bottom: 7.5em;
+            }
+            .card__container {
+                display: flex;
+                flex-direction: row;
+                gap: 10.875em;
+                padding: 2.8125em 3.1875em 2.875em 2.5em;
+                .cards__info {
+                    width: 28.906vw;
+                    h3 {
+                        text-transform: uppercase;
+                        font-weight: 400;
+                        font-size: clamp(16px, 1.667vw , 100px);
+                        letter-spacing: -0.05em;
+                        line-height: 100%;
+                        color: #fff;
+                        margin-bottom: 0.625em;
+                    }
+                    p {
+                        color: #fff;
+                        line-height: 130%;
+                        letter-spacing: -0.05em;
+                    }
+                }
+                .cards_image {
+                    img {
+                        overflow: hidden;
+                        width: 16.042vw;
+                        height: 31.017vh;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -37,16 +37,16 @@
                     font-size: clamp(16px, 0.83vw , 100px);
                     font-weight: 500;
                 }
-                &:active {
-                    background-color: #253F7A;
-                    color: #f4f4f4;
-                    border: none;
-                }
                 &:hover {
                     background-color: #253F7A;
                     color: #f4f4f4;
                     border: none;
                 }
+            }
+            .active {
+                background-color: #253F7A;
+                color: #f4f4f4;
+                border: none;
             }
             .size_button_text {
                 display: flex;

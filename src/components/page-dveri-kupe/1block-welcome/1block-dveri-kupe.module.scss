@@ -1,0 +1,40 @@
+.block_dveri_kupe__container {
+    width: 58.75vw;
+    margin: 0 auto;
+    margin-top: 7.5em;
+    margin-bottom: 7.5em;
+    display: flex;
+    flex-direction: row;
+    gap: 7.5625em ;
+    .main__info {
+        width: 33.698vw;
+        display: flex;
+        flex-direction: column;
+        gap: 2.75em;
+        .main__title {
+            h3 {
+                text-transform: uppercase;
+                font-weight: 400;
+                font-size: clamp(16px, 2.083vw , 100px);
+                letter-spacing: -0.05em;
+                padding-bottom: 0.875em;
+            }
+        }
+        .main__text {
+            width: 16.979vw;
+            p {
+                color: #606060;
+                line-height: 150%;
+                letter-spacing: -0.05em;
+            }
+        }
+    }
+    .main__info_2 {
+        width: 18.75vw;
+        p {
+            color: #060606;
+            line-height: 150%;
+            letter-spacing: -0.05em;
+        }
+    }
+}

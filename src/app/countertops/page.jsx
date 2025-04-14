@@ -6,7 +6,7 @@ import { Block_Countertops_Size } from "@/components/page-countertops/2block-siz
 export default function Countertops () {
     return (
       <div>
-        <section className={css.main__container}>
+        <section className={css.counertops__main_container}>
             <div>
               <Block_Countertops/>
             </div>

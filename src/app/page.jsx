@@ -1,6 +1,5 @@
-import Link from "next/link";
 import "./globals.scss";
-import { Main } from "@/app/pages/main/main";
+import { Main } from "@/app/main/main";
 
 export default function Page() {
 
