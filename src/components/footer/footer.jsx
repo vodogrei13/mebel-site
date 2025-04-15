@@ -14,7 +14,19 @@ export const Footer = () => {
         window.location.href = "/mebel-site/#target-about";
         return;
     }
-}
+    // Если уже на главной — скроллим вручную
+  const element = document.getElementById("target-about");
+  if (element) {
+    const yOffset = -40;
+    const y = element.getBoundingClientRect().top + window.scrollY + yOffset;
+
+    window.scrollTo({
+      top: y,
+      behavior: "smooth",
+    });
+  }
+};
+
   return (
     <div className={css.footer__wrapper}>
       <div className={css.footer__container}>
