@@ -16,6 +16,7 @@
   font-family: var(--font-geist-sans);
 }
 
+/* применение темной темы
 /* @media (prefers-color-scheme: dark) {
   .page {
     --gray-rgb: 255, 255, 255;
@@ -160,9 +161,10 @@ a.secondary {
     justify-content: center;
   }
 }
+/* применение темной темы
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   .logo {
     filter: invert();
   }
-}
+} */
