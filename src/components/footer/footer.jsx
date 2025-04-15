@@ -12,6 +12,8 @@ export const Footer = () => {
   
     if (window.location.pathname !== "/mebel-site") {
       window.location.href = "/mebel-site";
+      return;
+    }
       // Подождем, пока страница загрузится, затем проскроллим
       setTimeout(() => {
         const element = document.getElementById("target-about");
@@ -23,14 +25,6 @@ export const Footer = () => {
       }, 400); // немного больше времени, чтобы точно загрузился DOM
       return;
     }
-  
-    const element = document.getElementById("target-about");
-    if (element) {
-      const yOffset = -40;
-      const y = element.getBoundingClientRect().top + window.scrollY + yOffset;
-      window.scrollTo({ top: y, behavior: "smooth" });
-    }
-  };
 
   return (
     <div className={css.footer__wrapper}>
