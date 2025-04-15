@@ -4,30 +4,28 @@ import css from "./footer.module.scss";
 import { TelandEmail } from "../telandemail/telandemail";
 import { IconTelegram } from "../../../public/svg/Telegram";
 import { IconWhatsApp } from "../../../public/svg/WhatsApp";
-import { useRouter } from "next/navigation";
 
 export const Footer = () => {
-  const router = useRouter();
-  
-      const handleAboutClick = (e) => {
-          e.preventDefault();
-          
-          // Если не на главной странице
-          if (window.location.pathname !== "/") {
-              router.push("/#target-about");
-              return;
-          }
-          setTimeout(() => {
-              const element = document.getElementById("target-about");        if (element) {
-              const yOffset = -40; // Настройте под ваш хедер
-              const y = element.getBoundingClientRect().top + window.scrollY + yOffset;
-              window.scrollTo({
-                  top: y,
-                  behavior: 'smooth'
-              });
-          }
-      }, 200);
-  };
+  const handleAboutClick = (e) => {
+    e.preventDefault();
+    
+    // Если не на главной странице
+    if (window.location.pathname !== "/mebel-site") {
+        window.location.href = "/mebel-site/#target-about";
+        return;
+    }else {
+    setTimeout(() => {
+        const element = document.getElementById("target-about");        
+        if (element) {
+        const yOffset = -40; // Настройте под ваш хедер
+        const y = element.getBoundingClientRect().top + window.scrollY + yOffset;
+        window.scrollTo({ 
+            top: y, 
+            behavior: "smooth" 
+        });
+    }
+}, 200);};
+}
   return (
     <div className={css.footer__wrapper}>
       <div className={css.footer__container}>

@@ -19,7 +19,7 @@ export const Block_Raspil = () => {
             const interval = setInterval(() => {
                 setDirection('right');
                 setCurrentSlide((prev) => (prev === sliderImages.length - 1 ? 0 : prev + 1));
-            }, 7000);
+            }, 5000);
     
             return () => clearInterval(interval);
         }, []);
