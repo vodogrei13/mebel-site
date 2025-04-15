@@ -4,11 +4,11 @@ import css from './navigation.module.scss'
 
 export const Navigation= () => {
 
-    const handleAboutClick = async (e) => {
+    const handleAboutClick = (e) => {
         e.preventDefault();
-    
+      
         if (window.location.pathname !== "/mebel-site") {
-          await router.push("/mebel-site");
+            router.push(null, "", "/mebel-site");
           // Подождем, пока страница загрузится, затем проскроллим
           setTimeout(() => {
             const element = document.getElementById("target-about");
@@ -28,7 +28,7 @@ export const Navigation= () => {
           window.scrollTo({ top: y, behavior: "smooth" });
         }
       };
-
+      
     return (
         <div className={css.container__nav}>
             <ul className={css.nav__list}>
