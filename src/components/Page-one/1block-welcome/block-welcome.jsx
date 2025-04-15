@@ -7,7 +7,10 @@ export const Block_Welcome = () => {
       <div className={css.hero__1_container}>
         <div className={css.hero__1_box1}>
             <h3>Контрактное производство<br></br> для производителей мебели</h3>
-            <Button_Gradient/>
+            <Button_Gradient
+            href='#target-block'
+            targetId = "target-block"
+            />
         </div>
         <div className={css.hero__1_box2}>
 

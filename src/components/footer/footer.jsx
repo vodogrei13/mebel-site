@@ -1,11 +1,33 @@
+'use client'
 import Link from "next/link";
 import css from "./footer.module.scss";
 import { TelandEmail } from "../telandemail/telandemail";
 import { IconTelegram } from "../../../public/svg/Telegram";
 import { IconWhatsApp } from "../../../public/svg/WhatsApp";
-
+import { useRouter } from "next/navigation";
 
 export const Footer = () => {
+  const router = useRouter();
+  
+      const handleAboutClick = (e) => {
+          e.preventDefault();
+          
+          // Если не на главной странице
+          if (window.location.pathname !== "/") {
+              router.push("/#target-about");
+              return;
+          }
+          setTimeout(() => {
+              const element = document.getElementById("target-about");        if (element) {
+              const yOffset = -40; // Настройте под ваш хедер
+              const y = element.getBoundingClientRect().top + window.scrollY + yOffset;
+              window.scrollTo({
+                  top: y,
+                  behavior: 'smooth'
+              });
+          }
+      }, 200);
+  };
   return (
     <div className={css.footer__wrapper}>
       <div className={css.footer__container}>
@@ -13,54 +35,40 @@ export const Footer = () => {
           <ul className={css.nav__list}>
             <li className={css.nav__item}>
               <Link href="#" className="container__nav_link">
-                Условия
+                Кухонные<br/>модули
               </Link>
             </li>
             <li className={css.nav__item}>
-              <Link href="#" className="container__nav_link">
-                О нас
+              <Link href="/raspil" className="container__nav_link">
+                Професиональный<br/>распил
               </Link>
             </li>
             <li className={css.nav__item}>
-              <Link href="#" className="container__nav_link">
-                Базис салон
+              <Link href="/dveri-kupe" className="container__nav_link">
+                Двери-купе
               </Link>
             </li>
             <li className={css.nav__item}>
-              <Link href="#" className="container__nav_link">
-                Каталог услуг
-              </Link>
-            </li>
-            <li className={css.nav__item}>
-              <Link href="#" className="container__nav_link">
-                Шкафы-купе
-              </Link>
-            </li>
-            <li className={css.nav__item}>
-              <Link href="#" className="container__nav_link">
-                Калькулятор
-                <br />
-                витрин
+              <Link href="/countertops" className="container__nav_link">
+                Столешницы
               </Link>
             </li>
           </ul>
           <ul className={css.nav__list}>
             <li className={css.nav__item}>
               <Link href="#" className="container__nav_link">
-                Раскрой онлайн
+                Мебельные<br/>фасады
               </Link>
             </li>
             <li className={css.nav__item}>
-              <Link href="#" className="container__nav_link">
-                Доставка
-              </Link>
-            </li>
-            <li className={css.nav__item}>
-              <Link href="#" className="container__nav_link">
-                Расчет фасадов
-                <br />
-                онлайн
-              </Link>
+            <Link 
+                href="/#target-about" 
+                className={css.nav__link}
+                onClick={handleAboutClick}
+                scroll={false}
+            >
+                О нас
+            </Link>
             </li>
           </ul>
         </section>
