@@ -1,4 +1,3 @@
-'use client'
 import React from 'react';
 import { Block_Welcome } from "@/components/Page-one/1block-welcome/block-welcome";
 import { Block_Advantages } from "@/components/Page-one/2block-advantages/block-advantages";
