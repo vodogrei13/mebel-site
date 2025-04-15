@@ -6,7 +6,7 @@ const nextConfig = {
     pageExtensions: ['js', 'jsx', 'mdx', 'ts', 'tsx'],
     poweredByHeader: false,
     images: {
-        domains: ['localhost', 'flagcdn.com', 'upload.wikimedia.org'],
+        domains: ['localhost'],
         unoptimized: true,
     },
     // experimental: {
