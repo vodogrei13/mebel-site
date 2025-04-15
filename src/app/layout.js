@@ -9,7 +9,7 @@ const inter = Roboto({
 });
 
 export const metadata = {
-  title: "Create Next App",
+  title: "mebel-site",
   description: "Contract manufacturing for furniture manufacturers",
 };
 
