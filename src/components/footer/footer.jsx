@@ -11,7 +11,7 @@ export const Footer = () => {
     e.preventDefault();
   
     if (window.location.pathname !== "/mebel-site") {
-      router.push(null, "", "/mebel-site"); // без #target-about
+      window.location.href = "/mebel-site";
       // Подождем, пока страница загрузится, затем проскроллим
       setTimeout(() => {
         const element = document.getElementById("target-about");
