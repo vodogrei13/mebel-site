@@ -19,7 +19,7 @@
         }
     }
     .block__size_info {
-        margin-top: 7.875em;
+        margin-top: 5em;
         .size_button {
             display: flex;
             gap: 8.75em;
@@ -54,7 +54,7 @@
             }
         }
         .size__cards {
-            margin-top: 7.125em;
+            margin-top: 5em;
             margin: 0 auto;
             display: flex;
             gap: 3.9375em;
@@ -70,13 +70,13 @@
             &.size__cards_12mm {
                 display: grid;
                 grid-template-columns: repeat(2, 1fr);
-                gap: 5em;
+                gap: 0.5em;
             }
 
             .info__item {
                 width: 16.719vw;
                 margin: 0 auto;
-                margin-top: 7.125em;
+                margin-top: 3em;
                 text-align: center;
                 font-size: clamp(16px, 0.9vw , 100px);
                 display: flex;
@@ -101,7 +101,7 @@
         }
         .info__bottom {
             margin: 0 auto;
-            margin-top: 7.125em;
+            margin-top: 5em;
             width: 27.5vw;
             text-align: center;
             p {
