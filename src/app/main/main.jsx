@@ -21,7 +21,7 @@ export const Main = () => {
             behavior: "smooth"
           });
         }
-      }, 3000);
+      }, 300);
     }
   }, []);
 
