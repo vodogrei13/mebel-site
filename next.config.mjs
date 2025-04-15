@@ -1,9 +1,14 @@
-import { sassFalse } from 'sass';
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+    output: "export",
+    basePath: '/mebel-site',
     pageExtensions: ['js', 'jsx', 'mdx', 'ts', 'tsx'],
     poweredByHeader: false,
+    images: {
+        domains: ['localhost', 'flagcdn.com', 'upload.wikimedia.org'],
+        unoptimized: true,
+    },
     // experimental: {
     //     optimizePackageImports: { 
             // *ДЛЯ ОПТИМИЗАЦИИ МОДУЛЕЙ*
