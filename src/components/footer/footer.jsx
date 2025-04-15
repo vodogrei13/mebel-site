@@ -9,22 +9,26 @@ export const Footer = () => {
  
   const handleAboutClick = (e) => {
     e.preventDefault();
-  
+    
     if (window.location.pathname !== "/mebel-site") {
+      // Сохраняем информацию о необходимости скролла после загрузки
+      sessionStorage.setItem('shouldScrollToAbout', 'true');
       window.location.href = "/mebel-site";
       return;
     }
-      // Подождем, пока страница загрузится, затем проскроллим
-      setTimeout(() => {
-        const element = document.getElementById("target-about");
-        if (element) {
-          const yOffset = -40;
-          const y = element.getBoundingClientRect().top + window.scrollY + yOffset;
-          window.scrollTo({ top: y, behavior: "smooth" });
-        }
-      }, 400); // немного больше времени, чтобы точно загрузился DOM
-      return;
+    
+    // Если уже на нужной странице, выполняем скролл сразу
+    scrollToAbout();
+  }
+  
+  const scrollToAbout = () => {
+    const element = document.getElementById("target-about");
+    if (element) {
+      const yOffset = -40;
+      const y = element.getBoundingClientRect().top + window.scrollY + yOffset;
+      window.scrollTo({ top: y, behavior: "smooth" });
     }
+  }
 
   return (
     <div className={css.footer__wrapper}>
