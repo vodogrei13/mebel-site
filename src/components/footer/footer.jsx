@@ -7,11 +7,11 @@ import { IconWhatsApp } from "../../../public/svg/WhatsApp";
 
 export const Footer = () => {
  
-  const handleAboutClick = (e) => {
+  const handleAboutClick = async (e) => {
     e.preventDefault();
-  
+
     if (window.location.pathname !== "/mebel-site") {
-      window.history.pushState(null, "", "/mebel-site"); // без #target-about
+      await router.push("/mebel-site");
       // Подождем, пока страница загрузится, затем проскроллим
       setTimeout(() => {
         const element = document.getElementById("target-about");
