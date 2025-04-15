@@ -1,3 +1,4 @@
+'use client'
 import React from 'react';
 import { Block_Welcome } from "@/components/Page-one/1block-welcome/block-welcome";
 import { Block_Advantages } from "@/components/Page-one/2block-advantages/block-advantages";
@@ -7,6 +8,22 @@ import { Block_Cards } from '@/components/Page-one/3block-cards/block-cards';
 import { Block_About } from '@/components/Page-one/5block-about/about';
 
 export const Main = () => {
+  useEffect(() => {
+    if (typeof window !== "undefined" && window.location.hash === "#target-about") {
+      setTimeout(() => {
+        const element = document.getElementById("target-about");
+        if (element) {
+          const yOffset = -40;
+          const y = element.getBoundingClientRect().top + window.scrollY + yOffset;
+          window.scrollTo({
+            top: y,
+            behavior: "smooth"
+          });
+        }
+      }, 3000); // 3 секунды (3000 мс)
+    }
+  }, []);
+
     return (
       <div>
         <section className={css.main__container}>

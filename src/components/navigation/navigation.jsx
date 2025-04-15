@@ -11,19 +11,8 @@ export const Navigation= () => {
         if (window.location.pathname !== "/mebel-site") {
             window.location.href = "/mebel-site/#target-about";
             return;
-        }else {
-        setTimeout(() => {
-            const element = document.getElementById("target-about");        
-            if (element) {
-            const yOffset = -40; // Настройте под ваш хедер
-            const y = element.getBoundingClientRect().top + window.scrollY + yOffset;
-            window.scrollTo({ 
-                top: y, 
-                behavior: "smooth" 
-            });
         }
-    }, 200);};
-}
+    }
     return (
         <div className={css.container__nav}>
             <ul className={css.nav__list}>
