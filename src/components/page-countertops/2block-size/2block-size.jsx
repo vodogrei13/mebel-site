@@ -51,7 +51,7 @@ export const Block_Countertops_Size = () => {
                 </div>
                 <div className={getCardContainerClasses()}>
                 <div className={classNames(css.info__item, shouldShowCard('26mm') ? '' : css.hidden)}>
-                        <img src="/png/LogoSkif.png" alt="Скиф" />
+                        <img src="/mebel-site/png/LogoSkif.png" alt="Скиф" />
                         <p>3000х600х26</p>
                         <h3>Нестандарт</h3>
                         <ul>
@@ -62,7 +62,7 @@ export const Block_Countertops_Size = () => {
                         </ul>
                     </div>
                     <div className={classNames(css.info__item, shouldShowCard('36mm') ? '' : css.hidden)}>
-                        <img src="/png/LogoSkif.png" alt="Скиф" />
+                        <img src="/mebel-site/png/LogoSkif.png" alt="Скиф" />
                         <p>3000х600х38</p>
                         <p>4200х600х38</p>
                         <h3>Нестандарт</h3>
@@ -74,14 +74,14 @@ export const Block_Countertops_Size = () => {
                         </ul>
                     </div>
                     <div className={classNames(css.info__item, shouldShowCard('36mm') ? '' : css.hidden)}>
-                        <img src="/png/LogoFIS.png" alt="Form&Style" />
+                        <img src="/mebel-site/png/LogoFIS.png" alt="Form&Style" />
                         <p>3000х600х38</p>
                         <p>4200х600х38</p>
                         <p>3000х1200х38</p>
                         <p>900х900 - угловой элемент</p>
                     </div>
                     <div className={classNames(css.info__item, shouldShowCard('36mm') ? '' : css.hidden)}>
-                        <img src="/png/LogoSlotex.png" alt="Slotex" />
+                        <img src="/mebel-site/png/LogoSlotex.png" alt="Slotex" />
                         <p>3000х600х38</p>
                         <p>4200х600х38</p>
                         <h3>Нестандарт</h3>
@@ -93,13 +93,13 @@ export const Block_Countertops_Size = () => {
                         </ul>
                     </div>
                     <div className={classNames(css.info__item, shouldShowCard('12mm') ? '' : css.hidden)}>
-                        <img src="/png/LogoFundermax.png" alt="Fundermax" />
+                        <img src="/mebel-site/png/LogoFundermax.png" alt="Fundermax" />
                         <p>4100х1300х12</p>
                         <p>4200х1854х12</p>
                         <p>4100х648х12</p>
                     </div>
                     <div className={classNames(css.info__item, shouldShowCard('12mm') ? '' : css.hidden)}>
-                        <img src="/png/LogoGreenlam.png" alt="Greenlam" />
+                        <img src="/mebel-site/png/LogoGreenlam.png" alt="Greenlam" />
                         <p>3050х648х12</p>
                         <p>3050х1300х12</p>
                         <p>3660х1200х12</p>
@@ -107,14 +107,14 @@ export const Block_Countertops_Size = () => {
                         <p>3660х600х12</p>
                     </div>
                     <div className={classNames(css.info__item, shouldShowCard('12mm') ? '' : css.hidden)}>
-                        <img src="/png/LogoFIS.png" alt="Form&Style" />
+                        <img src="/mebel-site/png/LogoFIS.png" alt="Form&Style" />
                         <p>3000х650х12</p>
                         <p>4200х1320х12</p>
                         <p>4200х650х12</p>
                         <p>4200х1320х12</p>
                     </div>
                     <div className={classNames(css.info__item, shouldShowCard('12mm') ? '' : css.hidden)}>
-                        <img src="/png/LogoSlotex.png" alt="Slotex" />
+                        <img src="/mebel-site/png/LogoSlotex.png" alt="Slotex" />
                         <p>3050х1320х12</p>
                         <p>3050х650х12</p>
                         <p>4200х650х12</p>
