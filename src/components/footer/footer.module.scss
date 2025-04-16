@@ -1,13 +1,23 @@
 .footer__wrapper {
     background-color: #132141;
-    height: 36.254vh;
+    height: 46.254vh;
     box-sizing: border-box;
+    .line {
+        margin-top: 8rem;
+    }
+    .policy {
+        margin-top: 1rem;
+        display: flex;
+        justify-content: space-around;
+        color: #f4f4f4;
+    }
     .footer__container {
+        padding-left: 18.667vw;
         position: relative;
-        width: 60.3vw;
+        width: 100%;
         height: 25.478vh;
         margin: 0 auto;
-        top: 3em;
+        top: 5rem;
         bottom: 3.688em;
         display: flex;
         flex-direction: row;
@@ -34,9 +44,11 @@
             }
         }
         .footer__contact {
+            text-align: center;
             display: flex;
-            gap: 1.5em;
+            gap: 2.5em;
             .contact__info {
+                padding-top: 2rem;
                 color: #f4f4f4;
                 line-height: 100%;
                 display: flex;

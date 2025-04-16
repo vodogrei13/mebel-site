@@ -13,8 +13,14 @@ export const Block_Welcome = () => {
             />
         </div>
         <div className={css.hero__1_box2}>
-
-
+        <video
+          src="/mebel-site/video/video.mp4"
+          autoPlay
+          loop
+          muted
+          playsInline
+          className={css.hero__video}
+        />
         </div>
       </div>
     );

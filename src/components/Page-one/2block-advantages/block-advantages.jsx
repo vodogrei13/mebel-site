@@ -34,7 +34,7 @@ export const Block_Advantages = () => {
     return (
       <div className={css.hero__2_container}>
         <div className={css.hero__2_title}>
-            <h3>Мы предоставляем лучшие возможности дя контрактного  производства мебели </h3>
+            <h3>Мы предоставляем лучшие возможности для контрактного  производства мебели </h3>
         </div>
         <div className={css.hero__2_list}>
             <div className={classNames(css.hero__2_item, css.item_1)}>

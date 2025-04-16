@@ -52,7 +52,7 @@ export const Navigation= () => {
                         onClick={(e) => handleAboutClick(e)}
                         scroll={false}
                     >
-                        О нас
+                        О компании
                     </Link>
                 </li>
             </ul>

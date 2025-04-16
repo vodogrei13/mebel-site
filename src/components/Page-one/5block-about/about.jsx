@@ -4,9 +4,11 @@ import { useEffect, useState } from 'react'
 
 //Массив Картинок
 const sliderImages = [
-    { url: '/mebel-site/png/test.png', alt: 'О нас 1' },
-    { url: '/mebel-site/png/test2.png', alt: 'О нас 2' },
-    { url: '/mebel-site/png/test3.png', alt: 'О нас 3' },
+    { url: '/mebel-site/png/about1.png', alt: 'О нас 1' },
+    { url: '/mebel-site/png/about2.png', alt: 'О нас 2' },
+    { url: '/mebel-site/png/about3.png', alt: 'О нас 3' },
+    { url: '/mebel-site/png/about4.png', alt: 'О нас 4' },
+    { url: '/mebel-site/png/about5.png', alt: 'О нас 5' },
 ];
 
 export const Block_About = () => {
