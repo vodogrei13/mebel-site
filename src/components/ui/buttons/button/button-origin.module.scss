@@ -1,4 +1,16 @@
-.button__container {
+@keyframes ring {
+    0% {
+      width: 5rem;
+      height: 5rem;
+      opacity: 1;
+    }
+    100% {
+      width: 10rem;
+      height: 10rem;
+      opacity: 0;
+    }
+  }
+  .button__container {
     button {
         white-space: nowrap;
         border: none;
@@ -8,13 +20,35 @@
         color: #fff;
         background-color: #162953;
         text-align: center;
+        border-radius: 1000px;
+        transition: all 0.1s ease-in-out 0s;
+        position: relative;
+        font-size: clamp(16px, 0.833vw, 100px);
         &:hover {
             background-color: #2DB3B3;
             color: #000;
             box-shadow: 0px 2px 8px 2px rgba(255,255,255,.3);
             transform: scale(1.05);
-            transition: 0.4s;
-            border-radius: 0.4125em;
+            transition: 0.1s;
+            transform: translateY(-3px);
+        }
+        &::before {
+            content: '';
+            border-radius: 1000px;
+            min-width: calc(7.917vw + 12px);
+            min-height: calc(60px + 12px);
+            border: 6px solid #00FFCB;
+            box-shadow: 0 0 60px rgba(0,255,203,.64);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            opacity: 0;
+            transition: all .1s ease-in-out 0s;
+        }
+        &:hover::before,
+        &:focus::before {
+            opacity: 1;
         }
     }
 }

@@ -31,10 +31,10 @@ export const Navigation= () => {
         <div className={css.container__nav}>
             <ul className={css.nav__list}>
                 <li className={css.nav__item}>
-                    <Link href="#" className={css.nav__link}>Кухонные модуля</Link>
+                    <Link href="/kitchen-module" className={css.nav__link}>Кухонные модуля</Link>
                 </li>
                 <li className={css.nav__item}>
-                    <Link href="#" className={css.nav__link}>Мебельные фасады</Link>
+                    <Link href="/fasad-for-kitchen" className={css.nav__link}>Мебельные фасады</Link>
                 </li>
                 <li className={css.nav__item}>
                     <Link href="/raspil" className={css.nav__link}>Професиональный распил</Link>

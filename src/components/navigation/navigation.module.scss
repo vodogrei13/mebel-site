@@ -2,7 +2,8 @@
     display: flex;
     margin: 0;
     margin-bottom: 8px;
-    width: 49.531vw;
+    width: auto;
+    max-width: 49.531vw;
     .nav__list {
         display: flex;
         .nav__item {
@@ -17,7 +18,7 @@
                 height: 100%;
                 text-decoration: none;
                 color: inherit;
-                
+                font-size: clamp(16px, 0.83vw , 50px);
                 &:hover {
                     text-decoration: none;
                 }
@@ -30,7 +31,7 @@
             &:nth-child(4) .nav__link, 
             &:nth-child(5) .nav__link, 
             &:nth-child(6) .nav__link {
-                padding-top: 1.5625em;
+                padding-top: 1.5625rem;
             }
             border: 2px solid transparent;
                 &:hover {

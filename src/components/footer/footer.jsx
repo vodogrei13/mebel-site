@@ -36,7 +36,7 @@ export const Footer = () => {
         <section className={css.footer__nav}>
           <ul className={css.nav__list}>
             <li className={css.nav__item}>
-              <Link href="#" className="container__nav_link">
+              <Link href="/kitchen-module" className="container__nav_link">
                 Кухонные<br/>модули
               </Link>
             </li>
@@ -58,7 +58,7 @@ export const Footer = () => {
           </ul>
           <ul className={css.nav__list}>
             <li className={css.nav__item}>
-              <Link href="#" className="container__nav_link">
+              <Link href="/fasad-for-kitchen" className="container__nav_link">
                 Мебельные<br/>фасады
               </Link>
             </li>

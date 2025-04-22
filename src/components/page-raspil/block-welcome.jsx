@@ -13,16 +13,17 @@ const sliderImages = [
 
 export const Block_Raspil = () => {
     const [currentSlide, setCurrentSlide] = useState(0);
-        const [direction, setDirection] = useState('right');
+    const [direction, setDirection] = useState('right');
+    const [showIframe, setShowIframe] = useState(false);
     
-        useEffect(() => {
-            const interval = setInterval(() => {
-                setDirection('right');
-                setCurrentSlide((prev) => (prev === sliderImages.length - 1 ? 0 : prev + 1));
-            }, 5000);
-    
-            return () => clearInterval(interval);
-        }, []);
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setDirection('right');
+            setCurrentSlide((prev) => (prev === sliderImages.length - 1 ? 0 : prev + 1));
+        }, 5000);
+
+        return () => clearInterval(interval);
+    }, []);
 
     return (
       <div>
@@ -70,7 +71,7 @@ export const Block_Raspil = () => {
                 Свяжитесь с нами, чтобы обсудить ваш проект, получить консультацию или оформить заказ. Мы готовы помочь вам на каждом этапе — от разработки идеи до готового изделия. Ваш успех — наша цель!</p>
             </div>
           </div>
-          <section className={css.block__countertops_slider_image}>
+          <section className={css.block__raspil_slider_image}>
                 <div className={css.sliderWrapper}>
                     {sliderImages.map((image, index) => (
                         <div 
@@ -85,13 +86,31 @@ export const Block_Raspil = () => {
         </div>
         <div className={css.main__button}>
               <Button_Gradient
-              text="Заказать распил"
-              width="11.719vw"
-              height="6vh"
-              href='/'
+                text="Заказать распил"
+                width="11.719vw"
+                height="6vh"
+                onClick={() => setShowIframe(true)}
               />
             </div>
         </section>
+        {showIframe && (
+          <div className={css.iframeOverlay}>
+            <div className={css.iframeContainer}>
+              <button 
+                className={css.closeButton}
+                onClick={() => setShowIframe(false)}
+              >
+                Х
+              </button>
+              <iframe
+                src="https://cloud.bazissoft.ru/cutting/ru/#/client/auth/login?user=1731"
+                className={css.embeddedSite}
+                title="Заказ распила"
+                allowFullScreen
+              />
+            </div>
+          </div>
+        )}
       </div>
     );
 };

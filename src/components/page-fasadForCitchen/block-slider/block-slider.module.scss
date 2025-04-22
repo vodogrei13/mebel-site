@@ -8,22 +8,12 @@
     }
 }
 .container {
-    width: 60.3vw;
+    width: 58.906vw;
     display: flex;
     flex-direction: column;
     align-items: center;
     margin: 0 auto;
-    margin-top: 12.085vh;
-    .title {
-        color: #000;
-        font-weight: 400;
-        letter-spacing: -0.05em;
-        line-height: 100%;
-        text-align: center;
-    }
     .slider {
-        margin-top: 5em;
-        margin-bottom: 6.5em;
         position: relative;
         width: 100%;
         height: auto;
@@ -37,11 +27,12 @@
                 cursor: url('/png/pause.png'), auto;
             }
             .image {
+                object-fit: cover;
                 flex-shrink: 0;
                 background-size: cover;
                 background-position: center;
-                width: 261px;
-                height: 261px;
+                width: 18.802vw;
+                height: 37.5vh;
                 opacity: 1;
             }
             &.paused {

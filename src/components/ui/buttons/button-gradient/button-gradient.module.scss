@@ -10,11 +10,7 @@
         box-shadow: 0 0 20px #eee;
         border: none;
         background-image: linear-gradient(to right, #1A2980 0%, #26D0CE 51%, #1A2980 100%);
-        
-        a {
-            font-size: clamp(16px, var(--font-size, 0.83vw), 100px);
-        }
-        
+        font-size: clamp(16px, 0.833vw, 100px);
         &:hover {
             background-position: right center;
             color: #fff;
