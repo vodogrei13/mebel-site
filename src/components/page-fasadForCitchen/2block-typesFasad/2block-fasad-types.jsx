@@ -34,9 +34,16 @@ const sliderImages5 = [
 ]
 
 const sliderImages6 = [
-    { url: '/mebel-site/png/slider/Rectangle-4.png' },
-    { url: '/mebel-site/png/slider/Rectangle-3.png' },
-    { url: '/mebel-site/png/slider/Rectangle-2.png' },
+    { url: '/mebel-site/png/slider/akril/акрил-1.png' },
+    { url: '/mebel-site/png/slider/akril/акрил-2.png' },
+    { url: '/mebel-site/png/slider/akril/акрил-3.png' },
+    { url: '/mebel-site/png/slider/akril/акрил-4.png' },
+    { url: '/mebel-site/png/slider/akril/акрил-5.png' },
+    { url: '/mebel-site/png/slider/akril/акрил-6.png' },
+    { url: '/mebel-site/png/slider/akril/акрил-7.png' },
+    { url: '/mebel-site/png/slider/akril/акрил-8.png' },
+    { url: '/mebel-site/png/slider/akril/акрил-9.png' },
+    { url: '/mebel-site/png/slider/akril/акрил-10.png' },
 ]
 
 export const Block_FasadTypes = () => {
@@ -84,7 +91,7 @@ export const Block_FasadTypes = () => {
             <div className={css.block_form}>
                 <Form/>
             </div>
-            
+
             <div className={css.block_fasad__cards}>
                 <div className={css.block_fasad__card}>
                     <h3>С алюминиевой рамкой</h3>

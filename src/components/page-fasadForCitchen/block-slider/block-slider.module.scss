@@ -18,11 +18,14 @@
         width: 100%;
         height: auto;
         overflow: hidden;
+        // padding: 1rem 0;
+        // border-top: 1px solid #162953;
+        // border-bottom: 1px solid #162953;
         .slider__images {
             display: flex;
             gap: 1.75em;
             width: max-content;
-            animation: scroll 20s linear infinite;
+            animation: scroll 40s linear infinite;
             &:hover {
                 cursor: url('/png/pause.png'), auto;
             }
