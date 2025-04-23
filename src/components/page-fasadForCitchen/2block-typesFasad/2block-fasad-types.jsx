@@ -29,7 +29,12 @@ const sliderImages3 = [
 ]
 
 const sliderImages4 = [
-    
+    { url: '/mebel-site/png/slider/al-ramka/ал.рамка-1.png' },
+    { url: '/mebel-site/png/slider/al-ramka/ал.рамка-2.png' },
+    { url: '/mebel-site/png/slider/al-ramka/ал.рамка-3.png' },
+    { url: '/mebel-site/png/slider/al-ramka/ал.рамка-4.png' },
+    { url: '/mebel-site/png/slider/al-ramka/ал.рамка-5.png' },
+    { url: '/mebel-site/png/slider/al-ramka/ал.рамка-6.png' },
 ]
 
 const sliderImages5 = [
