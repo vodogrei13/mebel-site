@@ -15,7 +15,7 @@ export const Block_Countertops_Size = () => {
     // Функция для проверки, должна ли карточка быть видимой
     const shouldShowCard = (cardType) => {
         if (activeTab === '26mm') return cardType === '26mm';
-        if (activeTab === '36mm') return cardType === '36mm';
+        if (activeTab === '38mm') return cardType === '38mm';
         if (activeTab === '12mm') return cardType === '12mm';
         return false;
     };
@@ -25,7 +25,7 @@ export const Block_Countertops_Size = () => {
         switch (activeTab) {
             case '26mm':
                 return classNames(css.size__cards, css.size__cards_26mm);
-            case '36mm':
+            case '38mm':
                 return classNames(css.size__cards, css.size__cards_36mm);
             case '12mm':
                 return classNames(css.size__cards, css.size__cards_12mm);
@@ -44,8 +44,8 @@ export const Block_Countertops_Size = () => {
                 <div className={css.size_button}>
                     <button className={activeTab === '26mm' ? css.active : ''} 
                             onClick={() => handleTabChange('26mm')}>26mm</button>
-                    <button className={activeTab === '36mm' ? css.active : ''} 
-                        onClick={() => handleTabChange('36mm')}>36mm</button>
+                    <button className={activeTab === '38mm' ? css.active : ''} 
+                        onClick={() => handleTabChange('38mm')}>38mm</button>
                      <button className={classNames(css.size_button_text, activeTab === '12mm' ? css.active : '')} 
                         onClick={() => handleTabChange('12mm')}>12mm<span>КОМПАКТ ЛАМИНАТ</span></button>
                 </div>
@@ -61,7 +61,7 @@ export const Block_Countertops_Size = () => {
                             <li>25х900х3000</li>
                         </ul>
                     </div>
-                    <div className={classNames(css.info__item, shouldShowCard('36mm') ? '' : css.hidden)}>
+                    <div className={classNames(css.info__item, shouldShowCard('38mm') ? '' : css.hidden)}>
                         <img src="/mebel-site/png/LogoSkif.png" alt="Скиф" />
                         <p>3000х600х38</p>
                         <p>4200х600х38</p>
@@ -73,14 +73,14 @@ export const Block_Countertops_Size = () => {
                             <li>38х900х3000</li>
                         </ul>
                     </div>
-                    <div className={classNames(css.info__item, shouldShowCard('36mm') ? '' : css.hidden)}>
+                    <div className={classNames(css.info__item, shouldShowCard('38mm') ? '' : css.hidden)}>
                         <img src="/mebel-site/png/LogoFIS.png" alt="Form&Style" />
                         <p>3000х600х38</p>
                         <p>4200х600х38</p>
                         <p>3000х1200х38</p>
                         <p>900х900 - угловой элемент</p>
                     </div>
-                    <div className={classNames(css.info__item, shouldShowCard('36mm') ? '' : css.hidden)}>
+                    <div className={classNames(css.info__item, shouldShowCard('38mm') ? '' : css.hidden)}>
                         <img src="/mebel-site/png/LogoSlotex.png" alt="Slotex" />
                         <p>3000х600х38</p>
                         <p>4200х600х38</p>

@@ -4,33 +4,41 @@ import { Block_Slider } from '../block-slider/block-slider';
 import { Form } from '@/components/form/form';
 
 const sliderImages1 = [
-    { url: '/mebel-site/png/slider/Rectangle-1.png' },
-    { url: '/mebel-site/png/slider/Rectangle-2.png' },
-    { url: '/mebel-site/png/slider/Rectangle-3.png' },
+    { url: '/mebel-site/png/slider/plastic/пластик-1.png' },
+    { url: '/mebel-site/png/slider/plastic/пластик-2.png' },
+    { url: '/mebel-site/png/slider/plastic/пластик-3.png' },
+    { url: '/mebel-site/png/slider/plastic/пластик-4.png' },
 ]
 
 const sliderImages2 = [
-    { url: '/mebel-site/png/slider/Rectangle-4.png' },
-    { url: '/mebel-site/png/slider/Rectangle-3.png' },
-    { url: '/mebel-site/png/slider/Rectangle-2.png' },
+    { url: '/mebel-site/png/slider/plenka/пленка-1.png' },
+    { url: '/mebel-site/png/slider/plenka/пленка-2.png' },
+    { url: '/mebel-site/png/slider/plenka/пленка-3.png' },
+    { url: '/mebel-site/png/slider/plenka/пленка-4.png' },
+    { url: '/mebel-site/png/slider/plenka/пленка-5.png' },
+    { url: '/mebel-site/png/slider/plenka/пленка-6.png' },
 ]
 
 const sliderImages3 = [
-    { url: '/mebel-site/png/slider/Rectangle-4.png' },
-    { url: '/mebel-site/png/slider/Rectangle-3.png' },
-    { url: '/mebel-site/png/slider/Rectangle-2.png' },
+    { url: '/mebel-site/png/slider/painted/крашенный-1.png' },
+    { url: '/mebel-site/png/slider/painted/крашенный-2.png' },
+    { url: '/mebel-site/png/slider/painted/крашенный-3.png' },
+    { url: '/mebel-site/png/slider/painted/крашенный-4.png' },
+    { url: '/mebel-site/png/slider/painted/крашенный-5.png' },
+    { url: '/mebel-site/png/slider/painted/крашенный-6.png' },
 ]
 
 const sliderImages4 = [
-    { url: '/mebel-site/png/slider/Rectangle-4.png' },
-    { url: '/mebel-site/png/slider/Rectangle-3.png' },
-    { url: '/mebel-site/png/slider/Rectangle-2.png' },
+    
 ]
 
 const sliderImages5 = [
-    { url: '/mebel-site/png/slider/Rectangle-4.png' },
-    { url: '/mebel-site/png/slider/Rectangle-3.png' },
-    { url: '/mebel-site/png/slider/Rectangle-2.png' },
+    { url: '/mebel-site/png/slider/veneered/шпон-1.png' },
+    { url: '/mebel-site/png/slider/veneered/шпон-2.png' },
+    { url: '/mebel-site/png/slider/veneered/шпон-3.png' },
+    { url: '/mebel-site/png/slider/veneered/шпон-4.png' },
+    { url: '/mebel-site/png/slider/veneered/шпон-5.png' },
+    { url: '/mebel-site/png/slider/veneered/шпон-6.png' },
 ]
 
 const sliderImages6 = [

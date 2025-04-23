@@ -25,7 +25,7 @@
         width: 50.052vw;
         .form__items {
             width: 36.25vw;
-            height: 5.539vh;
+            height: auto;
             margin: 0 auto;
             form {
             margin: 0 auto;
@@ -49,6 +49,19 @@
                     font-size: 1em;
                     font-weight: 400;
                 }
+                &::file-upload-button {
+                    background: #13254D;
+                    color: #f4f4f4;
+                    border: none;
+                    padding: 0.5em;
+                    margin-right: 1em;
+                    cursor: pointer;
+                    transition: background 0.3s ease;
+                    
+                    &:hover {
+                      background: #2DB3B3;
+                    }
+                  }
             }
         }
         }
