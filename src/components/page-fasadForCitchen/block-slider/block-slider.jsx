@@ -10,6 +10,9 @@ export const Block_Slider = ({ images = []}) => {
     const handleResume = () => setIsPaused(false)
 
     useEffect(() => {
+        // Проверяем, что код выполняется только в браузере
+        if (typeof window === 'undefined') return
+
         const slider = sliderRef.current
         if (slider) {
             let animationFrameId
