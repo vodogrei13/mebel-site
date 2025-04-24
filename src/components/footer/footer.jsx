@@ -4,6 +4,7 @@ import css from "./footer.module.scss";
 import { TelandEmail } from "../telandemail/telandemail";
 import { IconTelegram } from "../../../public/svg/Telegram";
 import { IconWhatsApp } from "../../../public/svg/WhatsApp";
+import { IconLogo } from "../../../public/svg/Logo";
 
 export const Footer = () => {
  
@@ -34,6 +35,7 @@ export const Footer = () => {
     <div className={css.footer__wrapper}>
       <div className={css.footer__container}>
         <section className={css.footer__nav}>
+        <Link href='/'><IconLogo stroke="#fff"/></Link> 
           <ul className={css.nav__list}>
             <li className={css.nav__item}>
               <Link href="/kitchen-module" className="container__nav_link">
@@ -50,13 +52,13 @@ export const Footer = () => {
                 Двери-купе
               </Link>
             </li>
-            <li className={css.nav__item}>
+          </ul>
+          <ul className={css.nav__list}>
+          <li className={css.nav__item}>
               <Link href="/countertops" className="container__nav_link">
                 Столешницы
               </Link>
             </li>
-          </ul>
-          <ul className={css.nav__list}>
             <li className={css.nav__item}>
               <Link href="/fasad-for-kitchen" className="container__nav_link">
                 Мебельные<br/>фасады
