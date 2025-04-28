@@ -1,6 +1,9 @@
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+    output: 'export',
+    basePath: '/mebel-site',
+    assetPrefix: '/mebel-site',
     pageExtensions: ['js', 'jsx', 'mdx', 'ts', 'tsx'],
     poweredByHeader: false,
     images: {
