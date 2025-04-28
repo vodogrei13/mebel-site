@@ -105,13 +105,13 @@ export const Footer = () => {
           <div className={css.contact__info}>
             <h3>Контакты:</h3>
               <TelandEmail/>
-            <div className={css.social}>
+            {/* <div className={css.social}>
               <p>Социальные сети:</p>
               <div className={css.items}>
                 <a href='#' className={css.telegram}><IconTelegram/></a>
                 <a href='#' className={css.whatsApp}><IconWhatsApp/></a>
               </div>
-            </div>
+            </div> */}
           </div>
         </section>
       </div>

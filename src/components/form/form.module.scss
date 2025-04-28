@@ -1,179 +1,214 @@
 .form__container {
-    z-index: 10;
-    width: 60.3vw;
-    height: 34.169vh;
+  z-index: 10;
+  width: 60.3vw;
+  height: 34.169vh;
+  margin: 0 auto;
+  background-image: linear-gradient(to right, #2db3b3 0%, #13254d 100%);
+  width: 75vw;
+  display: flex;
+  flex-direction: column;
+  gap: 3em;
+  .form__title {
+    text-align: center;
     margin: 0 auto;
-    background-image: linear-gradient(to right, #2DB3B3 0%, #13254D  100%);
-    width: 75vw;
-    display: flex;
-    flex-direction: column;
-    gap: 3em;
-    .form__title {
-        text-align: center;
-        margin: 0 auto;
-        width: 28vw;
-        padding-top: 4.353vh;
-        h2 {
-            letter-spacing: -0.03125em;
-            color: #f4f4f4;
-        }
+    width: 28vw;
+    padding-top: 4.353vh;
+    h2 {
+      letter-spacing: -0.03125em;
+      color: #f4f4f4;
     }
-    .form__blocks {
-        margin: 0 auto;
+  }
+  .form__blocks {
+    margin: 0 auto;
+    display: flex;
+    gap: 5.313vw;
+    width: 52.052vw;
+    .form__items {
+      height: auto;
+      margin: 0 auto;
+      form {
         display: flex;
-        gap: 5.313vw;
-        width: 50.052vw;
-        .form__items {
-            width: 36.25vw;
-            height: auto;
-            margin: 0 auto;
-            form {
-            margin: 0 auto;
+        flex-direction: row;
+        gap: 2rem;
+        .form__info {
+          width: 36.25vw;
+          margin: 0 auto;
+          display: flex;
+          flex-direction: row;
+          flex-wrap: wrap;
+          gap: 1.5vw;
+          box-sizing: border-box;
+          align-items: flex-start;
+          .form_politics {
+            margin: 0;
             display: flex;
             flex-direction: row;
-            flex-wrap: wrap;
-            gap: 2.5vw;
-            box-sizing: border-box;
-            align-items: flex-start;
-            .input_file_row {
-                display: flex;
-                flex-direction: column;
-                width: 100%;
-                gap: 10px;
-                .file_input_container {
-                    display: inline-block;
-                    width: auto;
-                    margin-right: 10px;
-                    .input_file {
-                        position: relative;
-                        display: inline-block;
-                        width: auto;
-                    }
-                    .input_file span {
-                        position: relative;
-                        display: inline-block;
-                        cursor: pointer;
-                        outline: none;
-                        text-decoration: none;
-                        font-size: 14px;
-                        vertical-align: middle;
-                        color: rgb(255 255 255);
-                        text-align: center;
-                        border-radius: 4px;
-                        background-color: #13254D;
-                        line-height: 22px;
-                        height: 40px;
-                        padding: 10px 20px;
-                        box-sizing: border-box;
-                        border: none;
-                        margin: 0;
-                        transition: background-color 0.2s;
-                    }
-                    .input_file input[type=file] {
-                        position: absolute;
-                        z-index: -1;
-                        opacity: 0;
-                        display: block;
-                        width: 0;
-                        height: 0;
-                    }
-                     
-                    /* Focus */
-                    .input_file input[type=file]:focus + span {
-                        box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
-                    }
-                     
-                    /* Hover/Active */
-                    .input_file:hover span {
-                        background-color: #2DB3B3;
-                    }
-                    .input_file:active span {
-                        background-color: #2DB3B3;
-                    }
-                     
-                    /* Disabled */
-                    .input_file input[type=file]:disabled + span {
-                        background-color: #eee;
-                    }
-                  }
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            input[type="checkbox"] {
+              width: 1.042vw;
+              height: 1.923vh;
+              margin: 0;
             }
-            
-             
-            /* Список файлов */
-            .input_file_list {
-                margin-top: 0;
-                width: 100%;
-                .files_grid {
-                    display: grid;
-                    grid-template-columns: repeat(3, 1fr); 
-                    grid-template-rows: repeat(3, auto);
-                    overflow: hidden;
-                    max-height: calc(3 * (30px + 8px));
-                    .input_file_list_item {
-                        display: flex;
-                        align-items: center;
-                        padding: 5px;
-                        background: rgba(255, 255, 255, 0.1);
-                        border-radius: 4px;
-                        min-height: 30px;
-                    }
-                    .input_file_list_name {
-                        flex-grow: 1;
-                        font-size: 0.8em;
-                        font-family: 'Roboto';
-                        color: #333;
-                        margin-right: 5px;
-                    }
-                    .input_file_list_remove {
-                        color: #ff6b6b !important;
-                        text-decoration: none;
-                        font-weight: bold;
-                        cursor: pointer;
-                        &:hover {
-                            color: #ff5252 !important;
-                          }
-                    }
-                }
+            label {
+              padding-left: 0.75rem;
+              font-size: clamp(10px, 0.66vw, 100px);
+              color: rgba(255, 255, 255, 0.7);
             }
+          }
+          .form_bottom {
+            display: flex;
+            flex-direction: row;
+            margin: 0 auto;
             textarea {
-                width: 14vw;
-                height: 3.482vh;
-                padding-top: 0.5rem;
-                padding-left: 0.5rem;
-                font-size: 1em;
-                font-family: 'Roboto';
-                outline:none;
+              width: 10.417vw;
+              height: 3.482vh;
+              padding-top: 0.5rem;
+              padding-left: 0.5rem;
+              font-size: 1em;
+              font-family: "Roboto";
+              outline: none;
+              margin-right: 2.5vw;
             }
-            input {
-                outline:none;
-                height: 3.482vh;
-                width: 10.417vw;
-                min-width: 0;
-                margin-top: 0.9em;
-                font-size: 1em;
-                font-family: 'Roboto';
-                padding: 0.5em;
-                border: none;
-                outline: none;
-                &::placeholder {
-                    padding: 0.5em;
-                    font-size: 1em;
-                    font-weight: 400;
+            .error_message {
+              color: #ff6b6b;
+              font-size: 0.8em;
+              margin-top: 5px;
+            }
+
+            .file_requirements {
+              font-size: clamp(10px, 0.66vw, 100px);
+              color: rgba(255, 255, 255, 0.7);
+              margin-top: 5px;
+              margin-left: 1vw;
+            }
+            .input_file_row {
+              display: flex;
+              flex-direction: row;
+              flex-wrap: wrap;
+              align-items: center;
+              gap: 10px;
+              .file_input_container {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                .clear_files_button {
+                  background: none;
+                  border: none;
+                  color: #ff6b6b;
+                  font-size: 1.2em;
+                  cursor: pointer;
+                  padding: 0 5px;
+                  &:hover {
+                    color: #ff5252;
+                  }
                 }
+                .input_file {
+                  position: relative;
+                  display: inline-block;
+                  width: auto;
+                }
+                .input_file span {
+                  position: relative;
+                  min-width: 120px;
+                  display: inline-flex;
+                  justify-content: center;
+                  align-items: center;
+                  display: inline-block;
+                  cursor: pointer;
+                  outline: none;
+                  text-decoration: none;
+                  font-size: 14px;
+                  vertical-align: middle;
+                  color: rgb(255 255 255);
+                  text-align: center;
+                  border-radius: 4px;
+                  background-color: #13254d;
+                  line-height: 22px;
+                  height: 40px;
+                  padding: 10px 20px;
+                  box-sizing: border-box;
+                  border: none;
+                  margin: 0;
+                  transition: background-color 0.2s;
+                }
+                .input_file input[type="file"] {
+                  position: absolute;
+                  z-index: -1;
+                  opacity: 0;
+                  display: block;
+                  width: 0;
+                  height: 0;
+                }
+
+                /* Focus */
+                .input_file input[type="file"]:focus + span {
+                  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+                }
+
+                /* Hover/Active */
+                .input_file:hover span {
+                  background-color: #2db3b3;
+                }
+                .input_file:active span {
+                  background-color: #2db3b3;
+                }
+
+                /* Disabled */
+                .input_file input[type="file"]:disabled + span {
+                  background-color: #eee;
+                }
+              }
             }
-            input:not([type="file"]) {
-                outline: none;
-                height: 3.482vh;
-                width: 10.417vw;
-                min-width: 0;
-                margin-top: 0.9em;
-                font-size: 1em;
-                font-family: 'Roboto';
-                padding: 0.5em;
-                border: none;
-                outline: none;
+          }
+          input {
+            outline: none;
+            height: 3.482vh;
+            width: 10.417vw;
+            min-width: 0;
+            margin-top: 0.9em;
+            font-size: 1em;
+            font-family: "Roboto";
+            padding: 0.5em;
+            border: none;
+            outline: none;
+            &::placeholder {
+              padding: 0.5em;
+              font-size: 1em;
+              font-weight: 400;
             }
+          }
+          input:not([type="file"]) {
+            outline: none;
+            height: 3.482vh;
+            width: 10.417vw;
+            min-width: 0;
+            margin-top: 0.9em;
+            font-size: 1em;
+            font-family: "Roboto";
+            padding: 0.5em;
+            border: none;
+            outline: none;
+          }
         }
-        }
+      }
     }
+    .form__button {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      button:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+        background-color: #ccc;
+      }
+      .error_message {
+        z-index: 10;
+        margin-top: 1rem;
+        color: #f22c2c;
+        text-align: center;
+      }
+    }
+  }
 }
