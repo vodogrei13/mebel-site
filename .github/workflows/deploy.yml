@@ -3,7 +3,7 @@ name: Deploy Next.js site to GitHub Pages
 on:
   push:
     branches:
-      - main   # или твоя основная ветка
+      - main
 
 permissions:
   contents: write
@@ -19,7 +19,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 18   # или 20 если хочешь
+          node-version: 18
 
       - name: Install dependencies
         run: npm install
@@ -28,12 +28,11 @@ jobs:
         run: npm run build
         env:
           NODE_ENV: production
-          # Передай правильные переменные окружения, если нужны
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
         with:
-          path: ./out   # обязательно папка /out !!!
+          path: ./out
 
   deploy:
     needs: build
