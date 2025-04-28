@@ -1,5 +1,6 @@
 import css from './block-welcome.module.scss'
 import { Button_Gradient } from "../../ui/buttons/button-gradient/button-gradient"
+import { basePath } from '@/utils/basePath';
 
 
 export const Block_Welcome = () => {
@@ -14,7 +15,7 @@ export const Block_Welcome = () => {
         </div>
         <div className={css.hero__1_box2}>
         <video
-          src="/video/video.mp4"
+          src={`${basePath}/video/video.mp4`}
           autoPlay
           loop
           muted
