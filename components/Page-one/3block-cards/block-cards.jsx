@@ -2,6 +2,7 @@
 import { Button_Origin } from '@/components/ui/buttons/button/button-origin';
 import css from './block-cards.module.scss'
 import classNames from 'classnames';
+import { basePath } from '@/utils/basePath';
 
 export const Block_Cards = () => {
 
@@ -20,11 +21,19 @@ export const Block_Cards = () => {
                     href='/kitchen-module'
                     />
                 </div>
-                <div className={classNames(css.hero__3_image, css.img__one)}></div>
+                <div className={classNames(css.hero__3_image, css.img__one)}
+                 style={{
+                    backgroundImage: `url('${basePath}/png/kuhni-modul.png')`
+                    }}
+                ></div>
             </div>
 
             <div className={css.hero__3_card}>
-                <div className={classNames(css.hero__3_image, css.img__two)}></div>
+                <div className={classNames(css.hero__3_image, css.img__two)}
+                style={{
+                    backgroundImage: `url('${basePath}/png/fasad.png')`
+                    }}
+                ></div>
                 <div className={css.hero__3_info}>
                     <h3 className={css.info__title}>Мебельные фасады</h3>
                     <p className={css.info__text}>Наша компания занимается производством мебельных фасадов различной сложности – от классических до современных дизайнерских решений. Мы создаем фасады, которые становятся настоящим украшением вашей мебели, будь то кухня, гардеробная или гостиная.
@@ -43,11 +52,19 @@ export const Block_Cards = () => {
                     href='/raspil'
                     />
                 </div>
-                <div className={classNames(css.hero__3_image, css.img__three)}></div>
+                <div className={classNames(css.hero__3_image, css.img__three)}
+                style={{
+                    backgroundImage: `url('${basePath}/png/raspil.png')`
+                    }}
+                ></div>
             </div>
 
             <div className={css.hero__3_card}>
-                <div className={classNames(css.hero__3_image, css.img__for)}></div>
+                <div className={classNames(css.hero__3_image, css.img__for)}
+                style={{
+                    backgroundImage: `url('${basePath}/png/dveri-kupe.png')`
+                    }}
+                ></div>
                 <div className={css.hero__3_info}>
                     <h3 className={css.info__title}>Двери-купе</h3>
                     <p className={css.info__text}>Наша компания предлагает современные двери-купе, которые станут идеальным решением для экономии пространства и создания стильного интерьера. Мы производим двери-купе различных дизайнов, используя качественные материалы и фурнитуру, чтобы обеспечить долговечность и безупречную работу механизмов.</p>
@@ -66,7 +83,11 @@ export const Block_Cards = () => {
                     href='/countertops'
                     />
                 </div>
-                <div className={classNames(css.hero__3_image, css.img__five)}></div>
+                <div className={classNames(css.hero__3_image, css.img__five)}
+                style={{
+                    backgroundImage: `url('${basePath}/png/countertops.png')`
+                    }}
+                ></div>
             </div>
             </section>
             <div className={css.hero__3_spacer} />
