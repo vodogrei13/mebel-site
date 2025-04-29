@@ -1,1 +1,5 @@
-export const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
+import getConfig from 'next/config';
+
+const { publicRuntimeConfig } = getConfig();
+
+export const basePath = publicRuntimeConfig.basePath || '';
