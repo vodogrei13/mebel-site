@@ -36,7 +36,7 @@ export const Button_Up = () => {
           aria-label={isAtTop ? 'Scroll down' : 'Scroll to top'}
         >
           <img 
-            src={`${basePath}png/arrow.png`}
+            src={`${basePath}/png/arrow.png`}
             alt="scroll arrow"
             width={24}
             height={24}
