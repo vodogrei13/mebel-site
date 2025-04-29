@@ -4,7 +4,6 @@ import css from './block-cards.module.scss'
 import classNames from 'classnames';
 import { basePath } from '@/utils/basePath';
 
-
 export const Block_Cards = () => {
 
     return (
