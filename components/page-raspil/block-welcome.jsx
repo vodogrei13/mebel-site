@@ -4,7 +4,6 @@ import css from './block-welcome.module.scss'
 import { basePath } from '@/utils/basePath';
 import { useEffect, useState } from 'react'
 
-
 //Массив Картинок
 const sliderImages = [
     { url: `${basePath}/png/test.png`, alt: 'Фото 1' },
