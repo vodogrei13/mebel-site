@@ -13,8 +13,8 @@ const sliderImages = [
 
 export const Block_KitchenModule = () => {
     const [currentSlide, setCurrentSlide] = useState(0);
-        const [direction, setDirection] = useState('right');
-    
+    const [direction, setDirection] = useState('right');
+
         useEffect(() => {
             const interval = setInterval(() => {
                 setDirection('right');

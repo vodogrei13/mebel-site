@@ -2,8 +2,11 @@
 import { Button_Gradient } from '@/components/ui/buttons/button-gradient/button-gradient'
 import css from './1block-fasad.module.scss'
 import { basePath } from '@/utils/basePath';
+import { useEffect, useState } from 'react'
 
 export const Block_Fasad = () => {
+  const [showIframe, setShowIframe] = useState(false);
+
     return (
       <div>
         <section className={css.block_fasad__container}>
@@ -24,7 +27,7 @@ export const Block_Fasad = () => {
               text="Заказать фасады"
               width="11.979vw"
               height="6vh"
-              href='/'
+              onClick={() => setShowIframe(true)}
               />
             </div>
           </div>
@@ -33,6 +36,24 @@ export const Block_Fasad = () => {
             </section>
         </div>
         </section>
+        {showIframe && (
+          <div className={css.iframeOverlay}>
+            <div className={css.iframeContainer}>
+              <button 
+                className={css.closeButton}
+                onClick={() => setShowIframe(false)}
+              >
+                Х
+              </button>
+              <iframe
+                src="https://cloud.bazissoft.ru/cutting/ru/#/client/auth/login?user=1731"
+                className={css.embeddedSite}
+                title="Заказ распила"
+                allowFullScreen
+              />
+            </div>
+          </div>
+        )}
       </div>
     );
 };
