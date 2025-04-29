@@ -1,5 +1,6 @@
 import Link from "next/link";
 import css from './button-origin.module.scss'
+import { basePath } from '@/utils/basePath';
 
 export const Button_Origin = ({
     text = "Подробнее",
@@ -12,7 +13,7 @@ export const Button_Origin = ({
     if (href) {
         return (
             <div className={`${css.button__container} ${css.className}`}>
-                <a href={href} className={css.button__link}>
+                <a href={`${basePath}${href}`} className={css.button__link}>
                     <button 
                         type={type}
                         style={{ minWidth: width, minHeight: height }}
