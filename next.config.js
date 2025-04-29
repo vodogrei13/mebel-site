@@ -2,7 +2,7 @@
 
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
 
-const nextConfig = {
+module.exports = {
   output: 'export',
   basePath,
   assetPrefix: basePath + '/',
@@ -13,5 +13,3 @@ const nextConfig = {
     unoptimized: true,
   },
 };
-
-export default nextConfig;
