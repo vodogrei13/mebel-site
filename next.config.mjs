@@ -1,7 +1,5 @@
-
 /** @type {import('next').NextConfig} */
 
-// Проверяем окружение: если это продакшен на GitHub, используем basePath
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
 
 const nextConfig = {
@@ -14,11 +12,6 @@ const nextConfig = {
     domains: ['localhost'],
     unoptimized: true,
   },
-    // experimental: {
-    //     optimizePackageImports: { 
-            // *ДЛЯ ОПТИМИЗАЦИИ МОДУЛЕЙ*
-    //     }
-    // }
 };
 
 export default nextConfig;
