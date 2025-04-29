@@ -1,14 +1,14 @@
 'use client'
 import { Button_Gradient } from '@/components/ui/buttons/button-gradient/button-gradient'
 import css from './1block-kitchen-module.module.scss'
-
+import { basePath } from '@/utils/basePath';
 import { useEffect, useState } from 'react'
 
 //Массив Картинок
 const sliderImages = [
-    { url: '/png/test.png', alt: 'Фото 1' },
-    { url: '/png/test2.png', alt: 'Фото 2' },
-    { url: '/png/test3.png', alt: 'Фото 3' },
+    { url: `${basePath}/png/test.png`, alt: 'Фото 1' },
+    { url: `${basePath}/png/test2.png`, alt: 'Фото 2' },
+    { url: `${basePath}/png/test3.png`, alt: 'Фото 3' },
 ];
 
 export const Block_KitchenModule = () => {

@@ -2,61 +2,62 @@
 import css from './2block-fasad-types.module.scss'
 import { Block_Slider } from '../block-slider/block-slider';
 import { Form } from '@/components/form/form';
+import { basePath } from '@/utils/basePath';
 
 const sliderImages1 = [
-    { url: '/png/slider/plastic/пластик-1.png' },
-    { url: '/png/slider/plastic/пластик-2.png' },
-    { url: '/png/slider/plastic/пластик-3.png' },
-    { url: '/png/slider/plastic/пластик-4.png' },
+    { url: `${basePath}/png/slider/plastic/пластик-1.png` },
+    { url: `${basePath}/png/slider/plastic/пластик-2.png` },
+    { url: `${basePath}/png/slider/plastic/пластик-3.png` },
+    { url: `${basePath}/png/slider/plastic/пластик-4.png` },
 ]
 
 const sliderImages2 = [
-    { url: '/png/slider/plenka/пленка-1.png' },
-    { url: '/png/slider/plenka/пленка-2.png' },
-    { url: '/png/slider/plenka/пленка-3.png' },
-    { url: '/png/slider/plenka/пленка-4.png' },
-    { url: '/png/slider/plenka/пленка-5.png' },
-    { url: '/png/slider/plenka/пленка-6.png' },
+    { url: `${basePath}/png/slider/plenka/пленка-1.png` },
+    { url: `${basePath}/png/slider/plenka/пленка-2.png` },
+    { url: `${basePath}/png/slider/plenka/пленка-3.png` },
+    { url: `${basePath}/png/slider/plenka/пленка-4.png` },
+    { url: `${basePath}/png/slider/plenka/пленка-5.png` },
+    { url: `${basePath}/png/slider/plenka/пленка-6.png` },
 ]
 
 const sliderImages3 = [
-    { url: '/png/slider/painted/крашенный-1.png' },
-    { url: '/png/slider/painted/крашенный-2.png' },
-    { url: '/png/slider/painted/крашенный-3.png' },
-    { url: '/png/slider/painted/крашенный-4.png' },
-    { url: '/png/slider/painted/крашенный-5.png' },
-    { url: '/png/slider/painted/крашенный-6.png' },
+    { url: `${basePath}/png/slider/painted/крашенный-1.png` },
+    { url: `${basePath}/png/slider/painted/крашенный-2.png` },
+    { url: `${basePath}/png/slider/painted/крашенный-3.png` },
+    { url: `${basePath}/png/slider/painted/крашенный-4.png` },
+    { url: `${basePath}/png/slider/painted/крашенный-5.png` },
+    { url: `${basePath}/png/slider/painted/крашенный-6.png` },
 ]
 
 const sliderImages4 = [
-    { url: '/png/slider/al-ramka/ал.рамка-1.png' },
-    { url: '/png/slider/al-ramka/ал.рамка-2.png' },
-    { url: '/png/slider/al-ramka/ал.рамка-3.png' },
-    { url: '/png/slider/al-ramka/ал.рамка-4.png' },
-    { url: '/png/slider/al-ramka/ал.рамка-5.png' },
-    { url: '/png/slider/al-ramka/ал.рамка-6.png' },
+    { url: `${basePath}/png/slider/al-ramka/ал.рамка-1.png` },
+    { url: `${basePath}/png/slider/al-ramka/ал.рамка-2.png` },
+    { url: `${basePath}/png/slider/al-ramka/ал.рамка-3.png` },
+    { url: `${basePath}/png/slider/al-ramka/ал.рамка-4.png` },
+    { url: `${basePath}/png/slider/al-ramka/ал.рамка-5.png` },
+    { url: `${basePath}/png/slider/al-ramka/ал.рамка-6.png` },
 ]
 
 const sliderImages5 = [
-    { url: '/png/slider/veneered/шпон-1.png' },
-    { url: '/png/slider/veneered/шпон-2.png' },
-    { url: '/png/slider/veneered/шпон-3.png' },
-    { url: '/png/slider/veneered/шпон-4.png' },
-    { url: '/png/slider/veneered/шпон-5.png' },
-    { url: '/png/slider/veneered/шпон-6.png' },
+    { url: `${basePath}/png/slider/veneered/шпон-1.png` },
+    { url: `${basePath}/png/slider/veneered/шпон-2.png` },
+    { url: `${basePath}/png/slider/veneered/шпон-3.png` },
+    { url: `${basePath}/png/slider/veneered/шпон-4.png` },
+    { url: `${basePath}/png/slider/veneered/шпон-5.png` },
+    { url: `${basePath}/png/slider/veneered/шпон-6.png` },
 ]
 
 const sliderImages6 = [
-    { url: '/png/slider/akril/акрил-1.png' },
-    { url: '/png/slider/akril/акрил-2.png' },
-    { url: '/png/slider/akril/акрил-3.png' },
-    { url: '/png/slider/akril/акрил-4.png' },
-    { url: '/png/slider/akril/акрил-5.png' },
-    { url: '/png/slider/akril/акрил-6.png' },
-    { url: '/png/slider/akril/акрил-7.png' },
-    { url: '/png/slider/akril/акрил-8.png' },
-    { url: '/png/slider/akril/акрил-9.png' },
-    { url: '/png/slider/akril/акрил-10.png' },
+    { url: `${basePath}/png/slider/akril/акрил-1.png` },
+    { url: `${basePath}/png/slider/akril/акрил-2.png` },
+    { url: `${basePath}/png/slider/akril/акрил-3.png` },
+    { url: `${basePath}/png/slider/akril/акрил-4.png` },
+    { url: `${basePath}/png/slider/akril/акрил-5.png` },
+    { url: `${basePath}/png/slider/akril/акрил-6.png` },
+    { url: `${basePath}/png/slider/akril/акрил-7.png` },
+    { url: `${basePath}/png/slider/akril/акрил-8.png` },
+    { url: `${basePath}/png/slider/akril/акрил-9.png` },
+    { url: `${basePath}/png/slider/akril/акрил-10.png` },
 ]
 
 export const Block_FasadTypes = () => {

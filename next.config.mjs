@@ -8,9 +8,6 @@ const nextConfig = {
   output: 'export',
   basePath: isGithubActions ? '/mebel-site' : '',
   assetPrefix: isGithubActions ? '/mebel-site/' : '',
-  publicRuntimeConfig: {
-    basePath: isGithubActions ? '/mebel-site' : '',
-  },
   pageExtensions: ['js', 'jsx', 'mdx', 'ts', 'tsx'],
   poweredByHeader: false,
     images: {

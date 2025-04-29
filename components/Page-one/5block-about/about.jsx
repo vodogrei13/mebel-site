@@ -1,14 +1,15 @@
 'use client'
 import css from './about.module.scss'
 import { useEffect, useState } from 'react'
+import { basePath } from '@/utils/basePath';
 
 //Массив Картинок
 const sliderImages = [
-    { url: '/png/about1.png', alt: 'О нас 1' },
-    { url: '/png/about2.png', alt: 'О нас 2' },
-    { url: '/png/about3.png', alt: 'О нас 3' },
-    { url: '/png/about4.png', alt: 'О нас 4' },
-    { url: '/png/about5.png', alt: 'О нас 5' },
+    { url: `${basePath}/png/about1.png`, alt: 'О нас 1' },
+    { url: `${basePath}/png/about2.png`, alt: 'О нас 2' },
+    { url: `${basePath}/png/about3.png`, alt: 'О нас 3' },
+    { url: `${basePath}/png/about4.png`, alt: 'О нас 4' },
+    { url: `${basePath}/png/about5.png`, alt: 'О нас 5' },
 ];
 
 export const Block_About = () => {

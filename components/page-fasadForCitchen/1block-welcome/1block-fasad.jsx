@@ -1,6 +1,7 @@
 'use client'
 import { Button_Gradient } from '@/components/ui/buttons/button-gradient/button-gradient'
 import css from './1block-fasad.module.scss'
+import { basePath } from '@/utils/basePath';
 
 export const Block_Fasad = () => {
     return (
@@ -28,7 +29,7 @@ export const Block_Fasad = () => {
             </div>
           </div>
           <section className={css.block__fasad_image}>
-            <img src="/png/fasad.png" alt="Фото Фасадов" />
+            <img src={`${basePath}/png/fasad.png`} alt="Фото Фасадов" />
             </section>
         </div>
         </section>
