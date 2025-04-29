@@ -1,6 +1,8 @@
 'use client'
 import css from './button-up.module.scss';
 import { useState, useEffect} from "react";
+import { basePath } from '@/utils/basePath';
+
 
 export const Button_Up = () => {
   const [isAtTop, setIsAtTop] = useState(true);
@@ -34,7 +36,7 @@ export const Button_Up = () => {
           aria-label={isAtTop ? 'Scroll down' : 'Scroll to top'}
         >
           <img 
-            src="/png/arrow.png"
+            src={`${basePath}png/arrow.png`}
             alt="scroll arrow"
             width={24}
             height={24}
