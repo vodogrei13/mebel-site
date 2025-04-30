@@ -1,7 +1,6 @@
 'use client'
 import React from 'react';
 import { Block_Welcome } from "@/components/Page-one/1block-welcome/block-welcome";
-import { Block_Advantages } from "@/components/Page-one/2block-advantages/block-advantages";
 import { Form } from "@/components/form/form";
 import css from '@/app/main/main.module.scss'
 import { Block_Cards } from '@/components/Page-one/3block-cards/block-cards';
@@ -29,9 +28,6 @@ export const Main = () => {
           <div className={css.container__leaner}>
               <div>
                 <Block_Welcome/>
-              </div>
-              <div>
-                <Block_Advantages/>
               </div>
               <div id="target-block">
                 <Form/>
