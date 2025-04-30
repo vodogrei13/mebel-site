@@ -43,7 +43,7 @@ export async function POST(req) {
 
     const mailOptions = {
       from: 'mp1fdm@mail.ru',
-      to: 'mp4@fdm76.ru',
+      to: 'mebelmastery@inbox.ru',
       subject: 'Новая заявка с сайта',
       text: mailText,
       html: `
