@@ -29,16 +29,16 @@ export const Main = () => {
               <div>
                 <Block_Welcome/>
               </div>
+              </div>
+              <div>
+                <Block_Cards/>
+              </div>
               <div id="target-block">
                 <Form/>
               </div>
-          </div>
-          <div>
-            <Block_Cards/>
-          </div>
-          <div id="target-about">
-            <Block_About/>
-          </div>
+              <div id="target-about">
+                <Block_About/>
+              </div>
         </section>
       </div>
     );
