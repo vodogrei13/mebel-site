@@ -31,7 +31,7 @@ export const Block_Types_Dveri_Kupe = () => {
                         <br/>Максимальная высота двери: 2500мм. Ширина двери: 500-900 мм. Вес двери: до 40 кг. Ассортимент вертикальных профилей системы: C, H, верхние и нижние направляющие и рамки.</p>
                     </div>
                     <div className={css.cards_image}>
-                        <img src={`${basePath}/png/dveri-kupe/Eco.png`} alt='Двери-купе "Стандарт"'/>
+                        <img src={`${basePath}/png/dveri-kupe/Eco.png`} alt='Двери-купе "Эконом"'/>
                     </div>
                 </div>
             </div>
@@ -43,7 +43,7 @@ export const Block_Types_Dveri_Kupe = () => {
                         <p>Система BRAVO – самая узкая из систем ARISTO - компактное решение для неглубоких шкафов, сравнительно небольших раздвижных фасадов и невысоких нагрузок. Она состоит из специально разработанных профилей с уменьшенными габаритными размерами, что позволяет сделать фасады элегантнее, и избежать использования фурнитуры с избыточной прочностью. Ассортимент вертикальных профилей системы: Contour BRAVO, I. Максимальная высота двери: 2400мм. Ширина двери: 500 – 800 мм. Вес двери: до 30 кг. Цветовая гамма: Серебро матовое, Шампань матовая.</p>
                     </div>
                     <div className={css.cards_image}>
-                        <img src={`${basePath}/png/dveri-kupe/bravo.png`} alt='Двери-купе "Стандарт"'/>
+                        <img src={`${basePath}/png/dveri-kupe/bravo.png`} alt='Двери-купе "Bravo"'/>
                     </div>
                 </div>
             </div>
@@ -60,7 +60,7 @@ export const Block_Types_Dveri_Kupe = () => {
                         к любому интерьеру. Разработано под наиболее распространенные плиты толщиной 16 мм. Уникальные кронштейны позволяют скрыть верхнюю направляющую, совершенные ролики обеспечивают плавный и бесшумный ход дверей. Цветовая гамма: серебро матовое, шампань матовая, белый глянец, черный матовый.</p>
                     </div>
                     <div className={css.cards_image}>
-                        <img src={`${basePath}/png/dveri-kupe/nova.png`} alt='Двери-купе "Стандарт"'/>
+                        <img src={`${basePath}/png/dveri-kupe/nova.png`} alt='Двери-купе "Nova"'/>
                     </div>
                 </div>
             </div>
@@ -74,7 +74,7 @@ export const Block_Types_Dveri_Kupe = () => {
                         <br/><br/>Максимальная высота двери: 2650 мм. Ширина двери: 500 – 1000 мм. Вес двери: до 60 кг.</p>
                     </div>
                     <div className={css.cards_image}>
-                        <img src={`${basePath}/png/dveri-kupe/slim-line.png`} alt='Двери-купе "Стандарт"'/>
+                        <img src={`${basePath}/png/dveri-kupe/slim-line.png`} alt='Двери-купе "Slim Line"'/>
                     </div>
                 </div>
             </div>
@@ -90,7 +90,7 @@ export const Block_Types_Dveri_Kupe = () => {
                         <p>Уникальная модульная система «4в1» подходит для комплексного обустройства помещений. Базовый элемент системы – запатентованный вертикальный профиль FUSION. С помощью этого профиля эксклюзивной фурнитуры можно создавать распашные, складные, подвесные двери и стационарные перегородки. В ассортименте: 16 цветов профиля.</p>
                     </div>
                     <div className={css.cards_image}>
-                        <img src={`${basePath}/png/dveri-kupe/4in1.png`} alt='Двери-купе "Стандарт"'/>
+                        <img src={`${basePath}/png/dveri-kupe/4in1.png`} alt='Двери-купе "Система «4 в 1»"'/>
                     </div>
                 </div>
             </div>
@@ -104,7 +104,7 @@ export const Block_Types_Dveri_Kupe = () => {
                         </p>
                     </div>
                     <div className={css.cards_image}>
-                        <img src={`${basePath}/png/dveri-kupe/grace.png`} alt='Двери-купе "Стандарт"'/>
+                        <img src={`${basePath}/png/dveri-kupe/grace.png`} alt='Двери-купе "Система «GRACE»"'/>
                     </div>
                 </div>
             </div>
