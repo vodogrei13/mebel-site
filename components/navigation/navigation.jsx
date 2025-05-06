@@ -7,10 +7,10 @@ export const Navigation= () => {
     const handleAboutClick = (e) => {
         e.preventDefault();
         
-        if (window.location.pathname !== "/mebel-site") {
+        if (window.location.pathname !== "/") {
           // Сохраняем информацию о необходимости скролла после загрузки
           sessionStorage.setItem('shouldScrollToAbout', 'true');
-          window.location.href = "/mebel-site";
+          window.location.href = "/";
           return;
         }
         
@@ -47,7 +47,7 @@ export const Navigation= () => {
                 </li>
                 <li className={css.nav__item}>
                     <Link 
-                        href="/mebel-site" 
+                        href="/" 
                         className={css.nav__link}
                         onClick={(e) => handleAboutClick(e)}
                         scroll={false}

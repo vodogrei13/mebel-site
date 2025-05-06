@@ -5,9 +5,9 @@ import { basePath } from '@/utils/basePath';
 
 //Массив Картинок
 const sliderImages = [
-    { url: `${basePath}/png/test.png`, alt: 'Столешница 1' },
-    { url: `${basePath}/png/test2.png`, alt: 'Столешница 2' },
-    { url: `${basePath}/png/test3.png`, alt: 'Столешница 3' },
+    { url: `${basePath}/png/countertops-2.png`, alt: 'Столешница 1' },
+    { url: `${basePath}/png/countertops-1.png`, alt: 'Столешница 2' },
+    { url: `${basePath}/png/countertops-3.png`, alt: 'Столешница 3' },
 ];
 
 export const Block_Countertops = () => {

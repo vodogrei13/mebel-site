@@ -70,6 +70,8 @@ export const Block_Cards = () => {
                     <p className={css.info__text}>Наша компания предлагает современные двери-купе, которые станут идеальным решением для экономии пространства и создания стильного интерьера. Мы производим двери-купе различных дизайнов, используя качественные материалы и фурнитуру, чтобы обеспечить долговечность и безупречную работу механизмов.</p>
                     <Button_Origin
                     href='/dveri-kupe'
+                    width = 'calc(7.917vw + 12px)'
+                    height = 'calc(5.5vh + 12px)'
                     />
                 </div>
 
@@ -85,7 +87,7 @@ export const Block_Cards = () => {
                 </div>
                 <div className={classNames(css.hero__3_image, css.img__five)}
                 style={{
-                    backgroundImage: `url('${basePath}/png/countertops.png')`
+                    backgroundImage: `url('${basePath}/png/countertops-1.png')`
                     }}
                 ></div>
             </div>

@@ -7,9 +7,10 @@ import { useEffect, useState } from 'react'
 
 //Массив Картинок
 const sliderImages = [
-    { url: `${basePath}/png/test.png`, alt: 'Фото 1' },
-    { url: `${basePath}/png/test2.png`, alt: 'Фото 2' },
-    { url: `${basePath}/png/test3.png`, alt: 'Фото 3' },
+    { url: `${basePath}/png/kuhni-modul-1.png`, alt: 'Фото 1' },
+    { url: `${basePath}/png/kuhni-modul-2.png`, alt: 'Фото 2' },
+    { url: `${basePath}/png/kuhni-modul-3.png`, alt: 'Фото 3' },
+    { url: `${basePath}/png/kuhni-modul.png`, alt: 'Фото 4' },
 ];
 
 export const Block_KitchenModule = () => {
