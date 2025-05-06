@@ -74,7 +74,7 @@ export const Block_Types_Dveri_Kupe = () => {
                         <br/><br/>Максимальная высота двери: 2650 мм. Ширина двери: 500 – 1000 мм. Вес двери: до 60 кг.</p>
                     </div>
                     <div className={css.cards_image}>
-                        <img src={`${basePath}/png/dveri-kupe/slim-line.png`} alt='Двери-купе "Slim Line"'/>
+                        <img src={`${basePath}/png/dveri-kupe/slimLine.png`} alt='Двери-купе "Slim Line"'/>
                     </div>
                 </div>
             </div>
