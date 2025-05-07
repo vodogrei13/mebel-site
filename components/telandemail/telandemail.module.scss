@@ -2,6 +2,7 @@
     display: flex;
     flex-direction: column;
     gap: 0.495em;
+    text-wrap: nowrap;
     p {
         font-size: clamp(16px, 0.83vw , 100px);
         font-weight: 400;

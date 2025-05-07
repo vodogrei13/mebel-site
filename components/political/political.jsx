@@ -10,7 +10,7 @@ export const Political = ({
 
     return (
         <div>
-            <Link onClick={() => setShowPrivacyPolicy(true)}>{text}</Link>
+            <Link href="/" onClick={() => setShowPrivacyPolicy(true)}>{text}</Link>
 
             {showPrivacyPolicy && (
                 <div className={css.modalOverlay}>

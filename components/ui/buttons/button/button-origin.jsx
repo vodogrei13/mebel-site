@@ -8,7 +8,9 @@ export const Button_Origin = ({
     height = "calc(60px + 12px)",    
     href,  
     type = "button",
-    onClick,       
+    onClick,      
+    backgroundColor = "#162953",
+    color = "#fff" 
 }) => {
     if (href) {
         return (
@@ -16,7 +18,11 @@ export const Button_Origin = ({
                 <a href={`${basePath}${href}`} className={css.button__link}>
                     <button 
                         type={type}
-                        style={{ minWidth: width, minHeight: height }}
+                        style={{ 
+                            minWidth: width, 
+                            minHeight: height, 
+                            backgroundColor: backgroundColor,
+                            color: color }}
                     >
                         {text}
                     </button>
