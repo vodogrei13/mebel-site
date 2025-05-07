@@ -2,9 +2,8 @@
 import Link from "next/link";
 import css from "./footer.module.scss";
 import { TelandEmail } from "@/components/telandemail/telandemail";
-import { IconTelegram } from "@/public/svg/Telegram";
-import { IconWhatsApp } from "@/public/svg/WhatsApp";
 import { IconLogo } from "@/public/svg/Logo";
+import { Political } from "../political/political";
 
 export const Footer = () => {
  
@@ -118,7 +117,7 @@ export const Footer = () => {
       <hr className={css.line} align="center" width="100%" size="2" color="#d5c9be" />
       <div className={css.policy}>
                 <p>© 2025, Copyright.</p>
-                <Link href="/">Политика конфиденциальности</Link>
+                <Political/>
             </div>
     </div>
   );

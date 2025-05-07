@@ -1,14 +1,15 @@
 'use client'
 import { Button_Gradient } from '@/components/ui/buttons/button-gradient/button-gradient'
 import css from './block-welcome.module.scss'
-import { basePath } from '@/utils/basePath';
+import { basePath } from '@/utils/basePath'
 import { useEffect, useState } from 'react'
 
 //Массив Картинок
 const sliderImages = [
-    { url: `${basePath}/png/test.png`, alt: 'Фото 1' },
-    { url: `${basePath}/png/test2.png`, alt: 'Фото 2' },
-    { url: `${basePath}/png/test3.png`, alt: 'Фото 3' },
+    { url: `${basePath}/png/raspil-1.png`, alt: 'Фото 1' },
+    { url: `${basePath}/png/raspil-2.png`, alt: 'Фото 2' },
+    { url: `${basePath}/png/raspil-3.png`, alt: 'Фото 3' },
+    { url: `${basePath}/png/raspil-4.png`, alt: 'Фото 3' },
 ];
 
 export const Block_Raspil = () => {

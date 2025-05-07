@@ -23,7 +23,7 @@ export const Block_Cards = () => {
                 </div>
                 <div className={classNames(css.hero__3_image, css.img__one)}
                  style={{
-                    backgroundImage: `url('${basePath}/png/kuhni-modul.png')`
+                    backgroundImage: `url('${basePath}/png/kuhni-modul-7.png')`
                     }}
                 ></div>
             </div>

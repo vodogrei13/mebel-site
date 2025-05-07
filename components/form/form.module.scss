@@ -52,9 +52,14 @@
               margin: 0;
             }
             label {
-              padding-left: 0.75rem;
+              padding-left: 0.5rem;
               font-size: clamp(10px, 0.66vw, 100px);
               color: rgba(255, 255, 255, 0.7);
+              .policyLink {
+              white-space: nowrap;
+              display: inline-block;
+              text-decoration: underline;
+              }
             }
           }
           .form_bottom {

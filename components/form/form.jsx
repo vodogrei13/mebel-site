@@ -1,5 +1,6 @@
 'use client'
 import { Button_Origin } from "../../components/ui/buttons/button/button-origin";
+import { Political } from "../political/political";
 import css from "./form.module.scss";
 import { useState, useRef, useEffect } from 'react';
 
@@ -216,7 +217,7 @@ export const Form = () => {
                   onChange={(e) => setIsChecked(e.target.checked)}
                   required
                 />
-                <label htmlFor="political">Я соглашаюсь с политикой обработки персональных данных</label>
+                <label htmlFor="political">Я соглашаюсь с <span className={css.policyLink}><Political text="политикой обработки персональных данных"/></span></label>
               </div>
             </section>
             <div className={css.form__button}>

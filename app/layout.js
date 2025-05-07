@@ -24,7 +24,7 @@ export default function RootLayout({ children }) {
         {children}
         <div><Button_Up/></div>
         <div>
-            <Footer/>
+          <Footer/>
         </div>
       </body>
     </html>
