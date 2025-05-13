@@ -1,5 +1,7 @@
 .button__container {
     button {
+        width: var(--width, 219px);
+        height: var(--height, 60px);
         font-family: Roboto;
         cursor: pointer;
         display: block;
@@ -10,11 +12,26 @@
         box-shadow: 0 0 20px #eee;
         border: none;
         background-image: linear-gradient(to right, #1A2980 0%, #26D0CE 51%, #1A2980 100%);
-        font-size: clamp(16px, 0.833vw, 100px);
+        font-size: clamp(13px, 0.833vw, 100px);
         &:hover {
             background-position: right center;
             color: #fff;
             text-decoration: none;
         }
+        @media (max-width: 1024px) {
+            width: 200px;
+        }
+        @media (max-width: 768px) {
+            width: 150px;
+        }
+        
+        @media (max-width: 414px) {
+            width: 100px;
+        }
+        
+        @media (max-width: 320px) {
+            width: 50px;
+        }
     }
 }
+

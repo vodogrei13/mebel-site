@@ -4,8 +4,8 @@ import css from './button-gradient.module.scss';
 
 export const Button_Gradient = ({ 
     text = "Оставить заявку", // Значение по умолчанию
-    width = "11.667vw",       // Значение по умолчанию
-    height = "6.042vh",       // Значение по умолчанию
+    width = "219px",       // Значение по умолчанию
+    height = "60px",       // Значение по умолчанию
     href = "/",               // Ссылка по умолчанию
     targetId = null,          // Таргет    
     target = "_self", // Значение по умолчанию
@@ -36,7 +36,7 @@ export const Button_Gradient = ({
     return (
         <div className={`${css.button__container} ${css.className}`}>
              {onClick ? (
-                <button style={{ width, height }} onClick={handleClick}>
+                <button style={{ '--width': width, '--height': height }} onClick={handleClick}>
                     {text}
                 </button>
             ) : (

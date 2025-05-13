@@ -1,6 +1,6 @@
 .scrollButton {
     position: fixed;
-    right: 6.25rem;
+    right: 12.25rem;
     bottom: 30px;
     z-index: 999;
     opacity: 0;
@@ -38,5 +38,8 @@
             transform: rotate(180deg);
         }
       }
+    }
+    @media (max-width: 960px) {
+      display: none;
     }
   }

@@ -27,7 +27,7 @@ export const Block_Countertops = () => {
         <div className={css.block__countertops_container}>
             <section className={css.block__countertops_heroInfo}>
                 <div className={css.block__countertops_title}>
-                    <h3>Производство столешниц</h3>
+                    <h3>Производство столешниц для кухни</h3>
                 </div>
                 <div className={css.block__countertops_text}>
                     <p>Наша компания предлагает широкий выбор столешниц для кухонь, ванных комнат и других помещений, которые станут стильным и функциональным дополнением вашего интерьера. Мы производим столешницы из высококачественных материалов, обеспечивая их долговечность, устойчивость к нагрузкам и эстетическую привлекательность.</p>

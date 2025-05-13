@@ -34,7 +34,7 @@ export const Footer = () => {
     <div className={css.footer__wrapper}>
       <div className={css.footer__container}>
         <section className={css.footer__nav}>
-        <Link href='/'><IconLogo stroke="#fff"/></Link> 
+        <Link href='/'><IconLogo stroke="#fff" width="3.75vw" height="7.1vh"/></Link> 
           <ul className={css.nav__list}>
             <li className={css.nav__item}>
               <Link href="/kitchen-module" className="container__nav_link">
@@ -55,7 +55,7 @@ export const Footer = () => {
           <ul className={css.nav__list}>
           <li className={css.nav__item}>
               <Link href="/countertops" className="container__nav_link">
-                Столешницы
+                Столешница для кухни
               </Link>
             </li>
             <li className={css.nav__item}>

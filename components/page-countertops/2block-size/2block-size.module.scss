@@ -1,7 +1,7 @@
 .block__size_container {
     width: 56.719vw;
     margin: 0 auto;
-    margin-top: 7.5em;
+    margin-top: 3.5em;
     margin-bottom: 7.5em;
     .hidden {
         display: none !important;
@@ -19,10 +19,10 @@
         }
     }
     .block__size_info {
-        margin-top: 5em;
+        margin-top: 3em;
         .size_button {
             display: flex;
-            gap: 8.75em;
+            gap: 6.75em;
             button {
                 cursor: pointer;
                 width: 10.625vw;
@@ -70,7 +70,7 @@
             &.size__cards_12mm {
                 display: grid;
                 grid-template-columns: repeat(2, 1fr);
-                gap: 0.5em;
+                gap: 0.1em;
             }
 
             .info__item {

@@ -2,10 +2,47 @@
     display: flex;
     margin: 0;
     margin-bottom: 8px;
-    width: auto;
-    max-width: 49.531vw;
+    width: 100%;
+    .menu__button {
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 0;
+        display: flex;
+        align-items: center;
+      }
+      
+      .mobile__menu {
+        position: absolute;
+        top: 50px; // Зависит от дизайна
+        right: 10px;
+        background-color: #fff;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        border: 2px solid #444;
+        z-index: 1000;
+        .nav__list {
+            .nav__item {
+                border-bottom: 1px solid #444;
+            }
+        }
+      }
+      
+      @media (min-width: 768px) {
+        .menu__button {
+          display: none;
+        }
+      
+        .mobile__menu {
+          display: none;
+        }
+      }      
     .nav__list {
         display: flex;
+        @media (max-width: 768px) {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
         .nav__item {
             cursor: pointer;
             text-align: center;
@@ -18,18 +55,18 @@
                 height: 100%;
                 text-decoration: none;
                 color: inherit;
-                font-size: clamp(16px, 0.83vw , 50px);
+                font-size: clamp(12px, 0.83vw , 50px);
                 &:hover {
                     text-decoration: none;
                 }
             }
             &:nth-child(1) .nav__link,
             &:nth-child(2) .nav__link, 
-            &:nth-child(3) .nav__link {
+            &:nth-child(3) .nav__link,
+            &:nth-child(5) .nav__link {
                 text-wrap: wrap;
             }
-            &:nth-child(4) .nav__link, 
-            &:nth-child(5) .nav__link, 
+            &:nth-child(4) .nav__link,  
             &:nth-child(6) .nav__link {
                 padding-top: 1.5625rem;
             }
@@ -38,5 +75,14 @@
                     border-color: black;
             }
         }
+    }
+    
+    
+    @media (max-width: 414px) {
+
+    }
+    
+    @media (max-width: 320px) {
+
     }
 }
