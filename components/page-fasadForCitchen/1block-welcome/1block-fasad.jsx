@@ -2,6 +2,7 @@
 import { Button_Gradient } from '@/components/ui/buttons/button-gradient/button-gradient'
 import css from './1block-fasad.module.scss'
 import { basePath } from '@/utils/basePath';
+import Link from "next/link";
 import { useEffect, useState } from 'react'
 
 export const Block_Fasad = () => {
@@ -40,17 +41,56 @@ export const Block_Fasad = () => {
           <div className={css.iframeOverlay}>
             <div className={css.iframeContainer}>
               <button 
-                className={css.closeButton}
-                onClick={() => setShowIframe(false)}
+                  className={css.closeButton}
+                  onClick={() => setShowIframe(false)}
               >
-                Х
+                  Х
               </button>
-              <iframe
-                src="https://cloud.bazissoft.ru/cutting/ru/#/client/auth/login?user=1731"
-                className={css.embeddedSite}
-                title="Заказ распила"
-                allowFullScreen
-              />
+              <div className={css.IconItem}>
+                <Link href='/'>
+                  <img src="/png/fasads/tbm.png" alt="Логотип ТБМ" />
+                </Link>
+              </div>
+              <div className={css.IconItem}>
+                <Link href='/'>
+                  <img src="/png/fasads/arbor-nova.png" alt="Логотип Arbor Nova" />
+                </Link>
+              </div>
+              <div className={css.IconItem}>
+                <Link href='/'>
+                  <img src="/png/fasads/adelkreis.png" alt="Логотип Adelkreis" />
+                </Link>
+              </div>
+              <div className={css.IconItem}>
+                <Link href='/'>
+                  <img src="/png/fasads/skat.png" alt="Логотип Скат" />
+                </Link>
+              </div>
+              <div className={css.IconItem}>
+                <Link href='/'>
+                  <img src="/png/fasads/IconTest.png" alt="Логотип Ал.Витрин" />
+                </Link>
+              </div>
+              <div className={css.IconItem}>
+                <Link href='/'>
+                  <img src="/png/fasads/duco.png" alt="Логотип duco" />
+                </Link>
+              </div>
+              <div className={css.IconItem}>
+                <Link href='/'>
+                  <img src="/png/fasads/evosoft.png" alt="Логотип Evosoft" />
+                </Link>
+              </div>
+              <div className={css.IconItem}>
+                <Link href='/'>
+                  <img src="/png/fasads/ФиП.png" alt="Логотип ФиП" />
+                </Link>
+              </div>
+              <div className={css.IconItem}>
+                <Link href='/'>
+                  <img src="/png/fasads/вашдень.png" alt="Логотип Ваш день" />
+                </Link>
+              </div>
             </div>
           </div>
         )}

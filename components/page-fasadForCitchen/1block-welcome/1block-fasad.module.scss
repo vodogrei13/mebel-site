@@ -10,7 +10,7 @@
         flex-direction: row;
         gap: 8.813rem;
         .main__info {
-            margin-bottom: 13.813rem;
+            margin-bottom: 6.813rem;
             width: 27.5vw;
             .main__title {
                 h3 {
@@ -46,38 +46,66 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0, 0, 0, 0.8);
-    z-index: 1000;
+    background-color: rgba(0, 0, 0, 0.5);
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 1000;
     .iframeContainer {
-      position: relative;
-      width: 80vw;
-      height: 80vh;
-      background: white;
-      border-radius: 8px;
-      padding: 20px;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+        gap: 0.5rem;
+        background-color: #a3a3a3;
+        box-shadow: 0 0 60px rgba(9, 102, 83, 0.822);
+        padding: 20px;
+        border-radius: 8px;
+        width: 40vw;
+        height: 55vh;
+        overflow-y: auto;
+        position: relative;
+        .IconItem {
+            background-color: #fff;
+            cursor: pointer;
+            overflow: hidden;
+            width: 9.375vw;
+            height: 15.308vh;
+            padding: 0.6rem;
+            border: 1px solid #606060;
+            border-radius: 10px;
+            margin: 0 auto;
+            text-align: center;
+            align-content: center;
+            &:hover {
+                transform: scale(1.1);
+                transition: .3s;
+            }
+            img {
+                max-width: 100%;
+                max-height: 100%;
+                object-fit: contain;
+                width: auto;
+                height: auto;
+            }
+        }
       .closeButton {
+        align-self: flex-end;
         position: absolute;
         top: 10px;
-        right: 15px;
-        background: rgba(51, 171, 169, 0.4);
-        width: 2%;
-        border-radius: 50%;
-        border: none;
+        right: 10px;
+        z-index: 10;
+        background: none;
+        border: 3px solid;
+        border-radius: 10px;
+        padding: 0 5px;
         font-size: 24px;
         cursor: pointer;
-        z-index: 1001;
+        background-color: brown;
+        color: #fff;
         &:hover {
-            background: rgba(184, 89, 17, 0.5);
+            background-color: #72b3cf;
+            color: #fff;
         }
-      }
-      .embeddedSite {
-        width: 100%;
-        height: 100%;
-        border: none;
-        border-radius: 4px;
       }
     }
   }
