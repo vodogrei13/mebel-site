@@ -6,6 +6,7 @@ import css from '@/app/main/main.module.scss'
 import { Block_Cards } from '@/components/Page-one/3block-cards/block-cards';
 import { Block_About } from '@/components/Page-one/5block-about/about';
 import { useEffect } from 'react';
+
 export const Main = () => {
 
   useEffect(() => {
