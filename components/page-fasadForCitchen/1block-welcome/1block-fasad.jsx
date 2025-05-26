@@ -33,7 +33,7 @@ export const Block_Fasad = () => {
             </div>
           </div>
           <section className={css.block__fasad_image}>
-            <img src={`${basePath}/png/fasad.png`} alt="Фото Фасадов" />
+            <img src={`${basePath}/png/fasad.png`} al="Фото Фасадов" />
             </section>
         </div>
         </section>
@@ -48,47 +48,47 @@ export const Block_Fasad = () => {
               </button>
               <div className={css.IconItem}>
                 <Link href='/'>
-                  <img src="/png/fasads/tbm.png" alt="Логотип ТБМ" />
+                  <img src={`${basePath}/png/fasads/tbm.png`} alt="Логотип ТБМ" />
                 </Link>
               </div>
               <div className={css.IconItem}>
                 <Link href='/'>
-                  <img src="/png/fasads/arbor-nova.png" alt="Логотип Arbor Nova" />
+                  <img src={`${basePath}/png/fasads/arbor-nova.png`} alt="Логотип Arbor Nova" />
                 </Link>
               </div>
               <div className={css.IconItem}>
                 <Link href='/'>
-                  <img src="/png/fasads/adelkreis.png" alt="Логотип Adelkreis" />
+                  <img src={`${basePath}/png/fasads/adelkreis.png`} alt="Логотип Adelkreis" />
                 </Link>
               </div>
               <div className={css.IconItem}>
                 <Link href='/'>
-                  <img src="/png/fasads/skat.png" alt="Логотип Скат" />
+                  <img src={`${basePath}/png/fasads/skat.png`} alt="Логотип Скат" />
                 </Link>
               </div>
               <div className={css.IconItem}>
                 <Link href='/formCalcVitrin'>
-                  <img src="/png/fasads/IconTest.png" alt="Логотип Ал.Витрин" />
+                  <img src={`${basePath}/png/fasads/IconTest.png`} alt="Логотип Ал.Витрин" />
                 </Link>
               </div>
               <div className={css.IconItem}>
                 <Link href='/'>
-                  <img src="/png/fasads/duco.png" alt="Логотип duco" />
+                  <img src={`${basePath}/png/fasads/duco.png`} alt="Логотип duco" />
                 </Link>
               </div>
               <div className={css.IconItem}>
                 <Link href='/'>
-                  <img src="/png/fasads/evosoft.png" alt="Логотип Evosoft" />
+                  <img src={`${basePath}/png/fasads/evosoft.png`} alt="Логотип Evosoft" />
                 </Link>
               </div>
               <div className={css.IconItem}>
                 <Link href='/'>
-                  <img src="/png/fasads/ФиП.png" alt="Логотип ФиП" />
+                  <img src={`${basePath}/png/fasads/ФиП.png`} alt="Логотип ФиП" />
                 </Link>
               </div>
               <div className={css.IconItem}>
                 <Link href='/'>
-                  <img src="/png/fasads/вашдень.png" alt="Логотип Ваш день" />
+                  <img src={`${basePath}/png/fasads/вашдень.png`} alt="Логотип Ваш день" />
                 </Link>
               </div>
             </div>
