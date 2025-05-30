@@ -13,6 +13,7 @@ export const CalcAlVitrin = () => {
         height: 200,
         width: 200,
         units: 1,
+        distanceToTheCenter: 1,
         millingCount: 'None',
         millingForHinges: 'None',
         hingeSide: 'left',
@@ -27,13 +28,44 @@ export const CalcAlVitrin = () => {
     }, [formData]);
 
     const handleChange = (e) => {
-        const { name, value } = e.target;
-        setFormData(prev => ({
+    const { name, value } = e.target;
+    
+    setFormData(prev => {
+        let newValue;
+        if (name === 'height' || name === 'width' || name === 'units' || name === 'distanceToTheCenter') {
+            newValue = parseInt(value) || 0;
+        } else {
+            newValue = value;
+        }
+        
+        return {
             ...prev,
-            [name]: name === 'height' || name === 'width' || name === 'units' 
-                   ? parseInt(value) || 0 
-                   : value
-        }));
+            [name]: newValue
+        };
+    });
+};
+
+    const handleBlur = (e) => {
+        const { name, value } = e.target;
+        
+        if (name === 'height' || name === 'width' || name === 'units') {
+            const numValue = parseInt(value) || 0;
+            let correctedValue = numValue;
+            
+            if (name === 'height') {
+                correctedValue = Math.min(Math.max(numValue, 200), 1500);
+            } else if (name === 'width') {
+                correctedValue = Math.min(Math.max(numValue, 200), 600);
+            } else if (name === 'units') {
+            correctedValue = Math.min(Math.max(numValue, 1), 1000);
+        }
+        if (correctedValue !== numValue) {
+            setFormData(prev => ({
+                ...prev,
+                [name]: correctedValue
+            }));
+        }
+        }
     };
 
     const handleMillingCountChange = (e) => {
@@ -49,7 +81,11 @@ export const CalcAlVitrin = () => {
 
         // Добавляем цены за выбранные опции
         sum += priceConfig.profileViews[formData.profileView] || 0;
-        sum += priceConfig.profileArticles[formData.profileArticles] || 0;
+        if (formData.profileView === 'wide') {
+            sum += priceConfig.profileArticlesWide[formData.profileArticle] || 0;
+        } else {
+            sum += priceConfig.profileArticlesNarrow[formData.profileArticle] || 0;
+        }       
         sum += priceConfig.glassMirror[formData.glassMirror] || 0;
         sum += priceConfig.handles[formData.handles] || 0;
         sum += priceConfig.millingCount[formData.millingCount] || 0;
@@ -89,9 +125,13 @@ export const CalcAlVitrin = () => {
                             value={formData.profileArticles}
                             onChange={handleChange}
                             required>
-                                {optionImport.profileArticles.map(option => (
+                                {formData.profileView === 'wide' ? (
+                                    optionImport.profileArticlesWide.map(option => (
                                     <option key={option.value} value={option.value}>{option.label}</option>
-                                ))}                    
+                                ))) : (
+                                    optionImport.profileArticlesNarrow.map(option => (
+                                    <option key={option.value} value={option.value}>{option.label}</option>
+                                )))}    
                             </select>
                         </div>
                         <div className={css.form__item}>
@@ -128,12 +168,14 @@ export const CalcAlVitrin = () => {
                             <label htmlFor="height-select-1">Высота (мм)</label>
                             <input 
                             type="number" 
-                            placeholder='200' min={1} 
-                            max={99999} 
-                            name='height' 
+                            placeholder='200' 
+                            min={200}
+                            max={1500} 
+                            name='height'
                             id='height-select-1' 
                             value={formData.height}
                             onChange={handleChange} 
+                            onBlur={handleBlur}
                             required/>
                         </div>
 
@@ -142,12 +184,13 @@ export const CalcAlVitrin = () => {
                             <input 
                             type="number" 
                             placeholder='200' 
-                            min={1} 
-                            max={99999} 
-                            name='width' 
+                            min={200}
+                            max={700} 
+                            name='width'
                             id='width-select-1'
                             value={formData.width}
                             onChange={handleChange}
+                            onBlur={handleBlur}
                             required/>
 
                         </div>
@@ -162,6 +205,7 @@ export const CalcAlVitrin = () => {
                             id='units-select-1' 
                             value={formData.units}
                             onChange={handleChange} 
+                            onBlur={handleBlur}
                             required/>
                         </div>
                     </div>
@@ -181,6 +225,7 @@ export const CalcAlVitrin = () => {
                                 <option value="3">3</option>     
                                 <option value="4">4</option>
                                 <option value="5">5</option>        
+                                <option value="6">6</option> 
                             </select>                      
                         </div>
 
@@ -222,23 +267,24 @@ export const CalcAlVitrin = () => {
                             value={formData.handleHoles}
                             onChange={handleChange} 
                             required>
-                                <option value="left">Слева</option>  
-                                <option value="right">Справа</option>                   
+                                {optionImport.handleHoles.map(option => (
+                                    <option key={option.value} value={option.value}>{option.label}</option>
+                                ))}                   
                             </select>
                         </div>
 
                         <div className={css.form__item}>               
                             <label htmlFor="distance_to_the_center-select-1">Расстояние до центра ручки (мм)</label>
-                            <select 
-                            name="distanceToTheCenter" 
-                            id="distance_to_the_center-select-1" 
+                            <input 
+                            type="number" 
+                            placeholder='70' 
+                            min={70} 
+                            max={99999} 
+                            name='distanceToTheCenter' 
+                            id='distanceToTheCenter-select-1' 
                             value={formData.distanceToTheCenter}
                             onChange={handleChange} 
-                            required>
-                                {optionImport.distanceToTheCenter.map(option => (
-                                    <option key={option.value} value={option.value}>{option.label}</option>
-                                ))}                    
-                            </select>
+                            required/>
                         </div>
                     </div>
                     
@@ -255,15 +301,16 @@ export const CalcAlVitrin = () => {
                                 <option value="yes">Да</option>                    
                             </select>                   
                         </div>
-
-                        <div className={css.form__item}>
-                            <label htmlFor="summa-select-1" className={css.form__label_summa}>Сумма</label>
-                            <div className={css.form__summa_container}>
-                                <div className={css.form__summa} id='summa-select-1'>{total}</div>
-                                <p className={css.form__summa_rub}>₽</p> 
-                            </div>         
-                        </div>
                     </div>
+                    <div className={css.form__summa_wrapper}>
+                <div className={css.form__summa_container}>
+                    <label htmlFor="summa-select-1" className={css.form__label_summa}>Сумма</label>
+                    <div className={css.form__summa_block}>
+                        <div className={css.form__summa} id='summa-select-1'>{total}</div>
+                        <p className={css.form__summa_rub}>₽</p> 
+                    </div>         
+                </div>
+            </div>
                 </form>
             </div>
             <div className={css.CalcAlVitrin__drawing}>
@@ -271,6 +318,8 @@ export const CalcAlVitrin = () => {
                     height={formData.height} 
                     millingCount={formData.millingCount} 
                     hingeSide={formData.hingeSide}
+                    handles={formData.handles}
+                    distanceToTheCenter={formData.distanceToTheCenter}
                 />
             </div>
         </div>

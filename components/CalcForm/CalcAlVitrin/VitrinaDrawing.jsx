@@ -1,11 +1,12 @@
 import React from 'react';
 import styles from './CalcAlVitrin.module.scss';
 
-const VitrinaDrawing = ({ millingCount, hingeSide }) => {
+const VitrinaDrawing = ({ millingCount, hingeSide, distanceToTheCenter, handles }) => {
   const hingePositions = [];
   const drawingHeight  =  2000;
-  const edgeMargin = 60; // Отступ от краев
+  const edgeMargin = 60;
   const parsedCount = parseInt(millingCount) || 0;
+  const parsedDistance = parseInt(distanceToTheCenter) || 0;
 
   if (parsedCount > 1) {
     // Первая петля у верхнего края
@@ -24,6 +25,9 @@ const VitrinaDrawing = ({ millingCount, hingeSide }) => {
     hingePositions.push(drawingHeight  / 2);
   }
 
+// Позиция ручки (от нижнего края)
+  const handlePosition = drawingHeight - parsedDistance;
+
   return (
     <div className={styles.drawing__image}>
       <div className={styles.drawing_vitrin}>
@@ -34,6 +38,65 @@ const VitrinaDrawing = ({ millingCount, hingeSide }) => {
             style={{ top: `${(pos / drawingHeight ) * 100}%` }}
           />
         ))}
+      {handles === 'button' && (
+          <div 
+            className={styles.drawing_handles_button} 
+          />
+        )}
+
+        {handles === 'horizontal-button' && (
+          <div 
+            className={styles.drawing_horizontal_button} 
+          />
+        )}
+
+        {handles === 'vertical-button' && (
+          <div 
+            className={styles.drawing_vertical_button} 
+          />
+        )}
+
+        {/* Стрелка с расстоянием Ручки*/}
+        {handles !== 'None' && parsedDistance > 0 && (
+          <div 
+            className={styles.distance_indicator} 
+          >
+            <div 
+              style={{
+                position: 'relative',
+                backgroundColor: 'white',
+                padding: '2px 5px',
+                borderRadius: '3px',
+                marginBottom: '5px',
+                bottom: '35%',
+                left: '20px',
+              }}
+            >
+              {parsedDistance} мм
+            </div>
+          </div>
+        )}
+        {/* Стрелка с расстоянием Петлей*/}
+        {millingCount !== 'None' && (
+          <div 
+            className={styles.distance_indicator} 
+
+          >
+            <div 
+              style={{
+                position: 'relative',
+                backgroundColor: 'white',
+                padding: '2px 5px',
+                borderRadius: '3px',
+                marginBottom: '5px',
+                bottom: '35%',
+                left: '20px',
+              }}
+            >
+              {parsedDistance} мм
+            </div>
+          </div>
+        )}
       </div>
       <p>Чертеж "Лицевая сторона".</p>
     </div>

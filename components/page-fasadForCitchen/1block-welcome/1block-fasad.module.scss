@@ -70,12 +70,18 @@
             overflow: hidden;
             width: 9.375vw;
             height: 15.308vh;
-            padding: 0.6rem;
+            padding: 0.4rem;
             border: 1px solid #606060;
             border-radius: 10px;
             margin: 0 auto;
             text-align: center;
             align-content: center;
+            &:nth-child(2),
+            &:nth-child(6),
+            &:nth-child(7),
+            &:nth-child(10) {
+                padding: 0;
+            }
             &:hover {
                 transform: scale(1.1);
                 transition: .3s;

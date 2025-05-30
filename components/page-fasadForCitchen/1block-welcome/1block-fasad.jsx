@@ -68,7 +68,7 @@ export const Block_Fasad = () => {
               </div>
               <div className={css.IconItem}>
                 <Link href='/formCalcVitrin'>
-                  <img src={`${basePath}/png/fasads/IconTest.png`} alt="Логотип Ал.Витрин" />
+                  <img src={`${basePath}/png/fasads/alvitrin.png`} alt="Логотип Ал.Витрин" />
                 </Link>
               </div>
               <div className={css.IconItem}>

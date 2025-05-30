@@ -6,12 +6,18 @@ export const priceConfig = {
    },
 
    //Артикул профиля
-  profileArticles: {
+  profileArticlesWide: {
     black: 500,
     aluminum: 600,
     matte: 550,
     gold: 700,
     silver: 650,
+  },
+  profileArticlesNarrow: {
+    silver: 500,
+    black: 600,
+    matte: 550,
+    gold: 700,
   },
 
   //Стекло/Зеркало
@@ -56,10 +62,11 @@ export const priceConfig = {
   //Количество фрезеровок под петли
   millingCount: {
     None: 0,
-    2: 100,
+    2: 70,
     3: 200,
     4: 400,
-    5: 600
+    5: 600,
+    6: 1000,
    },
 
   //Тип ручки
