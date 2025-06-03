@@ -13,7 +13,7 @@ export const CalcAlVitrin = () => {
         height: 200,
         width: 200,
         units: 1,
-        distanceToTheCenter: 1,
+        distanceToTheCenter: 70,
         millingCount: 'None',
         millingForHinges: 'None',
         hingeSide: 'left',
@@ -22,10 +22,25 @@ export const CalcAlVitrin = () => {
     });
     
     const [total, setTotal] = useState(0);
+    const [sizeWarning, setSizeWarning] = useState('');
 
     useEffect(() => {
         calculateTotal();
+        checkDimensions();
     }, [formData]);
+
+    const checkDimensions = () => {
+        const { profileView, height, width } = formData;
+        let warning = '';
+
+        if (profileView === 'narrow' && (height > 1500 || width > 500)) {
+            warning = 'За размеры, выходящие за границы: узкий от 200х200 до 1500х500, производитель ответственности не несёт.';
+        } else if (profileView === 'wide' && (height > 2100 || width > 500)) {
+            warning = 'За размеры, выходящие за границы: широкий от 200х200 до 2100х500, производитель ответственности не несёт.';
+        }
+
+        setSizeWarning(warning);
+    };
 
     const handleChange = (e) => {
     const { name, value } = e.target;
@@ -48,17 +63,19 @@ export const CalcAlVitrin = () => {
     const handleBlur = (e) => {
         const { name, value } = e.target;
         
-        if (name === 'height' || name === 'width' || name === 'units') {
+        if (name === 'height' || name === 'width' || name === 'units' || name === 'distanceToTheCenter') {
             const numValue = parseInt(value) || 0;
             let correctedValue = numValue;
             
             if (name === 'height') {
-                correctedValue = Math.min(Math.max(numValue, 200), 1500);
+                correctedValue = Math.min(Math.max(numValue, 200), 10000);
             } else if (name === 'width') {
                 correctedValue = Math.min(Math.max(numValue, 200), 600);
             } else if (name === 'units') {
             correctedValue = Math.min(Math.max(numValue, 1), 1000);
-        }
+            } else if (name === 'distanceToTheCenter') {
+            correctedValue = Math.min(Math.max(numValue, 70), 3000);
+            }
         if (correctedValue !== numValue) {
             setFormData(prev => ({
                 ...prev,
@@ -80,7 +97,6 @@ export const CalcAlVitrin = () => {
         sum += area * 500; // Например, 500 руб/м²
 
         // Добавляем цены за выбранные опции
-        sum += priceConfig.profileViews[formData.profileView] || 0;
         if (formData.profileView === 'wide') {
             sum += priceConfig.profileArticlesWide[formData.profileArticle] || 0;
         } else {
@@ -99,8 +115,13 @@ export const CalcAlVitrin = () => {
 
     return (
         <div className={css.CalcAlVitrin__container}>
+            <section className={css.CalcAlVitrin__blockForm}>
             <div className={css.CalcAlVitrin__form}>
-                
+                {sizeWarning && (
+                <div className={css.size__warning}>
+                    {sizeWarning}
+                </div>
+                )}
                 <form className={css.form__group}>
                     <div className={css.form__group_row}>
                         <div className={css.form__item}>
@@ -283,7 +304,8 @@ export const CalcAlVitrin = () => {
                             name='distanceToTheCenter' 
                             id='distanceToTheCenter-select-1' 
                             value={formData.distanceToTheCenter}
-                            onChange={handleChange} 
+                            onChange={handleChange}
+                            onBlur={handleBlur} 
                             required/>
                         </div>
                     </div>
@@ -322,6 +344,16 @@ export const CalcAlVitrin = () => {
                     distanceToTheCenter={formData.distanceToTheCenter}
                 />
             </div>
+        </section>
+        <label 
+        className={css.CalcAlVitrin__comment_label}
+        htmlFor="texareaComment">Коментарий</label>
+        <textarea 
+        className={css.CalcAlVitrin__comment}
+        type="texarea"
+        name="comment" 
+        id='texareaComment' />
+        <p className={css.CalcAlVitrin__warningText}>Рекомендуется выписывать в витрины из широкого и узкого профиля петли Hettich.На производстве делается присадка под данного производителя.</p>
         </div>
     );
 };

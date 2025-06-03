@@ -21,18 +21,15 @@ export const glassMirror = [
     { value: 'None', label: 'Нет Стекла/Зеркала' },
     { value: 'mirror-M1', label: 'Зеркало (2550*1605) М1' },
     { value: 'mirror-bronze', label: 'Зеркало (2500*1600) бронза' },
+    { value: 'mirror-notStandart', label: 'Зеркало (2750*1605) М1 Не стандарт' },
     { value: 'glass-M1-4mm', label: 'Стекло М1 4мм' },
     { value: 'glass-bronze', label: 'Стекло М1 4мм бронза' },
-    { value: 'glass-Armani-light', label: 'Стекло Армани светлое' },
-    { value: 'glass-Krizet-light', label: 'Стекло Кризет светлый' },
-    { value: 'glass-Delta-light', label: 'Стекло Дельта светлая' },
-    { value: 'glass-crystal-bronze', label: 'Стекло хрусталик бронза' },
     { value: 'glass-enlightened', label: 'Стекло 4мм просветленное' },
     { value: 'glass-grafit', label: 'Стекло 4мм Графит (серое) прозрачное' },
     { value: 'glass-fluted-Moga', label: 'Стекло рифленное Мога (волна бесцветное)' },
     { value: 'metalux-satin-glass', label: 'Металюкс (сатин бесцветное стекло) 2550*1605' },
     { value: 'metalux-satin-bronze', label: 'Металюкс (сатин) бронза 2550*1605' },
-    { value: 'metalux-satin-grafit', label: 'Металюкс сатин графит (серое)' },  
+    { value: 'metalux-satin-grafit', label: 'Металюкс сатин графит (серое) 2550*1605' },  
     { value: 'lacobel-1013', label: 'Лакобель 1013 Pearl Whait 4мм 2550*1605' },
     { value: 'lacobel-1014', label: 'Лакобель 1014 Бежевый 4мм 2550*1605' },
     { value: 'lacobel-1015', label: 'Лакобель 1015 Бежевый 4мм 2550*1605' },
@@ -57,8 +54,8 @@ export const matteSide = [
 export const handles = [
     { value: 'None', label: 'Нет' },
     { value: 'button', label: 'Ручка кнопка' },
-    { value: 'horizontal-button', label: 'Ручка кнопка скоба горизонтальная' },
-    { value: 'vertical-button', label: 'Ручка кнопка скоба вертикальная' },
+    { value: 'horizontalButton', label: 'Ручка кнопка скоба горизонтальная' },
+    { value: 'verticalButton', label: 'Ручка кнопка скоба вертикальная' },
 ];
 
 export const handleHoles = [

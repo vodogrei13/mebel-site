@@ -1,62 +1,69 @@
 export const priceConfig = {
-    //Вид профиля
-   profileViews: {
-    wide: 1000,
-    narrow: 800,
-   },
 
-   //Артикул профиля
+   //Артикул профиля Широкие
   profileArticlesWide: {
-    black: 500,
-    aluminum: 600,
-    matte: 550,
-    gold: 700,
-    silver: 650,
+    //F1-33 Черный
+    black: 3215.80,
+    //F1-19 Алюминиевый
+    aluminum: 2160.00,
+    //F1-33 Белый матовый
+    matte: 3215.80,
+    //F1-33 Золото
+    gold: 3215.80,
+    //F1-33 Серебро
+    silver: 3215.80,
   },
+  //Артикул профиля Узкие
   profileArticlesNarrow: {
-    silver: 500,
-    black: 600,
-    matte: 550,
-    gold: 700,
+    //F1-17 Серебро
+    silver: 1891.80,
+    //F1-17 Черный
+    black: 1891.80,
+    //F1-17 Белый матовый
+    matte: 1891.80,
+    //F1-17 Золото
+    gold: 1891.80,
   },
 
   //Стекло/Зеркало
   glassMirror: {
     None: 0,
-    'glass-grafit': 300,
-    'glass-Armani-light': 400,
-    'glass-fluted-Moga': 400,
-    'glass-crystal-bronze':  400,
+    //Зеркало (2550*1605) М1
+    'mirror-M1': 2632.00,
+    //Зеркало (2500*1600) бронза
+    'mirror-bronze': 4455.00,
+    //Зеркало (2750*1605) М1 Не стандарт
+    'mirror-notStandart': 4915.00,
+    //Стекло М1 4мм
+    'glass-M1-4mm': 1345.00,
+    //Стекло М1 4мм бронза
+    'glass-bronze': 2785.00,  
+    //Стекло 4мм просветленное
     'glass-enlightened': 400,
-    'glass-Krizet-light': 400,
-    'glass-Delta-light': 400,
-    'glass-bronze': 400,
-    'glass-M1-4mm': 400,
-    'mirror-bronze': 400,
-    'mirror-M1': 400,
-    'lacobel-9010': 900,
-    'lacobel-9003': 400,
-    'lacobel-1013': 400,
-    'lacobel-1014': 400,
-    'lacobel-1015': 400,
-    'lacobel-1164': 400,
-    'lacobel-1236':  400,
-    'lacobel-1586': 400,
-    'lacobel-2001': 400,
-    'lacobel-3004': 400,
-    'lacobel-5002': 400,
-    'lacobel-8017': 400,
-    'lacobel-9005': 400,
-    'lacobel-9006': 400,
-    'metalux-satin-glass': 400,
-    'metalux-satin-bronze': 400,
-    'metalux-satin-grafit': 400,
-  },
-
-//Матовая сторона
-  matteSide: {
-    outward: 100,
-    inside: 200,
+    //Стекло 4мм Графит (серое) прозрачное
+    'glass-grafit': 300,
+    //Стекло рифленное Мога (волна бесцветное)
+    'glass-fluted-Moga': 7040.00,
+    //Металюкс (сатин бесцветное стекло) 2550*1605
+    'metalux-satin-glass': 2640.00,
+    //Металюкс (сатин) бронза 2550*1605
+    'metalux-satin-bronze': 4635.00,
+    //Металюкс сатин графит (серое) 2550*1605
+    'metalux-satin-grafit': 4635.00,
+    'lacobel-1013': 4870.00,
+    'lacobel-1014': 1,
+    'lacobel-1015': 3825.00,
+    'lacobel-1164': 1,
+    'lacobel-1236':  3825.00,
+    'lacobel-1586': 1,
+    'lacobel-2001': 1,
+    'lacobel-3004': 1,
+    'lacobel-5002': 1,
+    'lacobel-8017': 1,
+    'lacobel-9003': 4870.00,
+    'lacobel-9005': 3825.00,
+    'lacobel-9006': 1,
+    'lacobel-9010': 3825.00,
   },
 
   //Количество фрезеровок под петли
@@ -72,15 +79,15 @@ export const priceConfig = {
   //Тип ручки
   handles: {
     None: 0,
-    button: 200,
-    'horizontal-button': 250,
-    'vertical-button': 250
+    button: 80.00,
+    horizontalButton: 160.00,
+    verticalButton: 160.00,
    }, 
 
    //Сборка
   assembly: {
     no: 0,
-    yes: 500
+    yes: 200
    },
 
   basePrice: 1000 // Базовая цена
