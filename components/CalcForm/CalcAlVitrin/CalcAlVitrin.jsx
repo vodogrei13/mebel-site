@@ -8,13 +8,12 @@ import { priceConfig } from './priceConfig';
 export const CalcAlVitrin = () => {
     const [formData, setFormData] = useState({
         profileView: 'wide',
-        profileArticle: 'black',
+        profileArticles: 'black',
         glassMirror: 'None',
         height: 200,
         width: 200,
         units: 1,
         distanceToTheCenter: 70,
-        millingCount: 'None',
         millingForHinges: 'None',
         hingeSide: 'left',
         handles: 'None',
@@ -59,7 +58,7 @@ export const CalcAlVitrin = () => {
         };
     });
 };
-
+    //Ограничения в полях
     const handleBlur = (e) => {
         const { name, value } = e.target;
         
@@ -90,28 +89,48 @@ export const CalcAlVitrin = () => {
     };
 
     const calculateTotal = () => {
-        let sum = priceConfig.basePrice;
-        
-        // Базовая цена зависит от площади (цена за м²)
-        const area = (formData.height * formData.width) / 1000000; // Переводим мм² в м²
-        sum += area * 500; // Например, 500 руб/м²
+        let sum = 0;
 
-        // Добавляем цены за выбранные опции
+        // Рассчитываем площадь витрины (периметр в мм)
+        const vitrinaPerimeter = (formData.height * 2) + (formData.width * 2);
+
+        // Рассчитываем количество профильных листов (длина листа 3000 мм)
+        const listLength = 3000;
+        const listsCount = Math.ceil(vitrinaPerimeter / listLength);
+
+        // Добавляем стоимость профиля
         if (formData.profileView === 'wide') {
-            sum += priceConfig.profileArticlesWide[formData.profileArticle] || 0;
+            sum += (priceConfig.profileArticlesWide[formData.profileArticles] || 0) * listsCount;
+            sum += priceConfig.millingCountWide[formData.millingCount] || 0;
         } else {
-            sum += priceConfig.profileArticlesNarrow[formData.profileArticle] || 0;
-        }       
+            sum += (priceConfig.profileArticlesNarrow[formData.profileArticles] || 0) * listsCount;
+            sum += priceConfig.millingCountNarrow[formData.millingCount] || 0;
+        }
+
+        // Рассчитываем стоимость стекла/зеркала с учетом площади
+        const glassPrice = priceConfig.glassMirror[formData.glassMirror] || 0;
+        if (glassPrice > 0) {
+            // Округляем высоту и ширину до десятых (в метрах)
+            const heightMeters = Math.round(formData.height / 100 * 10) / 10; // Переводим мм в м и округляем
+            const widthMeters = Math.round(formData.width / 100 * 10) / 10;
+            const glassArea = heightMeters * widthMeters; // Площадь в м²
+            sum += glassArea * glassPrice; // Добавляем стоимость стекла
+        }
+        
+        // Добавляем остальные компоненты
+        sum += priceConfig.assembly[formData.assembly] || 0;
         sum += priceConfig.glassMirror[formData.glassMirror] || 0;
         sum += priceConfig.handles[formData.handles] || 0;
-        sum += priceConfig.millingCount[formData.millingCount] || 0;
-        sum += priceConfig.assembly[formData.assembly] || 0;
-        
-        // Умножаем на количество
+        sum += priceConfig.raspil;
+
+        // Умножаем на количество витрин
         sum *= formData.units;
-        
-        setTotal(Math.round(sum)); //Округляем до целых
-    };
+
+        // Добавим стоимость распила 1 витрины
+        sum += priceConfig.raspil * formData.units;
+
+        setTotal(Math.round(sum));
+        };
 
     return (
         <div className={css.CalcAlVitrin__container}>
