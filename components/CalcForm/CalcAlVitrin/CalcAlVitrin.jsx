@@ -102,32 +102,38 @@ export const CalcAlVitrin = () => {
         if (formData.profileView === 'wide') {
             sum += (priceConfig.profileArticlesWide[formData.profileArticles] || 0) * listsCount;
             sum += priceConfig.millingCountWide[formData.millingCount] || 0;
+            sum += priceConfig.cornerWide;
         } else {
             sum += (priceConfig.profileArticlesNarrow[formData.profileArticles] || 0) * listsCount;
             sum += priceConfig.millingCountNarrow[formData.millingCount] || 0;
+            sum += priceConfig.cornerNarrow;
         }
 
         // Рассчитываем стоимость стекла/зеркала с учетом площади
         const glassPrice = priceConfig.glassMirror[formData.glassMirror] || 0;
         if (glassPrice > 0) {
-            // Округляем высоту и ширину до десятых (в метрах)
-            const heightMeters = Math.round(formData.height / 100 * 10) / 10; // Переводим мм в м и округляем
-            const widthMeters = Math.round(formData.width / 100 * 10) / 10;
+            // Округляем высоту и ширину до тысячных (в метрах)
+            const heightMeters = (formData.height / 1000);
+            const widthMeters = (formData.width / 1000);
             const glassArea = heightMeters * widthMeters; // Площадь в м²
             sum += glassArea * glassPrice; // Добавляем стоимость стекла
         }
         
         // Добавляем остальные компоненты
         sum += priceConfig.assembly[formData.assembly] || 0;
-        sum += priceConfig.glassMirror[formData.glassMirror] || 0;
         sum += priceConfig.handles[formData.handles] || 0;
-        sum += priceConfig.raspil;
+        sum += priceConfig.raspil * formData.units;;
+
+        // Добавляем стоимость упаковки гофрокартоном (рассчитана на 2 профиля)
+        const packageCount = Math.ceil(listsCount / 2);
+        sum += priceConfig.package * packageCount;
+
+        // Добавляем стоимость уплотнителя (округляем периметр в большую сторону до 1000 мм)
+        const sealantMeters = Math.ceil(vitrinaPerimeter / 1000);
+        sum += sealantMeters * priceConfig.sealant;
 
         // Умножаем на количество витрин
         sum *= formData.units;
-
-        // Добавим стоимость распила 1 витрины
-        sum += priceConfig.raspil * formData.units;
 
         setTotal(Math.round(sum));
         };

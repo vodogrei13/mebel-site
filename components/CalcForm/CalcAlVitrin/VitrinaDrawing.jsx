@@ -39,13 +39,13 @@ const VitrinaDrawing = ({ millingCount, hingeSide, distanceToTheCenter, handles,
   };
 
   //положение окошки расстояний петель
-  const getHingeDistanceInput = () => hingeSide ==='right' ? '14%' : '46%';
+  const getHingeDistanceInput = () => hingeSide ==='right' ? '17%' : '40%';
   //положение ручки-кнопки
-  const getHandlePosition = () => hingeSide === 'right' ? '69.5%' : '9.5%';
+  const getHandlePosition = () => hingeSide === 'right' ? '68%' : '8.3%';
   //положение ручки-скоба-горизонт
-  const getHorizontalButtonPosition = () => hingeSide === 'right' ? '73.5%' : '13.5%';
+  const getHorizontalButtonPosition = () => hingeSide === 'right' ? '72.5%' : '13.5%';
   // положение скоба-вертикаль
-  const getVerticalButtonPosition = () => hingeSide === 'right' ? '79%' : '19%';
+  const getVerticalButtonPosition = () => hingeSide === 'right' ? '78.5%' : '18.7%';
   //положение стрелки ручки
   const getDistanceIndicatorPosition = () => hingeSide === 'right' ? '80%' : '20%';
   //положение стрелки петель
