@@ -54,7 +54,7 @@ const VitrinaDrawing = ({ millingCount, hingeSide, distanceToTheCenter, handles,
   const getDistanceMillingCountHelp = () => hingeSide === 'right' ? '-1280%' : '500%';
 
   return (
-    <div className={styles.drawing__container}>
+    <div className={styles.drawing__container} >
       {heightExceeded && (
       <div className={styles.height__warning}>
         Сумма расстояний петель больше указанной высоты витрины!

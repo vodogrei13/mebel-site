@@ -1,7 +1,7 @@
 'use client'
 import React from 'react';
 import { Block_Welcome } from "@/components/Page-one/1block-welcome/block-welcome";
-import { Form } from "@/components/form/form";
+import { Form } from "@/components/Form/base-form/form";
 import css from '@/app/main/main.module.scss'
 import { Block_Cards } from '@/components/Page-one/3block-cards/block-cards';
 import { Block_About } from '@/components/Page-one/5block-about/about';

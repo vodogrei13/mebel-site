@@ -1,4 +1,4 @@
-import { Form } from "@/components/form/form";
+import { Form } from "@/components/Form/base-form/form";
 import css from './block-types.module.scss'
 import { basePath } from '@/utils/basePath';
 

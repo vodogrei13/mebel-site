@@ -1,5 +1,5 @@
 import css from './formCalcVitrin.module.scss'
-import { CalcAlVitrin } from '@/components/CalcForm/CalcAlVitrin/CalcAlVitrin';
+import { CalcAlVitrin } from '@/components/Form/CalcAlVitrin/CalcAlVitrin';
 
 export default function CalcAlVitrinPage () {
     return (

@@ -1,8 +1,9 @@
 'use client'
 import css from './2block-fasad-types.module.scss'
 import { Block_Slider } from '../block-slider/block-slider';
-import { Form } from '@/components/form/form';
+import { Form } from "@/components/Form/base-form/form";
 import { basePath } from '@/utils/basePath';
+import Link from "next/link";
 
 const sliderImages1 = [
     { url: `${basePath}/png/slider/plastic/пластик-1.png` },
@@ -67,16 +68,27 @@ export const Block_FasadTypes = () => {
             <h3 className={css.block_fasad_types__title}>Виды фасадов</h3>
             <div className={css.block_fasad__cards}>
                 <div className={css.block_fasad__card}>
+                    <div className={css.card__container}>
+                        <div className={css.card__text}>
                     <h3>Пластиковые</h3>
                     <p>Пластиковые фасады для кухни – современное и практичное решение,
                     <br/>сочетающее эстетику, долговечность и простоту ухода.</p>
                     <p>Чаще всего изготавливаются на основе МДФ, покрытого ПВХ-пленкой или акриловым пластиком,
                     что обеспечивает дополнительную прочность и устойчивость к влаге.
                     <br/>Идеально подходят для современных кухонь, где важны практичность, стиль и простота в уходе!</p>
+                    </div>
+                    <div className={css.IconItem}>
+                                <Link href='/formCalcVitrin'>
+                                <img src={`${basePath}/png/fasads/alvitrin.png`} alt="Логотип Ал.Витрин" />
+                                </Link>
+                            </div>
+                    </div>
                     <Block_Slider images={sliderImages1}/>
                 </div>
 
                 <div className={css.block_fasad__card}>
+                    <div className={css.card__container}>
+                        <div className={css.card__text}>
                     <h3>Плёночные</h3>
                     <p>Пленочные фасады для кухни – это бюджетное и практичное решение,
                     <br/>сочетающее разнообразие дизайнов, устойчивость к внешним воздействиям и простоту ухода.</p>
@@ -86,10 +98,19 @@ export const Block_FasadTypes = () => {
                     <p>Идеально подходит для тех, кто ищет недорогой,
                     <br/>но стильный вариант с хорошей износостойкостью.
                     <br/>Отличный выбор для кухонь в современном, классическом или скандинавском стиле.</p>
+                    </div>
+                    <div className={css.IconItem}>
+                                <Link href='/formCalcVitrin'>
+                                <img src={`${basePath}/png/fasads/alvitrin.png`} alt="Логотип Ал.Витрин" />
+                                </Link>
+                            </div>
+                    </div>
                     <Block_Slider images={sliderImages2}/>
                 </div>
 
                 <div className={css.block_fasad__card}>
+                    <div className={css.card__container}>
+                        <div className={css.card__text}>
                     <h3>Крашенные</h3>
                     <p>Крашеные фасады для кухни – элегантное и долговечное решение для тех, 
                     <br/>кто ценит безупречный внешний вид и экологичность.</p>
@@ -98,6 +119,13 @@ export const Block_FasadTypes = () => {
                     <br/>Покрытие может быть глянцевым, матовым, полуматовым или с эффектом "металлик".</p>
                     <p>Идеально подходит для кухонь в современном, классическом, скандинавском или лофт-стиле.
                     <br/>Это выбор тех, кто ценит премиальное качество и индивидуальный дизайн.</p>
+                    </div>
+                    <div className={css.IconItem}>
+                                <Link href='/formCalcVitrin'>
+                                <img src={`${basePath}/png/fasads/alvitrin.png`} alt="Логотип Ал.Витрин" />
+                                </Link>
+                            </div>
+                    </div>
                     <Block_Slider images={sliderImages3}/>
                 </div>
             </div>
@@ -108,24 +136,44 @@ export const Block_FasadTypes = () => {
 
             <div className={css.block_fasad__cards}>
                 <div className={css.block_fasad__card}>
-                    <h3>С алюминиевой рамкой</h3>
-                    <p>Фасады с алюминиевой рамкой для кухни – современное и стильное решение,
-                    <br/>сочетающее легкость металла и практичность современных материалов.</p>
-                    <p>Фасад состоит из алюминиевого профиля, обрамляющего вставку из МДФ,
-                    <br/>стекла, пластика или HPL-панели. Алюминиевая рамка придает жесткость конструкции,
-                    <br/>а внутреннее наполнение позволяет реализовать любые дизайнерские идеи.</p>
-                    <p>Идеальный выбор для тех, кто ищет надежность, современный дизайн и долговечность!</p>
+                    <div className={css.card__container}>
+                        <div className={css.card__text}>
+                            <h3>С алюминиевой рамкой</h3>
+                            <p>Фасады с алюминиевой рамкой для кухни – современное и стильное решение,
+                            <br/>сочетающее легкость металла и практичность современных материалов.</p>
+                            <p>Фасад состоит из алюминиевого профиля, обрамляющего вставку из МДФ,
+                            <br/>стекла, пластика или HPL-панели. Алюминиевая рамка придает жесткость конструкции,
+                            <br/>а внутреннее наполнение позволяет реализовать любые дизайнерские идеи.</p>
+                            <p>Идеальный выбор для тех, кто ищет надежность, современный дизайн и долговечность!</p>
+                        </div>
+                            <div className={css.IconItem}>
+                                <Link href='/formCalcVitrin'>
+                                <img src={`${basePath}/png/fasads/alvitrin.png`} alt="Логотип Ал.Витрин" />
+                                </Link>
+                            </div>
+                    </div>
                     <Block_Slider images={sliderImages4}/>
                 </div>
 
                 <div className={css.block_fasad__card}>
-                    <h3>Шпонированные</h3>
-                    <p>Шпонированные фасады для кухни – элитное решение для ценителей натуральных материалов и утонченной эстетики</p>
-                    <p>Шпон – это тонкий срез (0,5–3 мм) натуральной древесины ценных пород (дуб, ясень, орех, бук, венге и др.), который наклеивается на основу из МДФ или массива. Сохраняет всю красоту и текстуру дерева, но стоит дешевле цельного массива.</p>
+                    <div className={css.card__container}>
+                        <div className={css.card__text}>
+                            <h3>Шпонированные</h3>
+                            <p>Шпонированные фасады для кухни – элитное решение для ценителей натуральных материалов и утонченной эстетики</p>
+                            <p>Шпон – это тонкий срез (0,5–3 мм) натуральной древесины ценных пород (дуб, ясень, орех, бук, венге и др.), который наклеивается на основу из МДФ или массива. Сохраняет всю красоту и текстуру дерева, но стоит дешевле цельного массива.</p>
+                        </div>
+                            <div className={css.IconItem}>
+                                <Link href='/formCalcVitrin'>
+                                <img src={`${basePath}/png/fasads/alvitrin.png`} alt="Логотип Ал.Витрин" />
+                                </Link>
+                            </div>
+                        </div>
                     <Block_Slider images={sliderImages5}/>
                 </div>
 
                 <div className={css.block_fasad__card}>
+                    <div className={css.card__container}>
+                        <div className={css.card__text}>
                     <h3>Акриловые</h3>
                     <p>Акриловые фасады для кухни – премиальное решение с зеркальным блеском и исключительной стойкостью</p>
                     <p>Акриловые фасады состоят из:</p>
@@ -134,6 +182,13 @@ export const Block_FasadTypes = () => {
                         <li>Покрытие – листовой акриловый пластик (толщиной 2-3 мм) с зеркальной полировкой</li>
                         <li>Обратная сторона – компенсирующий пластиковый слой для защиты от деформаций</li>
                     </ul>
+                    </div>
+                    <div className={css.IconItem}>
+                                <Link href='/formCalcVitrin'>
+                                <img src={`${basePath}/png/fasads/alvitrin.png`} alt="Логотип Ал.Витрин" />
+                                </Link>
+                            </div>
+                    </div>
                     <Block_Slider images={sliderImages6}/>
                 </div>
             </div>

@@ -1,6 +1,6 @@
 'use client'
-import { Button_Origin } from "../../components/ui/buttons/button/button-origin";
-import { Political } from "../political/political";
+import { Button_Origin } from "../../ui/buttons/button/button-origin";
+import { Political } from "../../political/political";
 import css from "./form.module.scss";
 import { useState, useRef, useEffect } from 'react';
 
