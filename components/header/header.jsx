@@ -11,7 +11,7 @@ export const Header = () => {
             <div className={css.header__container}>
                 <div className={css.header__logo}>
                     <Link href='/'>
-                    <img src={`${basePath}/png/Logotest1.png`} alt="logo" className={css.header__logo_item}/>
+                    <img src={`${basePath}/png/Logotest2.png`} alt="logo" className={css.header__logo_item}/>
                     {/* <IconLogo1 width="3.75vw" height="7.1vh"/> */}
                     </Link>     
                 </div>
