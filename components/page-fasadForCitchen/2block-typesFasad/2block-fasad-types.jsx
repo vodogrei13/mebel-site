@@ -29,8 +29,16 @@ const sliderImages3 = [
     { url: `${basePath}/png/slider/painted/крашенный-5.png` },
     { url: `${basePath}/png/slider/painted/крашенный-6.png` },
 ]
-
 const sliderImages4 = [
+    { url: `${basePath}/png/slider/painted/крашенный-1.png` },
+    { url: `${basePath}/png/slider/painted/крашенный-2.png` },
+    { url: `${basePath}/png/slider/painted/крашенный-3.png` },
+    { url: `${basePath}/png/slider/painted/крашенный-4.png` },
+    { url: `${basePath}/png/slider/painted/крашенный-5.png` },
+    { url: `${basePath}/png/slider/painted/крашенный-6.png` },
+]
+
+const sliderImages5 = [
     { url: `${basePath}/png/slider/al-ramka/ал.рамка-1.png` },
     { url: `${basePath}/png/slider/al-ramka/ал.рамка-2.png` },
     { url: `${basePath}/png/slider/al-ramka/ал.рамка-3.png` },
@@ -39,7 +47,7 @@ const sliderImages4 = [
     { url: `${basePath}/png/slider/al-ramka/ал.рамка-6.png` },
 ]
 
-const sliderImages5 = [
+const sliderImages6 = [
     { url: `${basePath}/png/slider/veneered/шпон-1.png` },
     { url: `${basePath}/png/slider/veneered/шпон-2.png` },
     { url: `${basePath}/png/slider/veneered/шпон-3.png` },
@@ -48,7 +56,7 @@ const sliderImages5 = [
     { url: `${basePath}/png/slider/veneered/шпон-6.png` },
 ]
 
-const sliderImages6 = [
+const sliderImages7 = [
     { url: `${basePath}/png/slider/akril/акрил-1.png` },
     { url: `${basePath}/png/slider/akril/акрил-2.png` },
     { url: `${basePath}/png/slider/akril/акрил-3.png` },
@@ -138,6 +146,19 @@ export const Block_FasadTypes = () => {
                 <div className={css.block_fasad__card}>
                     <div className={css.card__container}>
                         <div className={css.card__text}>
+                            <h3>TSS</h3>
+                            <p>Материалы, получаемые способом прессования нескольких слоев особой бумаги, пропитанной меламиновыми смолами.
+                            <br/><br/>Такое декоративное покрытие отличается повышенной устойчивостью к механическим повреждениям, контактам с водой, а также к любым видам загрязнений, что делает его максимально износостойким.</p>
+                            <p>Изделия из плит TCC не требуют специального ухода, они устойчивы к воздействию химических веществ и бытовых жидкостей - растворителей, спиртов, чернил, кофе, вина и т.д.</p>
+                        </div>
+                            
+                    </div>
+                    <Block_Slider images={sliderImages4}/>
+                </div>
+
+                <div className={css.block_fasad__card}>
+                    <div className={css.card__container}>
+                        <div className={css.card__text}>
                             <h3>С алюминиевой рамкой</h3>
                             <p>Фасады с алюминиевой рамкой для кухни – современное и стильное решение,
                             <br/>сочетающее легкость металла и практичность современных материалов.</p>
@@ -152,7 +173,7 @@ export const Block_FasadTypes = () => {
                                 </Link>
                             </div>
                     </div>
-                    <Block_Slider images={sliderImages4}/>
+                    <Block_Slider images={sliderImages5}/>
                 </div>
 
                 <div className={css.block_fasad__card}>
@@ -168,7 +189,7 @@ export const Block_FasadTypes = () => {
                                 </Link>
                             </div>
                         </div>
-                    <Block_Slider images={sliderImages5}/>
+                    <Block_Slider images={sliderImages6}/>
                 </div>
 
                 <div className={css.block_fasad__card}>
@@ -189,7 +210,7 @@ export const Block_FasadTypes = () => {
                                 </Link>
                             </div>
                     </div>
-                    <Block_Slider images={sliderImages6}/>
+                    <Block_Slider images={sliderImages7}/>
                 </div>
             </div>
         </section>

@@ -52,7 +52,7 @@ export const Block_Fasad = () => {
                 </Link>
               </div>
               <div className={css.IconItem}>
-                <Link href='/'>
+                <Link href='/formArborNova'>
                   <img src={`${basePath}/png/fasads/arbor-nova.png`} alt="Логотип Arbor Nova" />
                 </Link>
               </div>

@@ -165,7 +165,7 @@ export const Form = () => {
                 type="tel" 
                 id="phone" 
                 name="phone" 
-                placeholder="ТЕЛЕФОН" 
+                placeholder="+7 (___) ___-__-__"
                 value={formData.phone}
                 onChange={handleInputChange}
                 required

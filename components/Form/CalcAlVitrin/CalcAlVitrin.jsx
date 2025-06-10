@@ -49,14 +49,58 @@ const generatePDF = async () => {
     format: 'a4'
   });
 
-  const formSections = Array.from(formsRef.current.querySelectorAll(`.${css.CalcAlVitrin__blockForm}`));
-  const pageWidth = pdf.internal.pageSize.getWidth() - 20;
-  const scale = 1.5;
+  // Создаем контейнер для информации об отправителе
+  const senderInfoContainer = document.createElement('div');
+  senderInfoContainer.style.position = 'absolute';
+  senderInfoContainer.style.left = '-9999px';
+  senderInfoContainer.style.width = '100%';
+  senderInfoContainer.style.padding = '20px';
+  senderInfoContainer.style.backgroundColor = '#fff';
+  
+  // Добавляем информацию об отправителе
+  const senderInfoHTML = `
+    <div style="margin-bottom: 20px;">
+      <h2 style="text-align: center; margin-bottom: 15px;">Данные отправителя</h2>
+      <div style="display: flex; flex-direction: column; gap: 18px;">
+        <div style="font-size: 30px"><strong>ФИО:</strong> ${surname} ${name}</div>
+        <div style="font-size: 30px"><strong>Email:</strong> ${email}</div>
+        <div style="font-size: 30px"><strong>Телефон:</strong> ${phone}</div>
+        ${comment ? `<div style="font-size: 30px"><strong>Комментарий:</strong> ${comment}</div>` : ''}
+      </div>
+    </div>
+  `;
+  
+  senderInfoContainer.innerHTML = senderInfoHTML;
+  document.body.appendChild(senderInfoContainer);
 
+  // Рендерим информацию об отправителе
+  const senderInfoCanvas = await html2canvas(senderInfoContainer, {
+    scale: 1.5,
+    useCORS: true,
+    backgroundColor: '#fff',
+  });
+
+  // Добавляем информацию об отправителе в PDF
+  const senderInfoImgData = senderInfoCanvas.toDataURL('image/jpeg', 0.9);
+  const pageWidth = pdf.internal.pageSize.getWidth() - 20;
+  const senderInfoHeight = (senderInfoCanvas.height * pageWidth) / senderInfoCanvas.width;
+  
+  pdf.addImage(senderInfoImgData, 'JPEG', 10, 10, pageWidth, senderInfoHeight);
+
+  // Удаляем временный контейнер
+  document.body.removeChild(senderInfoContainer);
+
+  const formSections = Array.from(formsRef.current.querySelectorAll(`.${css.CalcAlVitrin__blockForm}`));
+  
   for (let i = 0; i < formSections.length; i++) {
     const element = formSections[i];
     
-    // Создаем временный контейнер для заголовка
+    // Добавляем новую страницу для каждой формы (кроме первой)
+    if (i > 0) {
+      pdf.addPage();
+    }
+
+    // Создаем временный контейнер для заголовка формы
     const tempContainer = document.createElement('div');
     tempContainer.style.position = 'absolute';
     tempContainer.style.left = '-9999px';
@@ -64,7 +108,7 @@ const generatePDF = async () => {
     tempContainer.style.width = element.offsetWidth + 'px';
     document.body.appendChild(tempContainer);
 
-    // Создаем заголовок
+    // Создаем заголовок формы
     const header = document.createElement('div');
     header.textContent = `Форма №${i + 1}`;
     header.style.fontSize = '20px';
@@ -74,9 +118,9 @@ const generatePDF = async () => {
     header.style.color = '#000';
     tempContainer.appendChild(header);
 
-    // Рендерим только заголовок
+    // Рендерим заголовок формы
     const headerCanvas = await html2canvas(header, {
-      scale,
+      scale: 1.5,
       useCORS: true,
       backgroundColor: '#fff',
     });
@@ -110,7 +154,7 @@ const generatePDF = async () => {
     await new Promise(resolve => setTimeout(resolve, 100));
 
     const formCanvas = await html2canvas(element, {
-      scale,
+      scale: 1.5,
       useCORS: true,
       backgroundColor: '#fff',
     });
@@ -123,24 +167,24 @@ const generatePDF = async () => {
     // Удаляем временный контейнер
     document.body.removeChild(tempContainer);
 
-    // Добавляем заголовок и форму в PDF
-    if (i > 0) pdf.addPage();
-    
-    // Добавляем заголовок
+    // Добавляем заголовок формы в PDF
     const headerImgData = headerCanvas.toDataURL('image/jpeg', 0.9);
     const headerHeight = (headerCanvas.height * pageWidth) / headerCanvas.width;
-    pdf.addImage(headerImgData, 'JPEG', 10, 10, pageWidth, headerHeight);
     
-    // Добавляем форму
+    // Позиция для заголовка формы (учитываем, что первая форма идет после информации об отправителе)
+    const headerY = i === 0 ? 10 + senderInfoHeight + 10 : 10;
+    pdf.addImage(headerImgData, 'JPEG', 10, headerY, pageWidth, headerHeight);
+    
+    // Добавляем форму в PDF
     const formImgData = formCanvas.toDataURL('image/jpeg', 0.9);
     const formHeight = (formCanvas.height * pageWidth) / formCanvas.width;
-    pdf.addImage(formImgData, 'JPEG', 10, 10 + headerHeight + 5, pageWidth, formHeight);
+    pdf.addImage(formImgData, 'JPEG', 10, headerY + headerHeight + 5, pageWidth, formHeight);
 
     // Если это последняя форма, добавляем итоговую сумму
     if (i === formSections.length - 1) {
       // Создаем элемент для итоговой суммы
       const totalSumElement = document.createElement('div');
-      totalSumElement.textContent = `Общая сумма всех форм: ${totalSum} ₽`;
+      totalSumElement.textContent = `Общая сумма всего заказа: ${totalSum} ₽`;
       totalSumElement.style.fontSize = '12px';
       totalSumElement.style.fontWeight = 'bold';
       totalSumElement.style.textAlign = 'center';
@@ -159,7 +203,7 @@ const generatePDF = async () => {
 
       // Рендерим элемент с итоговой суммой
       const totalCanvas = await html2canvas(totalSumElement, {
-        scale,
+        scale: 1.5,
         useCORS: true,
         backgroundColor: '#fff',
       });
@@ -169,7 +213,7 @@ const generatePDF = async () => {
       const totalHeight = (totalCanvas.height * pageWidth) / totalCanvas.width;
       
       // Проверяем, поместится ли на текущей странице
-      const currentY = 10 + headerHeight + 5 + formHeight;
+      const currentY = headerY + headerHeight + 5 + formHeight;
       const remainingSpace = pdf.internal.pageSize.getHeight() - currentY;
       
       if (remainingSpace < totalHeight + 10) {
@@ -189,6 +233,55 @@ const generatePDF = async () => {
   return pdf;
 };
 
+const formatPhoneNumber = (value) => {
+  if (!value) return value;
+  
+  // Удаляем все нецифровые символы
+  let phoneNumber = value.replace(/[^\d]/g, '');
+  
+  // Если номер не пустой и не начинается с 7, добавляем 7 в начало
+  if (phoneNumber.length > 0 && !phoneNumber.startsWith('7')) {
+    phoneNumber = '7' + phoneNumber.replace(/^7/, '');
+  }
+  
+  // Ограничиваем длину номера (11 цифр с учетом +7)
+  const phoneNumberLength = phoneNumber.length;
+
+  if (phoneNumberLength < 1) return '';
+  if (phoneNumberLength <= 1) return `+7`;
+  if (phoneNumberLength <= 4) return `+7 (${phoneNumber.slice(1)}`;
+  if (phoneNumberLength <= 7) {
+    return `+7 (${phoneNumber.slice(1, 4)}) ${phoneNumber.slice(4)}`;
+  }
+  if (phoneNumberLength <= 9) {
+    return `+7 (${phoneNumber.slice(1, 4)}) ${phoneNumber.slice(4, 7)}-${phoneNumber.slice(7)}`;
+  }
+  
+  return `+7 (${phoneNumber.slice(1, 4)}) ${phoneNumber.slice(4, 7)}-${phoneNumber.slice(7, 9)}-${phoneNumber.slice(9, 11)}`;
+};
+
+const handlePhoneChange = (e) => {
+  const input = e.target.value;
+  
+  // Форматируем номер телефона
+  const formattedPhone = formatPhoneNumber(input);
+  
+  // Сохраняем только цифры в state (для отправки на сервер)
+  let digitsOnly = input.replace(/[^\d]/g, '');
+  
+  // Если номер не пустой и не начинается с 7, добавляем 7 в начало
+  if (digitsOnly.length > 0 && !digitsOnly.startsWith('7')) {
+    digitsOnly = '7' + digitsOnly.replace(/^7/, '');
+  }
+  
+  // Ограничиваем длину 11 цифр
+  digitsOnly = digitsOnly.slice(0, 11);
+  
+  setPhone(digitsOnly);
+  
+  // Обновляем значение в input (с форматированием)
+  e.target.value = formattedPhone;
+};
  const handleSubmit = async () => {
   console.log('Начало отправки заказа');
   
@@ -786,9 +879,8 @@ const generatePDF = async () => {
                     </label>
                     <div className={css.form__summa_block}>
                       <div className={css.form__summa} id={`summa-select-${form.id}`}>
-                        {form.total}
+                        {form.total} руб.
                       </div>
-                      <p className={css.form__summa_rub}>₽</p>
                     </div>
                   </div>
                 </div>
@@ -853,6 +945,7 @@ const generatePDF = async () => {
         }}
         style={{
           marginTop: '10px',
+          margin: '0 auto',
           padding: '8px 16px',
           background: '#4CAF50',
           color: 'white',
@@ -890,8 +983,9 @@ const generatePDF = async () => {
                   <input 
                   type="tel" 
                   id="phone"
-                  value={phone}
-                  onChange={(e) => setPhone(e.target.value)}
+                  value={formatPhoneNumber(phone)}
+                  onChange={handlePhoneChange}
+                  placeholder="+7 (___) ___-__-__"
                   required
                   />
                   <label htmlFor="email">Ваш E-mail</label>
