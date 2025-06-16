@@ -57,7 +57,7 @@ export const Block_Fasad = () => {
                 </Link>
               </div>
               <div className={css.IconItem}>
-                <Link href='/'>
+                <Link href='/formAdelkreis'>
                   <img src={`${basePath}/png/fasads/adelkreis.png`} alt="Логотип Adelkreis" />
                 </Link>
               </div>

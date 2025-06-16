@@ -1,16 +1,93 @@
-.ArborNova__wrapper {
-    width: 58.75vw;
+.ArborNova__container {
+  width: 100%;
+  margin: 0 auto;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  
+  .ArborNova__logo {
+    width: 8%;
+    height: 8%;
+    display: block;
     margin: 0 auto;
+    margin-bottom: 1rem;
+  }
+  
+  .ArborNova__slider {
+    position: relative;
+    width: 100vw;
+    height: 60vh;
+    overflow: hidden;
+    
+    .ArborNova__slide {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+      
+      &.active {
+        opacity: 1;
+      }
+      
+      .ArborNova__slideImage {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+    }
+    
+    .ArborNova__overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      padding: 2rem;
+      box-sizing: border-box;
+      
+      .ArborNova__slideText {
+        color: #fff;
+        font-size: 1.5rem;
+        text-align: center;
+        line-height: 170%;
+        letter-spacing: -0.03em;
+      }
+    }
+  }
+  .ArborNova__blank {
     margin-top: 2rem;
-    margin-bottom: 2rem;
-  .ArborNova__container {
-    width: 100%;
-    margin: 0 auto;
-    align-items: center;
-    .ArborNova__logo {
-        width: 10%;
-        height: 10%;
+    .ArborNova__text {
+      color: #606060;
+      line-height: 200%;
+      letter-spacing: 0;
+      margin-bottom: 1rem;
+      width: 100%;
+      text-align: center;
+      font-size: clamp(16px, 1.2vw , 100px);
+    }
+    .ArborNova__button {
+      margin: 0 auto;
+      display: block;
+      border: none;
+      .ArborNova__link {
+        display: inline-block;
+        background-color: #557a95;
+        color: white;
+        padding: 14px 26px;
+        border: none;
+        text-decoration: none;
+        font-weight: bold;
+        transition: background 0.3s ease;
 
+        &:hover {
+          background-color: darken(#cf9b48, 10%);
+        }
+    }
     }
   }
 }
