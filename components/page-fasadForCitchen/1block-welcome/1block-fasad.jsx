@@ -62,7 +62,7 @@ export const Block_Fasad = () => {
                 </Link>
               </div>
               <div className={css.IconItem}>
-                <Link href='/'>
+                <Link href='/formSkat'>
                   <img src={`${basePath}/png/fasads/skat.png`} alt="Логотип Скат" />
                 </Link>
               </div>
