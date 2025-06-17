@@ -1,4 +1,4 @@
-import css from './formskat.module.scss'
+import css from './formSkat.module.scss'
 import { Skat } from '@/components/Form/Skat/skat';
 
 export default function skatPage () {

@@ -1,5 +1,5 @@
 import { Adelkreis } from '@/components/Form/Adelkreis/adelkreis';
-import css from './Adelkreis.module.scss'
+import css from './adelkreis.module.scss'
 import { Form } from '@/components/Form/base-form/form';
 
 export default function AdelkreisPage () {
