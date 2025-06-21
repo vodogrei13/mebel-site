@@ -69,6 +69,7 @@ const SubmitModal = ({
                 <input type="file" name="files" multiple onChange={handleFileChange} ref={fileInputRef} />
                 <span>{fileCount > 0 ? `${fileCount} файл(ов)` : "Выберите файл"}</span>
               </label>
+              <p className={css.text__warning}>Если в заказе присутствует присадка под петлю - чертеж обязателен!</p>
               {fileCount > 0 && (
                 <button 
                   type="button" 
