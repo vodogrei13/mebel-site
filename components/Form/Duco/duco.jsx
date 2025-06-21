@@ -1,17 +1,11 @@
 "use client";
-import css from "./skat.module.scss";
+import css from "./duco.module.scss";
 import { basePath } from "@/utils/basePath";
 import {
-  typeSurface,
-  colorDye,
-  colorSkin,
-  milling,
-  millingOnTheFacade,
-  millingOnTheEdge,
-  prefabricated,
-  patina,
-  thickness,
-  note,
+    collection,
+    ColorDuco1,
+    ColorDuco2,
+    ColorDuco3,
 } from "./optionImport";
 import { DrawingItem } from "../drawingItems/drawingItem";
 import SubmitModal from "../submitModal/submitModal";
@@ -20,8 +14,7 @@ import { Button_Gradient } from "@/components/ui/buttons/button-gradient/button-
 import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
 
-export const Skat = () => {
-  const [selectedTypeSurface, setSelectedTypeSurface] = useState("color");
+export const Duco = () => {
   const [showSubmitModal, setShowSubmitModal] = useState(false);
   const [name, setName] = useState("");
   const [surname, setSurname] = useState("");
@@ -178,7 +171,7 @@ export const Skat = () => {
       color: #000 !important;
     }
 
-    body.pdf-mode .${css.skat__form_main},
+    body.pdf-mode .${css.duco__form_main},
     body.pdf-mode .${css.form__form_drawing} {
       gap: 6px !important;
     }
@@ -295,7 +288,7 @@ export const Skat = () => {
     formData.append("email", email);
     formData.append("phone", phone);
     formData.append("comment", comment);
-    formData.append("formName", "СКАТ");
+    formData.append("formName", "Duco");
     
     // Добавляем PDF
     formData.append("files", new File([pdfBlob], "order.pdf", { type: "application/pdf" }));
@@ -335,26 +328,24 @@ export const Skat = () => {
 };
 
   return (
-    <div className={css.skat__container}>
-      <section className={css.skat__form_container}>
+    <div className={css.duco__container}>
+      <section className={css.duco__form_container}>
         <div className="pdf-adjust" ref={pdfRef}>
-          <div className={css.skat__logo}>
-            <img src={`${basePath}/png/fasads/skat.png`} className={css.skat__logo_item} alt="Логотип" />
+          <div className={css.duco__logo}>
+            <img src={`${basePath}/png/fasads/duco.png`} className={css.duco__logo_item} alt="Логотип" />
           </div>
 
-    <form className={css.skat__form}>
-          <div className={css.skat__form_main}>
+    <form className={css.duco__form}>
+          <div className={css.duco__form_main}>
             <div className={css.form__item}>
-              <label htmlFor="typeSurface">Тип поверхности*</label>
+              <label htmlFor="collection">Коллекция*</label>
               <select
-                name="typeSurface"
-                id="typeSurface"
+                name="collection"
+                id="collection"
                 className={css.form__select}
-                value={selectedTypeSurface}
-                onChange={(e) => setSelectedTypeSurface(e.target.value)}
                 required
               >
-                {typeSurface.map((option) => (
+                {collection.map((option) => (
                   <option key={option.value} value={option.value}>
                     {option.label}
                   </option>
@@ -363,27 +354,14 @@ export const Skat = () => {
             </div>
 
             <div className={css.form__item}>
-              <label htmlFor="textureDirection">Направление текстуры*</label>
+              <label htmlFor="colorDuco1">Цвет Duco1*</label>
               <select
-                name="textureDirection"
-                id="textureDirection"
+                name="colorDuco1"
+                id="colorDuco1"
                 className={css.form__select}
                 required
               >
-                <option value="inHeight">По высоте</option>
-                <option value="inWidth">По ширине</option>
-              </select>
-            </div>
-
-            <div className={css.form__item}>
-              <label htmlFor="milling">Фрезеровка*</label>
-              <select
-                name="milling"
-                id="milling"
-                className={css.form__select}
-                required
-              >
-                {milling.map((option) => (
+                {ColorDuco1.map((option) => (
                   <option key={option.value} value={option.value}>
                     {option.label}
                   </option>
@@ -392,24 +370,34 @@ export const Skat = () => {
             </div>
 
             <div className={css.form__item}>
-              <label htmlFor="color">Цвет*</label>
+              <label htmlFor="colorDuco2">Цвет Duco2*</label>
               <select
-                name="color"
-                id="color"
+                name="colorDuco2"
+                id="colorDuco2"
                 className={css.form__select}
                 required
               >
-                {selectedTypeSurface === "color"
-                  ? colorDye.map((option) => (
-                      <option key={option.value} value={option.value}>
-                        {option.label}
-                      </option>
-                    ))
-                  : colorSkin.map((option) => (
-                      <option key={option.value} value={option.value}>
-                        {option.label}
-                      </option>
-                    ))}
+                {ColorDuco2.map((option) => (
+                  <option key={option.value} value={option.value}>
+                    {option.label}
+                  </option>
+                ))}
+              </select>
+            </div>
+
+            <div className={css.form__item}>
+              <label htmlFor="colorDuco3">Цвет Duco3*</label>
+              <select
+                name="colorDuco3"
+                id="colorDuco3"
+                className={css.form__select}
+                required
+              >
+                {ColorDuco3.map((option) => (
+                  <option key={option.value} value={option.value}>
+                    {option.label}
+                  </option>
+                ))}
               </select>
             </div>
 
@@ -421,27 +409,19 @@ export const Skat = () => {
                 className={css.form__select}
                 required
               >
-                {thickness.map((option) => (
-                  <option key={option.value} value={option.value}>
-                    {option.label}
-                  </option>
-                ))}
+                <option value="18mm">18мм</option>
               </select>
             </div>
 
             <div className={css.form__item}>
-              <label htmlFor="facadeMilling">Фрезеровка по фасаду*</label>
+              <label htmlFor="reverseSide">Обратная сторона*</label>
               <select
-                name="facadeMilling"
-                id="facadeMilling"
+                name="reverseSide"
+                id="reverseSide"
                 className={css.form__select}
                 required
               >
-                {millingOnTheFacade.map((option) => (
-                  <option key={option.value} value={option.value}>
-                    {option.label}
-                  </option>
-                ))}
+                <option value="color">В цвет</option>
               </select>
             </div>
 
@@ -457,50 +437,15 @@ export const Skat = () => {
             </div>
 
             <div className={css.form__item}>
-              <label htmlFor="patina">Патина*</label>
+              <label htmlFor="textureDirection">Направление текстуры*</label>
               <select
-                name="patina"
-                id="patina"
+                name="textureDirection"
+                id="textureDirection"
                 className={css.form__select}
                 required
               >
-                {patina.map((option) => (
-                  <option key={option.value} value={option.value}>
-                    {option.label}
-                  </option>
-                ))}
-              </select>
-            </div>
-
-            <div className={css.form__item}>
-              <label htmlFor="edgeMilling">Фрезеровка по краю*</label>
-              <select
-                name="edgeMilling"
-                id="edgeMilling"
-                className={css.form__select}
-                required
-              >
-                {millingOnTheEdge.map((option) => (
-                  <option key={option.value} value={option.value}>
-                    {option.label}
-                  </option>
-                ))}
-              </select>
-            </div>
-
-            <div className={css.form__item}>
-              <label htmlFor="teams">Сборные*</label>
-              <select
-                name="teams"
-                id="teams"
-                className={css.form__select}
-                required
-              >
-                {prefabricated.map((option) => (
-                  <option key={option.value} value={option.value}>
-                    {option.label}
-                  </option>
-                ))}
+                <option value="inHeight">По высоте</option>
+                <option value="inWidth">По ширине</option>
               </select>
             </div>
           </div>

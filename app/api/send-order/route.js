@@ -6,10 +6,12 @@ export async function POST(req) {
     const formData = await req.formData();
 
     const name = formData.get('name');
+    const surname = formData.get('surname');
     const email = formData.get('email');
     const phone = formData.get('phone');
     const comment = formData.get('comment');
     const files = formData.getAll('files');
+    const formName = formData.get('formName') || 'Без названия';
 
     const attachments = await Promise.all(
       files.map(async (file) => ({
@@ -29,9 +31,10 @@ export async function POST(req) {
     });
 
     const mailText = `
-      Заполнена заявка на расчет Алюминиевых витрин сайте "Контрактное производство"
+      Заполнена заявка на расчет, сайт "Контрактное производство"
 
       Имя: ${name}
+      Фамилия: ${surname}
       E-mail: ${email}
       Тел: ${phone}
       Комментарий: ${comment}
@@ -42,7 +45,7 @@ export async function POST(req) {
     const mailOptions = {
       from: 'mp1fdm@mail.ru',
       to: 'mebelmastery@inbox.ru',
-      subject: `Заявка на расчет Алюминиевых витрин #${String(Date.now()).slice(-6)}`,
+      subject: `Заявка на расчет фасадов ${formName} #${String(Date.now()).slice(-6)}`,
       text: mailText,
       html: `
         <div style="font-family: Arial, sans-serif; padding: 20px; color: #333;">
@@ -51,6 +54,10 @@ export async function POST(req) {
             <tr>
               <td style="padding: 8px; border: 1px solid #ddd;"><strong>Имя:</strong></td>
               <td style="padding: 8px; border: 1px solid #ddd;">${name}</td>
+            </tr>
+            <tr>
+              <td style="padding: 8px; border: 1px solid #ddd;"><strong>Фамилия:</strong></td>
+              <td style="padding: 8px; border: 1px solid #ddd;">${surname}</td>
             </tr>
             <tr>
               <td style="padding: 8px; border: 1px solid #ddd;"><strong>Email:</strong></td>

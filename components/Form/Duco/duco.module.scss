@@ -1,23 +1,23 @@
-.skat__container {
+.duco__container {
   width: 100%;
   margin: 0 auto;
   margin-top: 1rem;
   margin-bottom: 2rem;
-  .skat__logo {
+  .duco__logo {
     width: 100%;
     text-align: center;
-    .skat__logo_item {
-      width: 20%;
-      height: 20%;
+    .duco__logo_item {
+      width: 17%;
+      height: 17%;
       margin: 0 auto;
       margin-bottom: 1rem;
     }
   }
-  .skat__form_container {
+  .duco__form_container {
     width: 65%;
     margin: 0 auto;
-    .skat__form {
-      .skat__form_main {
+    .duco__form {
+      .duco__form_main {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         gap: 1rem;

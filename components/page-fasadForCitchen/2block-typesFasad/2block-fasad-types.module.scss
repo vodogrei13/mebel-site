@@ -35,9 +35,14 @@
             .card__container {
                 display: flex;
                 justify-content: space-between;
-                .IconItem {
-                    margin-top: 2rem;
+                .IconFirms {
+                    display: grid;
+                    grid-template-columns: repeat(2, 1fr);
+                    gap: 2rem;
                     margin-right: 2rem;
+                    margin-top: 1rem;
+                    margin-bottom: 1rem;
+                    .IconItem {
                     background-color: #fff;
                     cursor: pointer;
                     overflow: hidden;
@@ -65,7 +70,8 @@
                         width: auto;
                         height: auto;
                     }
-            }
+                }
+                }
                 .card__text {
                     display: flex;
                     flex-direction: column;

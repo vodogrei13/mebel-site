@@ -2,6 +2,7 @@
 import css from "./arbor-nova.module.scss";
 import { basePath } from '@/utils/basePath';
 import { useEffect, useState } from "react";
+import { Form } from "../base-form/form";
 
 const images = [
   {
@@ -88,6 +89,9 @@ export const ArborNova = () => {
             Скачать бланк
           </a>
         </button>
+      </div>
+      <div className={css.ArborNova__form}>
+        <Form/>
       </div>
     </div>
   );

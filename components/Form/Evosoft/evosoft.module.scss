@@ -1,26 +1,28 @@
-.skat__container {
+.evosoft__container {
   width: 100%;
   margin: 0 auto;
   margin-top: 1rem;
   margin-bottom: 2rem;
-  .skat__logo {
+  .evosoft__logo {
     width: 100%;
     text-align: center;
-    .skat__logo_item {
+    .evosoft__logo_item {
       width: 20%;
       height: 20%;
       margin: 0 auto;
-      margin-bottom: 1rem;
+      margin-top: 3rem;
+      margin-bottom: 4rem;
     }
   }
-  .skat__form_container {
+  .evosoft__form_container {
     width: 65%;
     margin: 0 auto;
-    .skat__form {
-      .skat__form_main {
+    .evosoft__form {
+      .evosoft__form_main {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         gap: 1rem;
+        margin-bottom: 7rem;
         .form__item {
           display: flex;
           flex-direction: column;

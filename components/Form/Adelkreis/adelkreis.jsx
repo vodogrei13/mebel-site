@@ -2,6 +2,7 @@
 import css from "./adelkreis.module.scss";
 import { basePath } from '@/utils/basePath';
 import { useEffect, useState } from "react";
+import { Form } from "../base-form/form";
 
 const images = [
   {
@@ -75,15 +76,74 @@ export const Adelkreis = () => {
       <div className={css.Adelkreis__blank}>
         <p className={css.Adelkreis__text}>Скачайте бланк по ссылке</p>
         <p className={css.Adelkreis__text}>Заполните его и прикрепите в заявке на расчет</p>
-        <button className={css.Adelkreis__button}>
+        <div className={css.Adelkreis__button_block}>
+          <button className={css.Adelkreis__button}>
             <a
-            href={`${basePath}/files/Adelkreis-blank.XLSX`}
-            download="Бланк_заполнения_Arbor_Nova.XLSX"
+            href={`${basePath}/files/Бланк заказа Lite.xls`}
+            download="Бланк заказа Lite.xls"
             className={css.Adelkreis__link}
           >
-            Скачать бланк
+            Бланк заказа Lite
           </a>
         </button>
+        <button className={css.Adelkreis__button}>
+            <a
+            href={`${basePath}/files/Бланк заказа IMD urban.xls`}
+            download="Бланк заказа IMD urban.xls"
+            className={css.Adelkreis__link}
+          >
+            Бланк заказа IMD urban
+          </a>
+        </button>
+        <button className={css.Adelkreis__button}>
+            <a
+            href={`${basePath}/files/Бланк заказа IMD STONE.xls`}
+            download="Бланк заказа IMD STONE.xls"
+            className={css.Adelkreis__link}
+          >
+            Бланк заказа IMD STONE
+          </a>
+        </button>
+        <button className={css.Adelkreis__button}>
+            <a
+            href={`${basePath}/files/Бланк заказа IMD Fenix interline.xls`}
+            download="Бланк заказа IMD Fenix interline.xls"
+            className={css.Adelkreis__link}
+          >
+            Бланк заказа IMD Fenix interline
+          </a>
+        </button>
+        <button className={css.Adelkreis__button}>
+            <a
+            href={`${basePath}/files/Бланк заказа Luna_кромка ПВХ.xls`}
+            download="Бланк заказа Luna_кромка ПВХ.xls"
+            className={css.Adelkreis__link}
+          >
+            Бланк заказа Luna_кромка ПВХ
+          </a>
+        </button>
+        <button className={css.Adelkreis__button}>
+            <a
+            href={`${basePath}/files/Бланк заказа Brilliantlinie, облицованный с 2-х сторон.xls`}
+            download="Бланк заказа Brilliantlinie, облицованный с 2-х сторон"
+            className={css.Adelkreis__link}
+          >
+            Бланк заказа Brilliantlinie, облицованный с 2-х сторон
+          </a>
+        </button>
+        <button className={css.Adelkreis__button}>
+            <a
+            href={`${basePath}/files/Бланк заказа Brilliantlinie, облицованный с 1-й стороны.xls`}
+            download="Бланк заказа Brilliantlinie, облицованный с 1-й стороны"
+            className={css.Adelkreis__link}
+          >
+            Бланк заказа Brilliantlinie, облицованный с 1-й стороны
+          </a>
+        </button>
+        </div>
+      </div>
+      <div className={css.Adelkreis__form}>
+        <Form/>
       </div>
     </div>
   );

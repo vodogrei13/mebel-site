@@ -85,11 +85,18 @@ export const Block_FasadTypes = () => {
                     что обеспечивает дополнительную прочность и устойчивость к влаге.
                     <br/>Идеально подходят для современных кухонь, где важны практичность, стиль и простота в уходе!</p>
                     </div>
-                    <div className={css.IconItem}>
-                                <Link href='/formCalcVitrin'>
-                                <img src={`${basePath}/png/fasads/alvitrin.png`} alt="Логотип Ал.Витрин" />
-                                </Link>
-                            </div>
+                    <div className={css.IconFirms}>
+                        <div className={css.IconItem}>
+                            <Link href='/fasad-forms/Skat'>
+                            <img src={`${basePath}/png/fasads/skat.png`} alt="Логотип Скат" />
+                            </Link>
+                        </div>
+                        <div className={css.IconItem}>
+                            <Link href='/fasad-forms/FIP'>
+                            <img src={`${basePath}/png/fasads/ФиП.png`} alt="Логотип ФиП" />
+                            </Link>
+                        </div>
+                    </div>
                     </div>
                     <Block_Slider images={sliderImages1}/>
                 </div>
@@ -107,11 +114,28 @@ export const Block_FasadTypes = () => {
                     <br/>но стильный вариант с хорошей износостойкостью.
                     <br/>Отличный выбор для кухонь в современном, классическом или скандинавском стиле.</p>
                     </div>
-                    <div className={css.IconItem}>
-                                <Link href='/formCalcVitrin'>
-                                <img src={`${basePath}/png/fasads/alvitrin.png`} alt="Логотип Ал.Витрин" />
-                                </Link>
-                            </div>
+                    <div className={css.IconFirms}>
+                        <div className={css.IconItem}>
+                            <Link href='/fasad-forms/Skat'>
+                            <img src={`${basePath}/png/fasads/skat.png`} alt="Логотип Скат" />
+                            </Link>
+                        </div>
+                        <div className={css.IconItem}>
+                            <Link href='/fasad-forms/YourDay'>
+                            <img src={`${basePath}/png/fasads/вашдень.png`} alt="Логотип Ваш день" />
+                            </Link>
+                        </div>
+                        <div className={css.IconItem}>
+                            <Link href='/fasad-forms/Evosoft'>
+                            <img src={`${basePath}/png/fasads/evosoft.png`} alt="Логотип Evosoft" />
+                            </Link>
+                        </div>
+                        <div className={css.IconItem}>
+                            <Link href='/fasad-forms/Tbm'>
+                            <img src={`${basePath}/png/fasads/tbm.png`} alt="Логотип ТБМ" />
+                            </Link>
+                        </div>
+                    </div>
                     </div>
                     <Block_Slider images={sliderImages2}/>
                 </div>
@@ -128,11 +152,18 @@ export const Block_FasadTypes = () => {
                     <p>Идеально подходит для кухонь в современном, классическом, скандинавском или лофт-стиле.
                     <br/>Это выбор тех, кто ценит премиальное качество и индивидуальный дизайн.</p>
                     </div>
-                    <div className={css.IconItem}>
-                                <Link href='/formCalcVitrin'>
-                                <img src={`${basePath}/png/fasads/alvitrin.png`} alt="Логотип Ал.Витрин" />
-                                </Link>
-                            </div>
+                    <div className={css.IconFirms}>
+                        <div className={css.IconItem}>
+                            <Link href='/fasad-forms/ArborNova'>
+                            <img src={`${basePath}/png/fasads/arbor-nova.png`} alt="Логотип Arbor Nova" />
+                            </Link>
+                        </div>
+                        <div className={css.IconItem}>
+                            <Link href='/fasad-forms/Skat'>
+                            <img src={`${basePath}/png/fasads/skat.png`} alt="Логотип Скат" />
+                            </Link>
+                        </div>
+                    </div>
                     </div>
                     <Block_Slider images={sliderImages3}/>
                 </div>
@@ -151,7 +182,18 @@ export const Block_FasadTypes = () => {
                             <br/><br/>Такое декоративное покрытие отличается повышенной устойчивостью к механическим повреждениям, контактам с водой, а также к любым видам загрязнений, что делает его максимально износостойким.</p>
                             <p>Изделия из плит TCC не требуют специального ухода, они устойчивы к воздействию химических веществ и бытовых жидкостей - растворителей, спиртов, чернил, кофе, вина и т.д.</p>
                         </div>
-                            
+                        <div className={css.IconFirms}>
+                            <div className={css.IconItem}>
+                                <Link href='/fasad-forms/Skat'>
+                                <img src={`${basePath}/png/fasads/skat.png`} alt="Логотип Скат" />
+                                </Link>
+                            </div>
+                            <div className={css.IconItem}>
+                                <Link href='/fasad-forms/Duco'>
+                                <img src={`${basePath}/png/fasads/duco.png`} alt="Логотип duco" />
+                                </Link>
+                            </div>
+                        </div>
                     </div>
                     <Block_Slider images={sliderImages4}/>
                 </div>
@@ -167,11 +209,13 @@ export const Block_FasadTypes = () => {
                             <br/>а внутреннее наполнение позволяет реализовать любые дизайнерские идеи.</p>
                             <p>Идеальный выбор для тех, кто ищет надежность, современный дизайн и долговечность!</p>
                         </div>
+                        <div className={css.IconFirms}>
                             <div className={css.IconItem}>
-                                <Link href='/formCalcVitrin'>
+                                <Link href='/fasad-forms/AlVitrin'>
                                 <img src={`${basePath}/png/fasads/alvitrin.png`} alt="Логотип Ал.Витрин" />
                                 </Link>
                             </div>
+                        </div>
                     </div>
                     <Block_Slider images={sliderImages5}/>
                 </div>
@@ -183,11 +227,18 @@ export const Block_FasadTypes = () => {
                             <p>Шпонированные фасады для кухни – элитное решение для ценителей натуральных материалов и утонченной эстетики</p>
                             <p>Шпон – это тонкий срез (0,5–3 мм) натуральной древесины ценных пород (дуб, ясень, орех, бук, венге и др.), который наклеивается на основу из МДФ или массива. Сохраняет всю красоту и текстуру дерева, но стоит дешевле цельного массива.</p>
                         </div>
+                        <div className={css.IconFirms}>
                             <div className={css.IconItem}>
-                                <Link href='/formCalcVitrin'>
-                                <img src={`${basePath}/png/fasads/alvitrin.png`} alt="Логотип Ал.Витрин" />
+                                <Link href='/fasad-forms/ArborNova'>
+                                <img src={`${basePath}/png/fasads/arbor-nova.png`} alt="Логотип Arbor Nova" />
                                 </Link>
                             </div>
+                            <div className={css.IconItem}>
+                                <Link href='/fasad-forms/Skat'>
+                                <img src={`${basePath}/png/fasads/skat.png`} alt="Логотип Скат" />
+                                </Link>
+                            </div>
+                        </div>
                         </div>
                     <Block_Slider images={sliderImages6}/>
                 </div>
@@ -204,11 +255,13 @@ export const Block_FasadTypes = () => {
                         <li>Обратная сторона – компенсирующий пластиковый слой для защиты от деформаций</li>
                     </ul>
                     </div>
-                    <div className={css.IconItem}>
-                                <Link href='/formCalcVitrin'>
-                                <img src={`${basePath}/png/fasads/alvitrin.png`} alt="Логотип Ал.Витрин" />
-                                </Link>
-                            </div>
+                    <div className={css.IconFirms}>
+                        <div className={css.IconItem}>
+                            <Link href='/fasad-forms/Adelkreis'>
+                            <img src={`${basePath}/png/fasads/adelkreis.png`} alt="Логотип Adelkreis" />
+                            </Link>
+                        </div>
+                    </div>
                     </div>
                     <Block_Slider images={sliderImages7}/>
                 </div>

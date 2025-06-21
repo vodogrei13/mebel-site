@@ -1,18 +1,6 @@
 "use client";
-import css from "./skat.module.scss";
+import css from "./fip.module.scss";
 import { basePath } from "@/utils/basePath";
-import {
-  typeSurface,
-  colorDye,
-  colorSkin,
-  milling,
-  millingOnTheFacade,
-  millingOnTheEdge,
-  prefabricated,
-  patina,
-  thickness,
-  note,
-} from "./optionImport";
 import { DrawingItem } from "../drawingItems/drawingItem";
 import SubmitModal from "../submitModal/submitModal";
 import { useState, useRef, useCallback } from "react";
@@ -20,8 +8,7 @@ import { Button_Gradient } from "@/components/ui/buttons/button-gradient/button-
 import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
 
-export const Skat = () => {
-  const [selectedTypeSurface, setSelectedTypeSurface] = useState("color");
+export const FIP = () => {
   const [showSubmitModal, setShowSubmitModal] = useState(false);
   const [name, setName] = useState("");
   const [surname, setSurname] = useState("");
@@ -178,7 +165,7 @@ export const Skat = () => {
       color: #000 !important;
     }
 
-    body.pdf-mode .${css.skat__form_main},
+    body.pdf-mode .${css.fip__form_main},
     body.pdf-mode .${css.form__form_drawing} {
       gap: 6px !important;
     }
@@ -295,7 +282,7 @@ export const Skat = () => {
     formData.append("email", email);
     formData.append("phone", phone);
     formData.append("comment", comment);
-    formData.append("formName", "СКАТ");
+    formData.append("formName", "Фасады и пластики");
     
     // Добавляем PDF
     formData.append("files", new File([pdfBlob], "order.pdf", { type: "application/pdf" }));
@@ -335,31 +322,71 @@ export const Skat = () => {
 };
 
   return (
-    <div className={css.skat__container}>
-      <section className={css.skat__form_container}>
+    <div className={css.fip__container}>
+      <section className={css.fip__form_container}>
         <div className="pdf-adjust" ref={pdfRef}>
-          <div className={css.skat__logo}>
-            <img src={`${basePath}/png/fasads/skat.png`} className={css.skat__logo_item} alt="Логотип" />
+          <div className={css.fip__logo}>
+            <img src={`${basePath}/png/fasads/ФиП.png`} className={css.fip__logo_item} alt="Логотип" />
           </div>
 
-    <form className={css.skat__form}>
-          <div className={css.skat__form_main}>
+    <form className={css.fip__form}>
+          <div className={css.fip__form_main}>
+            
+            <div className={css.form__item}>
+              <label htmlFor="thickness">Толщина*</label>
+              <input
+                type="text"
+                className={css.form__input}
+                name="thickness"
+                id="thickness"
+                required
+              />
+            </div>
+
             <div className={css.form__item}>
               <label htmlFor="typeSurface">Тип поверхности*</label>
-              <select
+              <input
+                type="text"
+                className={css.form__input}
                 name="typeSurface"
                 id="typeSurface"
+                required
+              />
+            </div>
+
+            <div className={css.form__item}>
+              <label htmlFor="color">Цвет*</label>
+              <input
+                type="text"
+                className={css.form__input}
+                name="color"
+                id="color"
+                required
+              />
+            </div>
+
+            <div className={css.form__item}>
+              <label htmlFor="reverseSide">Обратная сторона*</label>
+              <select
+                name="reverseSide"
+                id="reverseSide"
                 className={css.form__select}
-                value={selectedTypeSurface}
-                onChange={(e) => setSelectedTypeSurface(e.target.value)}
                 required
               >
-                {typeSurface.map((option) => (
-                  <option key={option.value} value={option.value}>
-                    {option.label}
-                  </option>
-                ))}
+                <option value="color">В цвет</option>
+                <option value="white">Белая</option>
               </select>
+            </div>
+
+            <div className={css.form__item}>
+              <label htmlFor="edgeMilling">Фрезеровка по краю*</label>
+              <input
+                type="text"
+                className={css.form__input}
+                name="edgeMilling"
+                id="edgeMilling"
+                required
+              />
             </div>
 
             <div className={css.form__item}>
@@ -372,135 +399,6 @@ export const Skat = () => {
               >
                 <option value="inHeight">По высоте</option>
                 <option value="inWidth">По ширине</option>
-              </select>
-            </div>
-
-            <div className={css.form__item}>
-              <label htmlFor="milling">Фрезеровка*</label>
-              <select
-                name="milling"
-                id="milling"
-                className={css.form__select}
-                required
-              >
-                {milling.map((option) => (
-                  <option key={option.value} value={option.value}>
-                    {option.label}
-                  </option>
-                ))}
-              </select>
-            </div>
-
-            <div className={css.form__item}>
-              <label htmlFor="color">Цвет*</label>
-              <select
-                name="color"
-                id="color"
-                className={css.form__select}
-                required
-              >
-                {selectedTypeSurface === "color"
-                  ? colorDye.map((option) => (
-                      <option key={option.value} value={option.value}>
-                        {option.label}
-                      </option>
-                    ))
-                  : colorSkin.map((option) => (
-                      <option key={option.value} value={option.value}>
-                        {option.label}
-                      </option>
-                    ))}
-              </select>
-            </div>
-
-            <div className={css.form__item}>
-              <label htmlFor="thickness">Толщина*</label>
-              <select
-                name="thickness"
-                id="thickness"
-                className={css.form__select}
-                required
-              >
-                {thickness.map((option) => (
-                  <option key={option.value} value={option.value}>
-                    {option.label}
-                  </option>
-                ))}
-              </select>
-            </div>
-
-            <div className={css.form__item}>
-              <label htmlFor="facadeMilling">Фрезеровка по фасаду*</label>
-              <select
-                name="facadeMilling"
-                id="facadeMilling"
-                className={css.form__select}
-                required
-              >
-                {millingOnTheFacade.map((option) => (
-                  <option key={option.value} value={option.value}>
-                    {option.label}
-                  </option>
-                ))}
-              </select>
-            </div>
-
-            <div className={css.form__item}>
-              <input
-                type="text"
-                placeholder="Или напишите ваш вариант"
-                className={css.form__input}
-                name="myColor"
-                id="myColor"
-                required
-              />
-            </div>
-
-            <div className={css.form__item}>
-              <label htmlFor="patina">Патина*</label>
-              <select
-                name="patina"
-                id="patina"
-                className={css.form__select}
-                required
-              >
-                {patina.map((option) => (
-                  <option key={option.value} value={option.value}>
-                    {option.label}
-                  </option>
-                ))}
-              </select>
-            </div>
-
-            <div className={css.form__item}>
-              <label htmlFor="edgeMilling">Фрезеровка по краю*</label>
-              <select
-                name="edgeMilling"
-                id="edgeMilling"
-                className={css.form__select}
-                required
-              >
-                {millingOnTheEdge.map((option) => (
-                  <option key={option.value} value={option.value}>
-                    {option.label}
-                  </option>
-                ))}
-              </select>
-            </div>
-
-            <div className={css.form__item}>
-              <label htmlFor="teams">Сборные*</label>
-              <select
-                name="teams"
-                id="teams"
-                className={css.form__select}
-                required
-              >
-                {prefabricated.map((option) => (
-                  <option key={option.value} value={option.value}>
-                    {option.label}
-                  </option>
-                ))}
               </select>
             </div>
           </div>

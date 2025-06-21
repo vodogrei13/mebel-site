@@ -301,10 +301,12 @@ const handlePhoneChange = (e) => {
     console.log('PDF преобразован в blob');
 
     const formData = new FormData();
-    formData.append('name', `${name} ${surname}`);
+    formData.append('name', name );
+    formData.append("surname", surname);
     formData.append('email', email);
     formData.append('phone', phone);
     formData.append('comment', comment);
+    formData.append("formName", "Алюминиевые витрины");
     formData.append('files', pdfBlob, 'order.pdf');
     
     console.log('Отправка данных на сервер...');

@@ -3,7 +3,7 @@ import { Button_Gradient } from '@/components/ui/buttons/button-gradient/button-
 import css from './1block-fasad.module.scss'
 import { basePath } from '@/utils/basePath';
 import Link from "next/link";
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 
 export const Block_Fasad = () => {
   const [showIframe, setShowIframe] = useState(false);
@@ -47,47 +47,47 @@ export const Block_Fasad = () => {
                   Х
               </button>
               <div className={css.IconItem}>
-                <Link href='/'>
+                <Link href='/fasad-forms/Tbm'>
                   <img src={`${basePath}/png/fasads/tbm.png`} alt="Логотип ТБМ" />
                 </Link>
               </div>
               <div className={css.IconItem}>
-                <Link href='/formArborNova'>
+                <Link href='/fasad-forms/ArborNova'>
                   <img src={`${basePath}/png/fasads/arbor-nova.png`} alt="Логотип Arbor Nova" />
                 </Link>
               </div>
               <div className={css.IconItem}>
-                <Link href='/formAdelkreis'>
+                <Link href='/fasad-forms/Adelkreis'>
                   <img src={`${basePath}/png/fasads/adelkreis.png`} alt="Логотип Adelkreis" />
                 </Link>
               </div>
               <div className={css.IconItem}>
-                <Link href='/formSkat'>
+                <Link href='/fasad-forms/Skat'>
                   <img src={`${basePath}/png/fasads/skat.png`} alt="Логотип Скат" />
                 </Link>
               </div>
               <div className={css.IconItem}>
-                <Link href='/formCalcVitrin'>
+                <Link href='/fasad-forms/AlVitrin'>
                   <img src={`${basePath}/png/fasads/alvitrin.png`} alt="Логотип Ал.Витрин" />
                 </Link>
               </div>
               <div className={css.IconItem}>
-                <Link href='/'>
+                <Link href='/fasad-forms/Duco'>
                   <img src={`${basePath}/png/fasads/duco.png`} alt="Логотип duco" />
                 </Link>
               </div>
               <div className={css.IconItem}>
-                <Link href='/'>
+                <Link href='/fasad-forms/Evosoft'>
                   <img src={`${basePath}/png/fasads/evosoft.png`} alt="Логотип Evosoft" />
                 </Link>
               </div>
               <div className={css.IconItem}>
-                <Link href='/'>
+                <Link href='/fasad-forms/FIP'>
                   <img src={`${basePath}/png/fasads/ФиП.png`} alt="Логотип ФиП" />
                 </Link>
               </div>
               <div className={css.IconItem}>
-                <Link href='/'>
+                <Link href='/fasad-forms/YourDay'>
                   <img src={`${basePath}/png/fasads/вашдень.png`} alt="Логотип Ваш день" />
                 </Link>
               </div>
