@@ -5,16 +5,25 @@
     width: 100%;
     .menu__button {
         background: none;
-        border: none;
+        border-radius: 5px;
+        background: linear-gradient(white, white) padding-box,
+        linear-gradient(to right, #1a2980 0%, #26d0ce 51%, #1a2980 100%)
+            border-box;
+        border: 1px solid transparent;
+        outline: none;
+        padding: 2px;
+        box-sizing: border-box;
+        height: 4.4vw;
         cursor: pointer;
         padding: 0;
         display: flex;
         align-items: center;
+        margin-bottom: 8px;
       }
       
       .mobile__menu {
         position: absolute;
-        top: 50px; // Зависит от дизайна
+        top: 50px;
         right: 10px;
         background-color: #fff;
         box-shadow: 0 0 10px rgba(0,0,0,0.1);
@@ -27,7 +36,7 @@
         }
       }
       
-      @media (min-width: 768px) {
+      @media (min-width: 812px) {
         .menu__button {
           display: none;
         }
@@ -38,7 +47,7 @@
       }      
     .nav__list {
         display: flex;
-        @media (max-width: 768px) {
+        @media (max-width: 812px) {
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -50,7 +59,7 @@
             text-wrap: nowrap;
             .nav__link {
                 display: block;
-                padding: 0.96875em 2.125em;
+                padding: 0.96875rem 2.125rem;
                 width: 100%;
                 height: 100%;
                 text-decoration: none;
@@ -58,6 +67,12 @@
                 font-size: clamp(12px, 0.83vw , 50px);
                 &:hover {
                     text-decoration: none;
+                }
+                @media (max-width: 1320px) {
+                    padding: 0.36875rem 1rem;
+                }
+                @media (max-width: 1030px) {
+                    padding: 0.3rem 0.5rem;
                 }
             }
             &:nth-child(1) .nav__link,
@@ -69,6 +84,15 @@
             &:nth-child(4) .nav__link,  
             &:nth-child(6) .nav__link {
                 padding-top: 1.5625rem;
+                @media (max-width: 1600px) {
+                    padding-top: 1rem;
+                }
+                @media (max-width: 1450px) {
+                    padding-top: 1rem;
+                }
+                @media (max-width: 1300px) {
+                    padding-top: 0.4rem;
+                }
             }
             border: 2px solid transparent;
                 &:hover {
@@ -76,13 +100,11 @@
             }
         }
     }
-    
-    
-    @media (max-width: 414px) {
+    // @media (max-width: 414px) {
 
-    }
+    // }
     
-    @media (max-width: 320px) {
+    // @media (max-width: 320px) {
 
-    }
+    // }
 }

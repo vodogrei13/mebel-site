@@ -1,9 +1,8 @@
-import { IconLogo1 } from "@/public/svg/Logotest1"
 import { Navigation } from "@/components/navigation/navigation"
 import { TelandEmail } from "@/components/telandemail/telandemail"
 import Link from "next/link";
-import { basePath } from '@/utils/basePath';
 import css from './header.module.scss'
+import { IconLogoMain } from "@/public/svg/LogoMain";
 
 export const Header = () => {
     return (
@@ -11,8 +10,7 @@ export const Header = () => {
             <div className={css.header__container}>
                 <div className={css.header__logo}>
                     <Link href='/'>
-                    <img src={`${basePath}/png/Logotest3.png`} alt="logo" className={css.header__logo_item}/>
-                    {/* <IconLogo1 width="3.75vw" height="7.1vh"/> */}
+                        <IconLogoMain width="100%" height="100%"/>
                     </Link>     
                 </div>
                 <div className={css.header__nav}>

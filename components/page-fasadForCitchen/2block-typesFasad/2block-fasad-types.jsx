@@ -30,12 +30,11 @@ const sliderImages3 = [
     { url: `${basePath}/png/slider/painted/крашенный-6.png` },
 ]
 const sliderImages4 = [
-    { url: `${basePath}/png/slider/painted/крашенный-1.png` },
-    { url: `${basePath}/png/slider/painted/крашенный-2.png` },
-    { url: `${basePath}/png/slider/painted/крашенный-3.png` },
-    { url: `${basePath}/png/slider/painted/крашенный-4.png` },
-    { url: `${basePath}/png/slider/painted/крашенный-5.png` },
-    { url: `${basePath}/png/slider/painted/крашенный-6.png` },
+    { url: `${basePath}/png/slider/tss/tss-1.png` },
+    { url: `${basePath}/png/slider/tss/tss-2.png` },
+    { url: `${basePath}/png/slider/tss/tss-3.png` },
+    { url: `${basePath}/png/slider/tss/tss-4.png` },
+    { url: `${basePath}/png/slider/tss/tss-5.png` },
 ]
 
 const sliderImages5 = [

@@ -2,8 +2,9 @@
 import Link from "next/link";
 import css from "./footer.module.scss";
 import { TelandEmail } from "@/components/telandemail/telandemail";
-import { IconLogo } from "@/public/svg/Logo";
 import { Political } from "../political/political";
+import { IconLogoMain } from "@/public/svg/LogoMain";
+
 
 export const Footer = () => {
  
@@ -15,8 +16,7 @@ export const Footer = () => {
       sessionStorage.setItem('shouldScrollToAbout', 'true');
       window.location.href = "/mebel-site";
       return;
-    }
-    
+    }  
     // Если уже на нужной странице, выполняем скролл сразу
     scrollToAbout();
   }
@@ -34,46 +34,52 @@ export const Footer = () => {
     <div className={css.footer__wrapper}>
       <div className={css.footer__container}>
         <section className={css.footer__nav}>
-        <Link href='/'><IconLogo stroke="#fff" width="3.75vw" height="7.1vh"/></Link> 
-          <ul className={css.nav__list}>
+          <div className={css.footer__logo}>
+            <Link href='/'>
+                <IconLogoMain width="100%" height="100%"/>
+            </Link>     
+          </div>
+          <div className={css.footer__navigation}>
+            <ul className={css.nav__list}>
+              <li className={css.nav__item}>
+                <Link href="/kitchen-module" className="container__nav_link">
+                  Кухонные<br/>модули
+                </Link>
+              </li>
+              <li className={css.nav__item}>
+                <Link href="/raspil" className="container__nav_link">
+                  Професиональный<br/>распил
+                </Link>
+              </li>
+              <li className={css.nav__item}>
+                <Link href="/dveri-kupe" className="container__nav_link">
+                  Двери-купе
+                </Link>
+              </li>
+            </ul>
+            <ul className={css.nav__list}>
             <li className={css.nav__item}>
-              <Link href="/kitchen-module" className="container__nav_link">
-                Кухонные<br/>модули
+                <Link href="/countertops" className="container__nav_link">
+                  Столешница<br/>для кухни
+                </Link>
+              </li>
+              <li className={css.nav__item}>
+                <Link href="/fasad-for-kitchen" className="container__nav_link">
+                  Мебельные<br/>фасады
+                </Link>
+              </li>
+              <li className={css.nav__item}>
+              <Link 
+                  href="/mebel-site" 
+                  className={css.nav__link}
+                  onClick={(e) => handleAboutClick(e)}
+                  scroll={false}
+              >
+                  О компании
               </Link>
-            </li>
-            <li className={css.nav__item}>
-              <Link href="/raspil" className="container__nav_link">
-                Професиональный<br/>распил
-              </Link>
-            </li>
-            <li className={css.nav__item}>
-              <Link href="/dveri-kupe" className="container__nav_link">
-                Двери-купе
-              </Link>
-            </li>
-          </ul>
-          <ul className={css.nav__list}>
-          <li className={css.nav__item}>
-              <Link href="/countertops" className="container__nav_link">
-                Столешница для кухни
-              </Link>
-            </li>
-            <li className={css.nav__item}>
-              <Link href="/fasad-for-kitchen" className="container__nav_link">
-                Мебельные<br/>фасады
-              </Link>
-            </li>
-            <li className={css.nav__item}>
-            <Link 
-                href="/mebel-site" 
-                className={css.nav__link}
-                onClick={(e) => handleAboutClick(e)}
-                scroll={false}
-            >
-                О компании
-            </Link>
-            </li>
-          </ul>
+              </li>
+            </ul>
+          </div>
         </section>
         <section className={css.footer__contact}>
             <div className={css.contact__map}>
@@ -116,9 +122,9 @@ export const Footer = () => {
       </div>
       <hr className={css.line} align="center" width="100%" size="2" color="#d5c9be" />
       <div className={css.policy}>
-                <p>© 2025, Copyright.</p>
-                <Political/>
-            </div>
+        <p>© 2025, Copyright.</p>
+        <Political/>
+      </div>
     </div>
   );
 };

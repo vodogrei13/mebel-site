@@ -11,7 +11,7 @@ export const Navigation= () => {
   
     useEffect(() => {
       const handleResize = () => {
-        setIsMobile(window.innerWidth < 768);
+        setIsMobile(window.innerWidth < 812);
       };
   
       handleResize(); // Проверка при монтировании
@@ -42,11 +42,11 @@ export const Navigation= () => {
   
     const navList = (
       <ul className={css.nav__list}>
-        <li className={css.nav__item}><Link href="/raspil" className={css.nav__link}>Професиональный распил</Link></li>
-        <li className={css.nav__item}><Link href="/fasad-for-kitchen" className={css.nav__link}>Мебельные фасады</Link></li>
-        <li className={css.nav__item}><Link href="/kitchen-module" className={css.nav__link}>Кухонные модуля</Link></li>
+        <li className={css.nav__item}><Link href="/raspil" className={css.nav__link}>Професиональный<br/>распил</Link></li>
+        <li className={css.nav__item}><Link href="/fasad-for-kitchen" className={css.nav__link}>Мебельные<br/>фасады</Link></li>
+        <li className={css.nav__item}><Link href="/kitchen-module" className={css.nav__link}>Кухонные<br/>модуля</Link></li>
         <li className={css.nav__item}><Link href="/dveri-kupe" className={css.nav__link}>Двери-купе</Link></li>
-        <li className={css.nav__item}><Link href="/countertops" className={css.nav__link}>Столешница для кухни</Link></li>
+        <li className={css.nav__item}><Link href="/countertops" className={css.nav__link}>Столешница<br/>для кухни</Link></li>
         <li className={css.nav__item}>
           <Link 
             href="/" 
