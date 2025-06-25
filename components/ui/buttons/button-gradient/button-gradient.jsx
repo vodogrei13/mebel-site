@@ -1,15 +1,16 @@
 'use client'
 import Link from "next/link";
 import css from './button-gradient.module.scss';
+import { ArrowIcon } from '@/public/svg/button_arrow.js';
 
 export const Button_Gradient = ({ 
-    text = "Оставить заявку", // Значение по умолчанию
-    width = "219px",       // Значение по умолчанию
-    height = "60px",       // Значение по умолчанию
-    href = "/",               // Ссылка по умолчанию
-    targetId = null,          // Таргет    
-    target = "_self", // Значение по умолчанию
-    rel = "",         // Значение по умолчанию
+    text = "Оставить заявку",
+    width = "219px",
+    height = "60px",
+    href = "/",
+    targetId = null,
+    target = "_self",
+    rel = "",
     onClick,
 }) => {
     const handleClick = (e) => {
@@ -33,11 +34,19 @@ export const Button_Gradient = ({
             }, 200);
         }
     };
+
+    const buttonContent = (
+        <>
+            <span>{text}</span>
+            <ArrowIcon className={css.arrow} />
+        </>
+    );
+
     return (
         <div className={`${css.button__container} ${css.className}`}>
              {onClick ? (
                 <button style={{ '--width': width, '--height': height }} onClick={handleClick}>
-                    {text}
+                    {buttonContent}
                 </button>
             ) : (
                 <Link 
@@ -49,7 +58,7 @@ export const Button_Gradient = ({
                     rel={rel}
                 >
                     <button style={{ width, height }} onClick={handleClick}>
-                        {text}
+                        {buttonContent}
                     </button>
                 </Link>
             )}

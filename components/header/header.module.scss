@@ -19,11 +19,11 @@
     .header__container {
         display: flex;
         gap: 1rem;
-        max-width: 1340px;
         width: 100%;
         margin: 0 auto;
         align-items: center;
         height: 6.96vh;
+        justify-content: center;
         @media (max-width: 1600px) {
             justify-content: space-around;
             gap: 0.5rem;

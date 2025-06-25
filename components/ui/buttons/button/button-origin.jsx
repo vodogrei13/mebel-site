@@ -5,7 +5,7 @@ import { basePath } from '@/utils/basePath';
 export const Button_Origin = ({
     text = "Подробнее",
     width = "calc(7.917vw + 12px)",
-    height = "calc(60px + 12px)",    
+    height = "calc(2.8vw + 12px)",    
     href,  
     type = "button",
     onClick,      

@@ -27,7 +27,7 @@ export const Block_Fasad = () => {
               <Button_Gradient
               text="Заказать фасады"
               width="11.979vw"
-              height="6vh"
+              height="60px"
               onClick={() => setShowIframe(true)}
               />
             </div>

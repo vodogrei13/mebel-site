@@ -89,7 +89,7 @@ export const Block_Raspil = () => {
               <Button_Gradient
                 text="Заказать распил"
                 width="11.719vw"
-                height="6vh"
+                height="60px"
                 onClick={() => setShowIframe(true)}
               />
             </div>

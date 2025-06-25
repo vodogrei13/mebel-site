@@ -1,18 +1,33 @@
 .form__container {
   z-index: 10;
-  width: 60.3vw;
   height: 34.169vh;
   margin: 0 auto;
   background-image: linear-gradient(to right, #2db3b3 0%, #13254d 100%);
   width: 75vw;
   display: flex;
   flex-direction: column;
-  gap: 3em;
+  gap: 1rem;
+  @media (max-width: 1580px) {
+        height: 28vh;
+    }
+    @media (max-width: 1400px) {
+        height: 27vh;
+    }
+    @media (max-width: 1280px) {
+        width: 100%;
+    }
+    @media (max-width: 768px) {
+        height: 23vh;
+        gap: 0.6rem;
+    }
   .form__title {
     text-align: center;
     margin: 0 auto;
     width: 28vw;
     padding-top: 4.353vh;
+    @media (max-width: 768px) {
+        padding-top: 2.353vh;
+    }
     h2 {
       letter-spacing: -0.03125em;
       color: #f4f4f4;
@@ -23,15 +38,34 @@
     display: flex;
     gap: 5.313vw;
     width: 52.052vw;
+    @media (max-width: 1500px) {
+      width: 56.45vw;
+    }
+     @media (max-width: 1280px) {
+      width: 100%;
+    }
     .form__items {
       height: auto;
       margin: 0 auto;
+      @media (max-width: 1280px) {
+        width: 70%;
+      }
+      @media (max-width: 1024px) {
+        width: 80%;
+      }
+      @media (max-width: 768px) {
+        width: 90%;
+      }
       form {
         display: flex;
         flex-direction: row;
         gap: 2rem;
+        @media (max-width: 768px) {
+          flex-direction: column;
+          gap: 0.4rem;
+        }
         .form__info {
-          width: 36.25vw;
+          width: 43.45vw;
           margin: 0 auto;
           display: flex;
           flex-direction: row;
@@ -39,6 +73,10 @@
           gap: 1.5vw;
           box-sizing: border-box;
           align-items: flex-start;
+          @media (max-width: 1280px) {
+            width: 100%;
+            justify-content: center;
+          }
           .form_politics {
             margin: 0;
             display: flex;
@@ -48,7 +86,7 @@
             width: 100%;
             input[type="checkbox"] {
               width: 1.042vw;
-              height: 1.923vh;
+              height: 1.923vw;
               margin: 0;
             }
             label {
@@ -66,15 +104,29 @@
             display: flex;
             flex-direction: row;
             margin: 0 auto;
+            gap: 0.2rem;
             textarea {
-              width: 10.417vw;
-              height: 3.482vh;
+              width: 13.417vw;
+              height: 41px;
               padding-top: 0.5rem;
               padding-left: 0.5rem;
               font-size: 1em;
               font-family: "Roboto";
               outline: none;
               margin-right: 2.5vw;
+              &::placeholder {
+                font-size: 1em;
+                font-size: clamp(12px, 0.66vw, 100px);
+              }
+              @media (max-width: 1500px) {
+                padding-top: 0.2rem;
+              }
+              @media (max-width: 1024px) {
+                width: 50%;
+              }
+              @media (max-width: 768px) {
+                width: 40%;
+              }
             }
             .error_message {
               color: #ff6b6b;
@@ -113,6 +165,9 @@
                   position: relative;
                   display: inline-block;
                   width: auto;
+                  @media (max-width: 768px) {
+                    width: 30%;
+                  }
                 }
                 .input_file span {
                   position: relative;
@@ -124,7 +179,7 @@
                   cursor: pointer;
                   outline: none;
                   text-decoration: none;
-                  font-size: 14px;
+                  font-size: clamp(10px, 0.66vw, 100px);
                   vertical-align: middle;
                   color: rgb(255 255 255);
                   text-align: center;
@@ -137,6 +192,13 @@
                   border: none;
                   margin: 0;
                   transition: background-color 0.2s;
+                  @media (max-width: 800px) {
+                    padding: 5px 10px;
+                  }
+                  @media (max-width: 768px) {
+                    padding: 2px 6px;
+                    height: 25px;
+                  }
                 }
                 .input_file input[type="file"] {
                   position: absolute;
@@ -170,8 +232,7 @@
           }
           input {
             outline: none;
-            height: 3.482vh;
-            width: 10.417vw;
+            width: 13.417vw;
             min-width: 0;
             margin-top: 0.9em;
             font-size: 1em;
@@ -183,12 +244,13 @@
               padding: 0.5em;
               font-size: 1em;
               font-weight: 400;
+              font-size: clamp(12px, 0.66vw, 100px);
             }
           }
           input:not([type="file"]) {
             outline: none;
-            height: 3.482vh;
-            width: 10.417vw;
+            height: 41px;
+            width: 13.417vw;
             min-width: 0;
             margin-top: 0.9em;
             font-size: 1em;
@@ -196,6 +258,12 @@
             padding: 0.5em;
             border: none;
             outline: none;
+            @media (max-width: 1280px) {
+              width: 30%;
+            }
+            @media (max-width: 768px) {
+              height: 25px;
+            }
           }
         }
       }
@@ -204,6 +272,10 @@
       display: flex;
       flex-direction: column;
       align-items: center;
+      padding-top: 1.5rem;
+      @media (max-width: 768px) {
+        padding-top: 0;
+      }
       button:disabled {
         opacity: 0.6;
         cursor: not-allowed;
