@@ -14,16 +14,17 @@ const sliderImages = [
 
 export const Block_About = () => {
     const [currentSlide, setCurrentSlide] = useState(0);
-        const [direction, setDirection] = useState('right');
+    const [direction, setDirection] = useState('right');
     
-        useEffect(() => {
-            const interval = setInterval(() => {
-                setDirection('right');
-                setCurrentSlide((prev) => (prev === sliderImages.length - 1 ? 0 : prev + 1));
-            }, 5000);
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setDirection('right');
+            setCurrentSlide((prev) => (prev === sliderImages.length - 1 ? 0 : prev + 1));
+        }, 5000);
+
+        return () => clearInterval(interval);
+    }, []);
     
-            return () => clearInterval(interval);
-        }, []);
     return (
       <div>
         <section className={css.block_about__container}>

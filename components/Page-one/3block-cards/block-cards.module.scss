@@ -54,8 +54,8 @@
             flex-direction: row;
             background-color: #1C4B62;
             width: 58.75vw;
-            height: auto; // Изменено с фиксированной высоты на auto
-            min-height: 24.904vw; // Добавлено min-height вместо height
+            height: auto;
+            min-height: 24.904vw;
             padding: 1.875em 2.625em;
             transition: transform 0.5s ease, z-index 0.5s ease;
             position: relative;

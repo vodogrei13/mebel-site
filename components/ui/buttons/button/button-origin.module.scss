@@ -1,3 +1,6 @@
+// Breakpoints
+$mobile: 768px;
+
 @keyframes ring {
     0% {
       width: 5rem;
@@ -28,9 +31,16 @@
         position: relative;
         font-size: clamp(12px, 0.833vw, 100px);
         @media (max-width: 1280px) {
-              min-width: calc(8.917vw + 12px) !important;
-              min-height: calc(3.8vw + 12px) !important;
-            }
+          min-width: calc(8.917vw + 12px) !important;
+          min-height: calc(3.8vw + 12px) !important;
+        }
+        @media (max-width: $mobile) {
+          padding: 10px;
+          padding-left: 10px;
+          padding-right: 20px;
+          background-color: #2DB3B3;
+          color: black;
+        }
         &:hover {
             background-color: #2DB3B3 !important;
             color: #000 !important;
@@ -55,6 +65,10 @@
             @media (max-width: 1280px) {
               min-width: calc(8.917vw + 12px) !important;
               min-height: calc(3.8vw + 12px) !important;
+            }
+            @media (max-width: 768px) {
+              padding: 10px;
+              display: none !important;
             }
         }
         &:hover::before,

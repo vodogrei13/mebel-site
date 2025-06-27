@@ -168,6 +168,7 @@ export const Form = () => {
                 placeholder="+7 (___) ___-__-__"
                 value={formData.phone}
                 onChange={handleInputChange}
+                inputMode="numeric"
                 required
               />
               <div className={css.form_bottom}>
