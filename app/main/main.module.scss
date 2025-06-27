@@ -10,5 +10,17 @@
   background-size: 1px; /* Ширина полосы и высота 100% */
   background-position: 19.6% 0, 42.6% 0, 65.6% 0, 70.9% 0; /* Позиции полос */
   background-repeat: no-repeat; /* Не повторять градиент */
+    @media (max-width: 1300px) {
+        background-position: 17.2% 0, 42.6% 0, 60.6% 0, 85.9% 0;/* Позиции полос */
+    }
+    @media (max-width: 1100px) {
+        background-position: 12.2% 0, 36.6% 0, 52.6% 0, 78.6% 0;/* Позиции полос */
+    }
+    @media (max-width: 900px) {
+        background-position: 10.6% 0, 35.6% 0, 52.6% 0, 78.6% 0;/* Позиции полос */
+    }
+    @media (max-width: 600px) {
+        background-position: 12.6% 0, 32.6% 0, 77.6% 0, 90.9% 0; /* Позиции полос */
+    }
   }
 }

@@ -8,20 +8,28 @@ export const Block_Welcome = () => {
       <div className={css.hero__1_container}>
         <div className={css.hero__1_box1}>
             <h3>Контрактное производство<br></br> для производителей мебели</h3>
-            <Button_Gradient
-            href='#target-block'
-            targetId = "target-block"
-            />
+            <div className={css.hero__1_box1_btn600}> 
+              <Button_Gradient
+              href='#target-block'
+              targetId = "target-block"
+              />
+            </div>
         </div>
         <div className={css.hero__1_box2}>
-        <video
-          src={`${basePath}/video/video.mp4`}
-          autoPlay
-          loop
-          muted
-          playsInline
-          className={css.hero__video}
-        />
+          <video
+            src={`${basePath}/video/video.mp4`}
+            autoPlay
+            loop
+            muted
+            playsInline
+            className={css.hero__video}
+          />
+          <div className={css.hero__1_box1_btn599}> 
+              <Button_Gradient
+              href='#target-block'
+              targetId = "target-block"
+              />
+            </div>
         </div>
       </div>
     );

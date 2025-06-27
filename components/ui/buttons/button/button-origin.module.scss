@@ -53,8 +53,8 @@
             opacity: 0;
             transition: all .6s ease-in-out 0s;
             @media (max-width: 1280px) {
-              min-width: calc(8.917vw + 12px);
-              min-height: calc(3.8vw + 12px);
+              min-width: calc(8.917vw + 12px) !important;
+              min-height: calc(3.8vw + 12px) !important;
             }
         }
         &:hover::before,
