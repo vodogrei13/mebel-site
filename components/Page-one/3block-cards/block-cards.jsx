@@ -20,8 +20,9 @@ export const Block_Cards = () => {
                     href='/raspil'
                     width = 'calc(7.917vw + 12px)'
                     height = 'calc(5.5vh + 12px)'
-                    backgroundColor= "#A0D4EE"
-                    color="#1C4B62"
+                    backgroundColor= "rgba(160, 212, 238, 0.2)"
+                    border= "1px solid rgba(255, 255, 255, 0.2)"
+                    color="#fff"
                     />
                 </div>
                 <div className={classNames(css.hero__3_image, css.img__three)}
@@ -45,8 +46,8 @@ export const Block_Cards = () => {
                     href='/fasad-for-kitchen'
                     width = 'calc(7.917vw + 12px)'
                     height = 'calc(5.5vh + 12px)'
-                    backgroundColor= "#AED6DD" 
-                    color="#155959"
+                    backgroundColor= "rgba(174, 214, 221, 0.2);" 
+                    color="#fff"
                     />
                 </div>
             </div>
@@ -60,8 +61,8 @@ export const Block_Cards = () => {
                     href='/kitchen-module'
                     width = 'calc(7.917vw + 12px)'
                     height = 'calc(5.5vh + 12px)'
-                    backgroundColor= "#A0D4EE"
-                    color="#1C4B62"
+                    backgroundColor= "rgba(160, 212, 238, 0.2)"
+                    color="#fff"
                     />
                 </div>
                 <div className={classNames(css.hero__3_image, css.img__one)}
@@ -84,8 +85,8 @@ export const Block_Cards = () => {
                     href='/dveri-kupe'
                     width = 'calc(7.917vw + 12px)'
                     height = 'calc(5.5vh + 12px)'
-                    backgroundColor= "#AED6DD" 
-                    color="#155959"
+                    backgroundColor= "rgba(174, 214, 221, 0.2);" 
+                    color="#fff"
                     />
                 </div>
 
@@ -99,8 +100,8 @@ export const Block_Cards = () => {
                     href='/countertops'
                     width = 'calc(7.917vw + 12px)'
                     height = 'calc(5.5vh + 12px)'
-                    backgroundColor= "#A0D4EE"
-                    color="#1C4B62"
+                    backgroundColor= "rgba(160, 212, 238, 0.2)"
+                    color="#fff"
                     />
                 </div>
                 <div className={classNames(css.hero__3_image, css.img__five)}

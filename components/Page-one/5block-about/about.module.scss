@@ -12,7 +12,7 @@ $tablet: 1024px;
     @media (max-width: 1280px) {
         width: 85%;
     }
-    @media (max-width: 1024px) {
+    @media (max-width: $tablet) {
         width: 95%;
     }
     @media (max-width: $mobile) {
@@ -44,7 +44,7 @@ $tablet: 1024px;
         @media (max-width: 1600px) {
             gap: 3.25em;
         }
-        @media (max-width: 1024px) {
+        @media (max-width: $tablet) {
             flex-direction: column;
             width: 100%;
             max-width: 800px;
@@ -57,7 +57,7 @@ $tablet: 1024px;
             @media (max-width: 1600px) {
                 width: 40vw;
             }
-            @media (max-width: 1024px) {
+            @media (max-width: $tablet) {
                 width: 100%;
             }
             .main__text {
@@ -68,7 +68,7 @@ $tablet: 1024px;
                 line-height: auto;
                 letter-spacing: 0;
                 margin-bottom: 6.313em;
-                @media (max-width: 1024px) {
+                @media (max-width: $tablet) {
                     margin-bottom: 0;
                     width: 100%;
                     margin: 0 auto;
@@ -89,7 +89,7 @@ $tablet: 1024px;
         position: relative;
         overflow: hidden;
         min-height: 300px;
-        @media (max-width: 1024px) {
+        @media (max-width: $tablet) {
             height: 400px;
             flex: none;
             width: 100%;
@@ -121,7 +121,7 @@ $tablet: 1024px;
                 @media (max-width: 1600px) {
                     width: 100%;
                 }
-                @media (max-width: 1024px) {
+                @media (max-width: $tablet) {
                     width: 100%;
                     margin: 0 auto;
                     height: 100%;

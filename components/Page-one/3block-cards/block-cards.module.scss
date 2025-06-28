@@ -121,13 +121,15 @@
                 flex-direction: column;
                 gap: 0.875em;
                 width: 27.5vw;
-
+                padding-top: 2rem;
                 @media (max-width: 1400px) {
                     width: 30vw;
+                    padding-top: 1rem;
                 }
 
                 @media (max-width: 1200px) {
                     width: 50%;
+                    padding-top: 0.5rem;
                 }
 
                 @media (max-width: 900px) {
@@ -151,6 +153,12 @@
                     line-height: auto;
                     font-weight: 400 ;
                     margin-bottom: 3.9375em;
+                    @media (max-width: 1600px) {
+                        margin-bottom: 2.9375em;
+                    }
+                    @media (max-width: 1400px) {
+                        margin-bottom: 1.9375em;
+                    }
                     @media (max-width: 1200px) {
                         margin-bottom: 1.5em;
                     }

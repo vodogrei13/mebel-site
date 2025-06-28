@@ -22,12 +22,12 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      background-color: rgba(0, 0, 0, 0.2);
+      background-color: rgba(0, 251, 255, 0.1);
       border-radius: 50%;
       transition: all 0.3s ease;
   
       &:hover {
-        background-color: rgba(0, 0, 0, 0.4);
+        background-color: rgba(0, 251, 255, 0.6);
         transform: scale(1.1);
       }
       arrow {
@@ -39,7 +39,16 @@
         }
       }
     }
-    @media (max-width: 960px) {
+    @media (max-width: 1500px) {
+      right: 8.25rem !important;
+    }
+    @media (max-width: 1300px) {
+      right: 7.25rem !important;
+    }
+    @media (max-width: 1100px) {
+      right: 4.25rem !important;
+    }
+    @media (max-width: 800px) {
       display: none;
     }
   }

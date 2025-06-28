@@ -1,6 +1,11 @@
+// Breakpoints
+$mobile: 768px;
+$tablet: 1024px;
+
 .button__container {
     button {
         width: 50% !important;
+        height: 60px;
         font-family: Roboto;
         cursor: pointer;
         display: block;
@@ -38,7 +43,7 @@
             width: 70% !important;
             font-size: clamp(14px, 0.833vw, 100px);
         }
-        @media (max-width: 768px) {
+        @media (max-width: $mobile) {
             height: 40px !important;
             font-size: clamp(12px, 0.833vw, 100px);
         }

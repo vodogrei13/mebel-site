@@ -1,3 +1,7 @@
+// Breakpoints
+$mobile: 768px;
+$tablet: 1024px;
+
 .modalOverlay {
     position: fixed;
     top: 0;
@@ -19,11 +23,20 @@
         height: 90vh;
         overflow-y: auto;
         position: relative;
+        @media (max-width: $mobile) {
+            padding: 10px;
+        }
         h2 {
+            font-size: clamp(16px, 1.875vw , 100px);
             color: #444;
             margin: 0 auto;
             width: 40%;
             margin-bottom: 3rem;
+            @media (max-width: $mobile) {
+                margin-bottom: 1rem;
+                width: 100%;
+                text-align: center;
+            }
         }
         .closeButton {
             align-self: flex-end;
@@ -54,6 +67,10 @@
                 display: flex;
                 flex-direction: row;
                 justify-content: space-around;
+                @media (max-width: $mobile) {
+                    flex-direction: column;
+                    margin: 0 auto;
+                }
                 .policyText__item_title {
                     min-width: 15.625vw;
                     max-width: 15.700vw;
@@ -64,6 +81,12 @@
                     padding-bottom: 1.5003em;
                     line-height: 100%;
                     color: #444;
+                    @media (max-width: $mobile) {
+                        text-align: center;
+                        margin: 0 auto;
+                        width: 80% !important;
+                        min-width: 80%;
+                    }
                 }
                 .policyText__item_text {
                     width: 50vw;
@@ -71,6 +94,11 @@
                     color: #606060;
                     line-height: 150%;
                     letter-spacing: 0;
+                    @media (max-width: $mobile) {
+                        margin: 0 auto;
+                        width: 95% !important;
+                        min-width: 95%;
+                    }
                 }
             }
         }
