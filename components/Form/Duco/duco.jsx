@@ -9,12 +9,14 @@ import {
 } from "./optionImport";
 import { DrawingItem } from "../drawingItems/drawingItem";
 import SubmitModal from "../submitModal/submitModal";
-import { useState, useRef, useCallback } from "react";
+import { useState, useRef, useCallback, useEffect } from "react";
 import { Button_Gradient } from "@/components/ui/buttons/button-gradient/button-gradient";
 import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
 
 export const Duco = () => {
+  const [isFormValid, setIsFormValid] = useState(false);
+  const [validationError, setValidationError] = useState("");
   const [showSubmitModal, setShowSubmitModal] = useState(false);
   const [name, setName] = useState("");
   const [surname, setSurname] = useState("");
@@ -29,6 +31,64 @@ export const Duco = () => {
   const fileInputRef = useRef(null);
   const formsRef = useRef(null);
   const pdfRef = useRef(null);
+
+  const checkFormValidity = useCallback(() => {
+  // Проверка основных полей
+  const mainFields = [
+    { name: "collection", label: "Коллекция" },
+    { name: "colorDuco1", label: "Цвет Duco 1" },
+    { name: "colorDuco2", label: "colorDuco 2" },
+    { name: "colorDuco3", label: "colorDuco 3" },
+    { name: "thickness", label: "Толщина" },
+    { name: "reverseSide", label: "Обратная сторона" },
+    { name: "textureDirection", label: "Направление текстуры" },
+  ];
+
+  const missingMainField = mainFields.find(field => {
+    const element = document.querySelector(`[name="${field.name}"]`);
+    return !element?.value;
+  });
+
+  // Проверка drawing items
+  let missingDrawingField = null;
+  const hasValidItem = drawingItems.some(item => {
+    const fields = [
+      { name: `height-${item.id}`, label: "Высота" },
+      { name: `width-${item.id}`, label: "Ширина" },
+      { name: `quantity-${item.id}`, label: "Количество" }
+    ];
+
+    missingDrawingField = fields.find(field => {
+      const element = document.querySelector(`[name="${field.name}"]`);
+      return !element?.value;
+    });
+
+    return !missingDrawingField;
+  });
+
+  if (missingMainField) {
+    setValidationError(`Заполните поле "${missingMainField.label}"`);
+    setIsFormValid(false);
+    return;
+  }
+
+  if (!hasValidItem) {
+    setValidationError(`Заполните все обязательные поля хотя бы в одном элементе`);
+    setIsFormValid(false);
+    return;
+  }
+
+  setValidationError("");
+  setIsFormValid(true);
+}, [drawingItems]);
+
+useEffect(() => {
+  const timer = setTimeout(() => {
+    checkFormValidity();
+  }, 100);
+  
+  return () => clearTimeout(timer);
+}, [drawingItems, checkFormValidity]);
 
   const formatPhoneNumber = useCallback((value) => {
   if (!value) return "";
@@ -344,6 +404,8 @@ export const Duco = () => {
                 id="collection"
                 className={css.form__select}
                 required
+                onChange={checkFormValidity}
+                onBlur={checkFormValidity}
               >
                 {collection.map((option) => (
                   <option key={option.value} value={option.value}>
@@ -354,12 +416,14 @@ export const Duco = () => {
             </div>
 
             <div className={css.form__item}>
-              <label htmlFor="colorDuco1">Цвет Duco1*</label>
+              <label htmlFor="colorDuco1">Цвет Duco 1*</label>
               <select
                 name="colorDuco1"
                 id="colorDuco1"
                 className={css.form__select}
                 required
+                onChange={checkFormValidity}
+                onBlur={checkFormValidity}
               >
                 {ColorDuco1.map((option) => (
                   <option key={option.value} value={option.value}>
@@ -370,12 +434,14 @@ export const Duco = () => {
             </div>
 
             <div className={css.form__item}>
-              <label htmlFor="colorDuco2">Цвет Duco2*</label>
+              <label htmlFor="colorDuco2">Цвет Duco 2*</label>
               <select
                 name="colorDuco2"
                 id="colorDuco2"
                 className={css.form__select}
                 required
+                onChange={checkFormValidity}
+                onBlur={checkFormValidity}
               >
                 {ColorDuco2.map((option) => (
                   <option key={option.value} value={option.value}>
@@ -386,12 +452,14 @@ export const Duco = () => {
             </div>
 
             <div className={css.form__item}>
-              <label htmlFor="colorDuco3">Цвет Duco3*</label>
+              <label htmlFor="colorDuco3">Цвет Duco 3*</label>
               <select
                 name="colorDuco3"
                 id="colorDuco3"
                 className={css.form__select}
                 required
+                onChange={checkFormValidity}
+                onBlur={checkFormValidity}
               >
                 {ColorDuco3.map((option) => (
                   <option key={option.value} value={option.value}>
@@ -408,6 +476,8 @@ export const Duco = () => {
                 id="thickness"
                 className={css.form__select}
                 required
+                onChange={checkFormValidity}
+                onBlur={checkFormValidity}
               >
                 <option value="18mm">18мм</option>
               </select>
@@ -420,6 +490,8 @@ export const Duco = () => {
                 id="reverseSide"
                 className={css.form__select}
                 required
+                onChange={checkFormValidity}
+                onBlur={checkFormValidity}
               >
                 <option value="color">В цвет</option>
               </select>
@@ -443,6 +515,8 @@ export const Duco = () => {
                 id="textureDirection"
                 className={css.form__select}
                 required
+                onChange={checkFormValidity}
+                onBlur={checkFormValidity}
               >
                 <option value="inHeight">По высоте</option>
                 <option value="inWidth">По ширине</option>
@@ -457,6 +531,7 @@ export const Duco = () => {
                 index={index}
                 onRemove={() => removeDrawingItem(item.id)}
                 isRemovable={drawingItems.length > 1}
+                onFieldChange={checkFormValidity}
               />
             ))}
             <button 
@@ -470,7 +545,18 @@ export const Duco = () => {
           </div>
         </form>
         <div className={css.submit__Container}>
-          <Button_Gradient text="Оформить заказ" onClick={() => setShowSubmitModal(true)} />
+          <div className={css.tooltipContainer}>
+            <Button_Gradient 
+              text="Оформить заказ" 
+              onClick={() => setShowSubmitModal(true)} 
+              disabled={!isFormValid}
+            />
+            {!isFormValid && validationError && (
+              <div className={css.tooltip}>
+                {validationError}
+              </div>
+            )}
+          </div>
         </div>
         
       {/* Тестовая кнопка - только для разработки */}

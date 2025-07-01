@@ -3,12 +3,14 @@ import css from "./fip.module.scss";
 import { basePath } from "@/utils/basePath";
 import { DrawingItem } from "../drawingItems/drawingItem";
 import SubmitModal from "../submitModal/submitModal";
-import { useState, useRef, useCallback } from "react";
+import { useState, useRef, useCallback, useEffect } from "react";
 import { Button_Gradient } from "@/components/ui/buttons/button-gradient/button-gradient";
 import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
 
 export const FIP = () => {
+  const [isFormValid, setIsFormValid] = useState(false);
+  const [validationError, setValidationError] = useState("");
   const [showSubmitModal, setShowSubmitModal] = useState(false);
   const [name, setName] = useState("");
   const [surname, setSurname] = useState("");
@@ -23,6 +25,63 @@ export const FIP = () => {
   const fileInputRef = useRef(null);
   const formsRef = useRef(null);
   const pdfRef = useRef(null);
+
+  const checkFormValidity = useCallback(() => {
+  // Проверка основных полей
+  const mainFields = [
+    { name: "thickness", label: "Толщина" },
+    { name: "typeSurface", label: "Тип поверхности" },
+    { name: "color", label: "Цвет" },
+    { name: "reverseSide", label: "Обратная сторона" },
+    { name: "edgeMilling", label: "Фрезеровка по краю" },
+    { name: "textureDirection", label: "Направление текстуры" }
+  ];
+
+  const missingMainField = mainFields.find(field => {
+    const element = document.querySelector(`[name="${field.name}"]`);
+    return !element?.value;
+  });
+
+  // Проверка drawing items
+  let missingDrawingField = null;
+  const hasValidItem = drawingItems.some(item => {
+    const fields = [
+      { name: `height-${item.id}`, label: "Высота" },
+      { name: `width-${item.id}`, label: "Ширина" },
+      { name: `quantity-${item.id}`, label: "Количество" }
+    ];
+
+    missingDrawingField = fields.find(field => {
+      const element = document.querySelector(`[name="${field.name}"]`);
+      return !element?.value;
+    });
+
+    return !missingDrawingField;
+  });
+
+  if (missingMainField) {
+    setValidationError(`Заполните поле "${missingMainField.label}"`);
+    setIsFormValid(false);
+    return;
+  }
+
+  if (!hasValidItem) {
+    setValidationError(`Заполните все обязательные поля хотя бы в одном элементе`);
+    setIsFormValid(false);
+    return;
+  }
+
+  setValidationError("");
+  setIsFormValid(true);
+}, [drawingItems]);
+
+useEffect(() => {
+  const timer = setTimeout(() => {
+    checkFormValidity();
+  }, 100);
+  
+  return () => clearTimeout(timer);
+}, [drawingItems, checkFormValidity]);
 
   const formatPhoneNumber = useCallback((value) => {
   if (!value) return "";
@@ -340,6 +399,8 @@ export const FIP = () => {
                 name="thickness"
                 id="thickness"
                 required
+                onChange={checkFormValidity}
+                onBlur={checkFormValidity}
               />
             </div>
 
@@ -351,6 +412,8 @@ export const FIP = () => {
                 name="typeSurface"
                 id="typeSurface"
                 required
+                onChange={checkFormValidity}
+                onBlur={checkFormValidity}
               />
             </div>
 
@@ -362,6 +425,8 @@ export const FIP = () => {
                 name="color"
                 id="color"
                 required
+                onChange={checkFormValidity}
+                onBlur={checkFormValidity}
               />
             </div>
 
@@ -372,6 +437,8 @@ export const FIP = () => {
                 id="reverseSide"
                 className={css.form__select}
                 required
+                onChange={checkFormValidity}
+                onBlur={checkFormValidity}
               >
                 <option value="color">В цвет</option>
                 <option value="white">Белая</option>
@@ -386,6 +453,8 @@ export const FIP = () => {
                 name="edgeMilling"
                 id="edgeMilling"
                 required
+                onChange={checkFormValidity}
+                onBlur={checkFormValidity}
               />
             </div>
 
@@ -396,6 +465,8 @@ export const FIP = () => {
                 id="textureDirection"
                 className={css.form__select}
                 required
+                onChange={checkFormValidity}
+                onBlur={checkFormValidity}
               >
                 <option value="inHeight">По высоте</option>
                 <option value="inWidth">По ширине</option>
@@ -410,6 +481,7 @@ export const FIP = () => {
                 index={index}
                 onRemove={() => removeDrawingItem(item.id)}
                 isRemovable={drawingItems.length > 1}
+                onFieldChange={checkFormValidity}
               />
             ))}
             <button 
@@ -423,7 +495,18 @@ export const FIP = () => {
           </div>
         </form>
         <div className={css.submit__Container}>
-          <Button_Gradient text="Оформить заказ" onClick={() => setShowSubmitModal(true)} />
+          <div className={css.tooltipContainer}>
+            <Button_Gradient 
+              text="Оформить заказ" 
+              onClick={() => setShowSubmitModal(true)} 
+              disabled={!isFormValid}
+            />
+            {!isFormValid && validationError && (
+              <div className={css.tooltip}>
+                {validationError}
+              </div>
+            )}
+          </div>
         </div>
         
       {/* Тестовая кнопка - только для разработки */}

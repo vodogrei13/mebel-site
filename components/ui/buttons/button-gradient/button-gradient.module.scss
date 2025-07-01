@@ -20,6 +20,16 @@ $tablet: 1024px;
         display: flex;
         justify-content: center;
         align-items: center;
+        &:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            background: gray !important;
+            
+            &:hover {
+            transform: none !important;
+            box-shadow: none !important;
+            }
+        }
         span {
             display: inline-block;
             padding-right: 8px;

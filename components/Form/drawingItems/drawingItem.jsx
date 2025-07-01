@@ -2,40 +2,43 @@
 import css from "./drawingItem.module.scss";
 import { note } from "../Skat/optionImport";
 
-export const DrawingItem = ({ item, index, onRemove, isRemovable }) => {
+export const DrawingItem = ({ item, index, onRemove, isRemovable, onFieldChange  }) => {
   return (
     <div key={item.id} className={css.drawing_item}>
                 <p className={css.number_item}>{index + 1}</p>
 
                 <div className={css.input_item}>
-                    <label htmlFor={`height-select-${item.id}`}>Высота</label>
+                    <label htmlFor={`height-select-${item.id}`}>Высота*</label>
                     <input
                     type="number"
                     className={css.form__input}
                     name={`height-${item.id}`}
                     id={`height-select-${item.id}`}
+                    onChange={onFieldChange}
                     required
                     />
                 </div>
 
                 <div className={css.input_item}>
-                    <label htmlFor={`width-select-${item.id}`}>Ширина</label>
+                    <label htmlFor={`width-select-${item.id}`}>Ширина*</label>
                     <input
                     type="number"
                     className={css.form__input}
                     name={`width-${item.id}`}
                     id={`width-select-${item.id}`}
+                    onChange={onFieldChange}
                     required
                     />
                 </div>
 
               <div className={css.input_item}>
-                <label htmlFor={`quantity-select-${item.id}`}>Кол-во</label>
+                <label htmlFor={`quantity-select-${item.id}`}>Кол-во*</label>
                 <input
                   type="number"
                   className={css.form__input}
                   name={`quantity-${item.id}`}
                   id={`quantity-select-${item.id}`}
+                  onChange={onFieldChange}
                   required
                 />
               </div>

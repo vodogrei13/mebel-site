@@ -82,17 +82,17 @@ $tablet: 1024px;
             padding: 2px;
           }
           // Стили для input[type="number"]
-            input[type="number"] {
-              -webkit-appearance: none;
-              -moz-appearance: textfield;
-              appearance: none;
+          input[type="number"] {
+            -webkit-appearance: none;
+            -moz-appearance: textfield;
+            appearance: none;
 
-              &::-webkit-outer-spin-button,
-              &::-webkit-inner-spin-button {
-                -webkit-appearance: none;
-                margin: 0;
-              }
+            &::-webkit-outer-spin-button,
+            &::-webkit-inner-spin-button {
+              -webkit-appearance: none;
+              margin: 0;
             }
+          }
         }
       }
       .form__form_drawing {
@@ -128,13 +128,22 @@ $tablet: 1024px;
       }
     } //end form
     .submit__Container {
-        margin: 0 auto;
-        align-items: center;
-        text-align: center;
-        justify-content: center;
-        padding: 1rem;
-        width: 45%;
+      margin: 0 auto;
+      align-items: center;
+      text-align: center;
+      justify-content: center;
+      padding: 1rem;
+      width: 45%;
+      .tooltipContainer {
+        position: relative;
+        display: inline-block;
+        width: 100%;
+        &:hover .tooltip {
+          visibility: visible;
+          opacity: 1;
+        }
         button {
+          width: 100%;
           margin: 0 auto;
           &:hover {
             box-shadow: 0px 2px 8px 2px rgba(141, 150, 178, 0.3);
@@ -143,148 +152,176 @@ $tablet: 1024px;
           }
         }
       }
-  }
-  .submit__modal {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.5);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        z-index: 1000;
-        animation: fadeIn 0.3s ease-out;
-        .submit__content {
-          background-color: white;
-          padding: 20px;
-          border-radius: 8px;
-          width: 400px;
-          box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-          animation: slideUp 0.3s ease-out;
-          position: relative;
-          display: flex;
-          flex-direction: column;
-          gap: 0.3rem;
-          h3 {
-            color: #557a95;
-            margin-bottom: 15px;
-            text-align: center;
-          }
-          label {
-            text-align: center;
-          }
-          input {
-            margin: 0 auto;
-            width: 50%;
-            height: 30px;
-            padding-left: 8px;
-          }
-          textarea {
-            height: 4vw;
-            padding: 0.2rem;
-          }
-            .input_file span {
-                  position: relative;
-                  width: 7.729vw;
-                  display: inline-flex;
-                  justify-content: center;
-                  align-items: center;
-                  display: inline-block;
-                  cursor: pointer;
-                  outline: none;
-                  text-decoration: none;
-                  font-size: 14px;
-                  vertical-align: middle;
-                  color: rgb(255 255 255);
-                  text-align: center;
-                  border-radius: 4px;
-                  background-color: #13254d;
-                  line-height: 22px;
-                  height: 1.763vw;
-                  padding: 7px 12px;
-                  box-sizing: border-box;
-                  border: none;
-                  margin: 0;
-                  transition: background-color 0.2s;
-                }
-                .input_file input[type="file"] {
-                  position: absolute;
-                  z-index: -1;
-                  opacity: 0;
-                  display: block;
-                  width: 0;
-                  height: 0;
-                }
+      .tooltip {
+        visibility: hidden;
+        width: 200px;
+        background-color: #ff4444;
+        color: white;
+        text-align: center;
+        border-radius: 6px;
+        padding: 8px;
+        position: absolute;
+        z-index: 1;
+        bottom: 125%;
+        left: 50%;
+        transform: translateX(-50%);
+        opacity: 0;
+        transition: opacity 0.3s;
+        font-size: 14px;
 
-                /* Focus */
-                .input_file input[type="file"]:focus + span {
-                  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
-                }
-
-                /* Hover/Active */
-                .input_file:hover span {
-                  background-color: #2db3b3;
-                  color: black;
-                }
-                .input_file:active span {
-                  background-color: #2db3b3;
-                }
-
-                /* Disabled */
-                .input_file input[type="file"]:disabled + span {
-                  background-color: #eee;
-                }
-                .clear_files_button {
-                  background: none;
-                  border: none;
-                  color: #ff6b6b;
-                  font-size: 1.2em;
-                  cursor: pointer;
-                  padding: 0 5px;
-                  &:hover {
-                    color: #ff5252;
-                  }
-                }
-          .submit__close_button {
-            align-self: flex-end;
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            z-index: 10;
-            background: none;
-            border: 3px solid;
-            border-radius: 10px;
-            padding: 0 5px;
-            font-size: 24px;
-            cursor: pointer;
-            background-color: #72b3cf;
-            color: #fff;
-            transition: background-color 0.3s;
-            &:hover {
-              background-color: lighten(brown, 10%);
-              color: #fff;
-            }
-          }
-          .submit__button {
-            width: 50%;
-            height: 40px;
-            margin: 0 auto;
-            margin-top: 1rem;
-            background-color: #557a95;
-            color: white;
-            border: none;
-            padding: 8px 15px;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-            position: relative;
-
-            &:hover {
-              background-color: darken(#cf9b48, 10%);
-            }
-          }
+        &::after {
+          content: "";
+          position: absolute;
+          top: 100%;
+          left: 50%;
+          margin-left: -5px;
+          border-width: 5px;
+          border-style: solid;
+          border-color: #ff4444 transparent transparent transparent;
         }
       }
+    }
+  }
+  .submit__modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    animation: fadeIn 0.3s ease-out;
+    .submit__content {
+      background-color: white;
+      padding: 20px;
+      border-radius: 8px;
+      width: 400px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+      animation: slideUp 0.3s ease-out;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+      h3 {
+        color: #557a95;
+        margin-bottom: 15px;
+        text-align: center;
+      }
+      label {
+        text-align: center;
+      }
+      input {
+        margin: 0 auto;
+        width: 50%;
+        height: 30px;
+        padding-left: 8px;
+      }
+      textarea {
+        height: 4vw;
+        padding: 0.2rem;
+      }
+      .input_file span {
+        position: relative;
+        width: 7.729vw;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        display: inline-block;
+        cursor: pointer;
+        outline: none;
+        text-decoration: none;
+        font-size: 14px;
+        vertical-align: middle;
+        color: rgb(255 255 255);
+        text-align: center;
+        border-radius: 4px;
+        background-color: #13254d;
+        line-height: 22px;
+        height: 1.763vw;
+        padding: 7px 12px;
+        box-sizing: border-box;
+        border: none;
+        margin: 0;
+        transition: background-color 0.2s;
+      }
+      .input_file input[type="file"] {
+        position: absolute;
+        z-index: -1;
+        opacity: 0;
+        display: block;
+        width: 0;
+        height: 0;
+      }
+
+      /* Focus */
+      .input_file input[type="file"]:focus + span {
+        box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+      }
+
+      /* Hover/Active */
+      .input_file:hover span {
+        background-color: #2db3b3;
+        color: black;
+      }
+      .input_file:active span {
+        background-color: #2db3b3;
+      }
+
+      /* Disabled */
+      .input_file input[type="file"]:disabled + span {
+        background-color: #eee;
+      }
+      .clear_files_button {
+        background: none;
+        border: none;
+        color: #ff6b6b;
+        font-size: 1.2em;
+        cursor: pointer;
+        padding: 0 5px;
+        &:hover {
+          color: #ff5252;
+        }
+      }
+      .submit__close_button {
+        align-self: flex-end;
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        z-index: 10;
+        background: none;
+        border: 3px solid;
+        border-radius: 10px;
+        padding: 0 5px;
+        font-size: 24px;
+        cursor: pointer;
+        background-color: #72b3cf;
+        color: #fff;
+        transition: background-color 0.3s;
+        &:hover {
+          background-color: lighten(brown, 10%);
+          color: #fff;
+        }
+      }
+      .submit__button {
+        width: 50%;
+        height: 40px;
+        margin: 0 auto;
+        margin-top: 1rem;
+        background-color: #557a95;
+        color: white;
+        border: none;
+        padding: 8px 15px;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        position: relative;
+        &:hover {
+          background-color: darken(#cf9b48, 10%);
+        }
+      }
+    }
+  }
 }

@@ -12,6 +12,7 @@ export const Button_Gradient = ({
     target = "_self",
     rel = "",
     onClick,
+    disabled = false
 }) => {
     const handleClick = (e) => {
         if (onClick) {
@@ -45,7 +46,10 @@ export const Button_Gradient = ({
     return (
         <div className={`${css.button__container} ${css.className}`}>
              {onClick ? (
-                <button style={{ '--width': width, '--height': height }} onClick={handleClick}>
+                <button style={{ '--width': width, '--height': height }} 
+                onClick={handleClick}
+                disabled={disabled}
+                >
                     {buttonContent}
                 </button>
             ) : (
@@ -57,7 +61,10 @@ export const Button_Gradient = ({
                     target={target} 
                     rel={rel}
                 >
-                    <button style={{ width, height }} onClick={handleClick}>
+                    <button style={{ width, height }} 
+                    onClick={handleClick}
+                    disabled={disabled}
+                    >
                         {buttonContent}
                     </button>
                 </Link>

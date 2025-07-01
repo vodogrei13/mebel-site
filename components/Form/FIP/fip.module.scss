@@ -137,7 +137,16 @@ $tablet: 1024px;
         justify-content: center;
         padding: 1rem;
         width: 45%;
+        .tooltipContainer {
+        position: relative;
+        display: inline-block;
+        width: 100%;
+        &:hover .tooltip {
+          visibility: visible;
+          opacity: 1;
+        }
         button {
+          width: 100%;
           margin: 0 auto;
           &:hover {
             box-shadow: 0px 2px 8px 2px rgba(141, 150, 178, 0.3);
@@ -145,6 +154,35 @@ $tablet: 1024px;
             transition: 0.5s;
           }
         }
+      }
+      .tooltip {
+        visibility: hidden;
+        width: 200px;
+        background-color: #ff4444;
+        color: white;
+        text-align: center;
+        border-radius: 6px;
+        padding: 8px;
+        position: absolute;
+        z-index: 1;
+        bottom: 125%;
+        left: 50%;
+        transform: translateX(-50%);
+        opacity: 0;
+        transition: opacity 0.3s;
+        font-size: 14px;
+
+        &::after {
+          content: "";
+          position: absolute;
+          top: 100%;
+          left: 50%;
+          margin-left: -5px;
+          border-width: 5px;
+          border-style: solid;
+          border-color: #ff4444 transparent transparent transparent;
+        }
+      }
       }
   }
   .submit__modal {

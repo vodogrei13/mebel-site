@@ -15,12 +15,14 @@ import {
 } from "./optionImport";
 import { DrawingItem } from "../drawingItems/drawingItem";
 import SubmitModal from "../submitModal/submitModal";
-import { useState, useRef, useCallback } from "react";
+import { useState, useRef, useCallback, useEffect } from "react";
 import { Button_Gradient } from "@/components/ui/buttons/button-gradient/button-gradient";
 import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
 
 export const Skat = () => {
+  const [isFormValid, setIsFormValid] = useState(false);
+  const [validationError, setValidationError] = useState("");
   const [selectedTypeSurface, setSelectedTypeSurface] = useState("color");
   const [showSubmitModal, setShowSubmitModal] = useState(false);
   const [name, setName] = useState("");
@@ -36,6 +38,70 @@ export const Skat = () => {
   const fileInputRef = useRef(null);
   const formsRef = useRef(null);
   const pdfRef = useRef(null);
+
+  const checkFormValidity = useCallback(() => {
+  // Проверка основных полей
+  const mainFields = [
+    { name: "typeSurface", label: "Тип поверхности" },
+    { name: "textureDirection", label: "Направление текстуры" },
+    { name: "milling", label: "Фрезеровка" },
+    { name: "color", label: "Цвет" },
+    { name: "thickness", label: "Толщина" },
+    { name: "facadeMilling", label: "Фрезеровка по фасаду" },
+    { name: "patina", label: "Патина*" },
+    { name: "edgeMilling", label: "Фрезеровка по краю" },
+  ];
+
+  const missingMainField = mainFields.find(field => {
+    const element = document.querySelector(`[name="${field.name}"]`);
+    return !element?.value;
+  });
+
+  // Проверка drawing items
+  let missingDrawingField = null;
+  const hasValidItem = drawingItems.some(item => {
+    const fields = [
+      { name: `height-${item.id}`, label: "Высота" },
+      { name: `width-${item.id}`, label: "Ширина" },
+      { name: `quantity-${item.id}`, label: "Количество" }
+    ];
+
+    missingDrawingField = fields.find(field => {
+      const element = document.querySelector(`[name="${field.name}"]`);
+      return !element?.value;
+    });
+
+    return !missingDrawingField;
+  });
+
+  if (missingMainField) {
+    setValidationError(`Заполните поле "${missingMainField.label}"`);
+    setIsFormValid(false);
+    return;
+  }
+
+  if (!hasValidItem) {
+    setValidationError(`Заполните все обязательные поля хотя бы в одном элементе`);
+    setIsFormValid(false);
+    return;
+  }
+
+  setValidationError("");
+  setIsFormValid(true);
+}, [drawingItems]);
+
+useEffect(() => {
+  const timer = setTimeout(() => {
+    checkFormValidity();
+  }, 100);
+  
+  return () => clearTimeout(timer);
+}, [drawingItems, checkFormValidity]);
+
+const handleTypeSurfaceChange = (e) => {
+  setSelectedTypeSurface(e.target.value);
+  checkFormValidity();
+};
 
   const formatPhoneNumber = useCallback((value) => {
   if (!value) return "";
@@ -351,7 +417,8 @@ export const Skat = () => {
                 id="typeSurface"
                 className={css.form__select}
                 value={selectedTypeSurface}
-                onChange={(e) => setSelectedTypeSurface(e.target.value)}
+                onChange={handleTypeSurfaceChange}
+                onBlur={checkFormValidity}
                 required
               >
                 {typeSurface.map((option) => (
@@ -369,6 +436,8 @@ export const Skat = () => {
                 id="textureDirection"
                 className={css.form__select}
                 required
+                onChange={handleTypeSurfaceChange}
+                onBlur={checkFormValidity}
               >
                 <option value="inHeight">По высоте</option>
                 <option value="inWidth">По ширине</option>
@@ -382,6 +451,8 @@ export const Skat = () => {
                 id="milling"
                 className={css.form__select}
                 required
+                onChange={handleTypeSurfaceChange}
+                onBlur={checkFormValidity}
               >
                 {milling.map((option) => (
                   <option key={option.value} value={option.value}>
@@ -398,6 +469,8 @@ export const Skat = () => {
                 id="color"
                 className={css.form__select}
                 required
+                onChange={handleTypeSurfaceChange}
+                onBlur={checkFormValidity}
               >
                 {selectedTypeSurface === "color"
                   ? colorDye.map((option) => (
@@ -420,6 +493,8 @@ export const Skat = () => {
                 id="thickness"
                 className={css.form__select}
                 required
+                onChange={handleTypeSurfaceChange}
+                onBlur={checkFormValidity}
               >
                 {thickness.map((option) => (
                   <option key={option.value} value={option.value}>
@@ -436,6 +511,8 @@ export const Skat = () => {
                 id="facadeMilling"
                 className={css.form__select}
                 required
+                onChange={handleTypeSurfaceChange}
+                onBlur={checkFormValidity}
               >
                 {millingOnTheFacade.map((option) => (
                   <option key={option.value} value={option.value}>
@@ -453,6 +530,8 @@ export const Skat = () => {
                 name="myColor"
                 id="myColor"
                 required
+                onChange={handleTypeSurfaceChange}
+                onBlur={checkFormValidity}
               />
             </div>
 
@@ -463,6 +542,8 @@ export const Skat = () => {
                 id="patina"
                 className={css.form__select}
                 required
+                onChange={handleTypeSurfaceChange}
+                onBlur={checkFormValidity}
               >
                 {patina.map((option) => (
                   <option key={option.value} value={option.value}>
@@ -479,6 +560,8 @@ export const Skat = () => {
                 id="edgeMilling"
                 className={css.form__select}
                 required
+                onChange={handleTypeSurfaceChange}
+                onBlur={checkFormValidity}
               >
                 {millingOnTheEdge.map((option) => (
                   <option key={option.value} value={option.value}>
@@ -495,6 +578,8 @@ export const Skat = () => {
                 id="teams"
                 className={css.form__select}
                 required
+                onChange={handleTypeSurfaceChange}
+                onBlur={checkFormValidity}
               >
                 {prefabricated.map((option) => (
                   <option key={option.value} value={option.value}>
@@ -512,6 +597,7 @@ export const Skat = () => {
                 index={index}
                 onRemove={() => removeDrawingItem(item.id)}
                 isRemovable={drawingItems.length > 1}
+                onFieldChange={checkFormValidity}
               />
             ))}
             <button 
@@ -525,7 +611,18 @@ export const Skat = () => {
           </div>
         </form>
         <div className={css.submit__Container}>
-          <Button_Gradient text="Оформить заказ" onClick={() => setShowSubmitModal(true)} />
+          <div className={css.tooltipContainer}>
+            <Button_Gradient 
+              text="Оформить заказ" 
+              onClick={() => setShowSubmitModal(true)} 
+              disabled={!isFormValid}
+            />
+            {!isFormValid && validationError && (
+              <div className={css.tooltip}>
+                {validationError}
+              </div>
+            )}
+          </div>
         </div>
         
       {/* Тестовая кнопка - только для разработки */}
