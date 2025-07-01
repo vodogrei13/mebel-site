@@ -1,9 +1,15 @@
+// Breakpoints
+$mobile: 768px;
+$tablet: 1024px;
+
 .ArborNova__container {
   width: 100%;
   margin: 0 auto;
   margin-top: 1rem;
   margin-bottom: 2rem;
-  
+  @media (max-width: $mobile) {
+      margin-bottom: 0;
+    }
   .ArborNova__form {
     margin-top: 2rem;
     margin-bottom: 3rem;
@@ -11,7 +17,8 @@
 
   .ArborNova__logo {
     width: 8%;
-    height: 8%;
+    min-width: 150px;
+    height: auto;
     display: block;
     margin: 0 auto;
     margin-bottom: 1rem;
@@ -22,7 +29,21 @@
     width: 100vw;
     height: 60vh;
     overflow: hidden;
-    
+    @media (max-width: 1600px) {
+      height: 55vh;
+    }
+    @media (max-width: 1400px) {
+      height: 50vh;
+    }
+    @media (max-width: 1200px) {
+      height: 45vh;
+    }
+    @media (max-width: $tablet) {
+      height: 40vh;
+    }
+    @media (max-width: $mobile) {
+      height: 30vh;
+    }
     .ArborNova__slide {
       position: absolute;
       width: 100%;
@@ -54,13 +75,25 @@
       justify-content: center;
       padding: 2rem;
       box-sizing: border-box;
-      
+      @media (max-width: $tablet) {
+        padding: 2rem;
+      }
+      @media (max-width: $mobile) {
+        padding: 0.5rem;
+      }
       .ArborNova__slideText {
         color: #fff;
+        font-size: clamp(24px, 0.83vw, 50px);
         font-size: 1.5rem;
         text-align: center;
         line-height: 170%;
         letter-spacing: -0.03em;
+        @media (max-width: $tablet) {
+          font-size: clamp(18px, 0.83vw, 50px);
+        }
+        @media (max-width: $mobile) {
+          font-size: clamp(14px, 0.83vw, 50px);
+        }
       }
     }
   }

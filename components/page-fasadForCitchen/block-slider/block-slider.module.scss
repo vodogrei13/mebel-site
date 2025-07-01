@@ -1,3 +1,7 @@
+// Breakpoints
+$mobile: 768px;
+$tablet: 1024px;
+
 // Анимация для бесконечной прокрутки
 @keyframes scroll {
     0% {
@@ -13,6 +17,9 @@
     flex-direction: column;
     align-items: center;
     margin: 0 auto;
+    @media (max-width: 1600px) {
+        width: 100%;
+    }
     .slider {
         position: relative;
         width: 100%;
@@ -37,6 +44,22 @@
                 width: 18.802vw;
                 height: 37.5vh;
                 opacity: 1;
+                @media (max-width: 1600px) {
+                    height: 18.5vw;
+                }
+                @media (max-width: 1400px) {
+                    height: 18.5vw;
+                }
+                @media (max-width: 1280px) {
+                    height: 18.5vw;
+                }
+                @media (max-width: $tablet) {
+                    height: 18.5vw;
+
+                }
+                @media (max-width: $mobile) {
+                    height: 18.5vw;
+                }
             }
             &.paused {
                 animation-play-state: paused; // Остановка анимации

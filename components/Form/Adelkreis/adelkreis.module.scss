@@ -1,20 +1,31 @@
+// Breakpoints
+$mobile: 768px;
+$tablet: 1024px;
+
 .Adelkreis__container {
   width: 100%;
   margin: 0 auto;
   margin-top: 1rem;
   margin-bottom: 2rem;
-  
+  @media (max-width: $mobile) {
+      margin-bottom: 0;
+    }
   .Adelkreis__form {
     margin-top: 2rem;
     margin-bottom: 3rem;
   }
   .Adelkreis__logo {
     width: 17%;
+    min-width: 220px;
     height: auto;
     display: block;
     margin: 0 auto;
     margin-top: 3rem;
     margin-bottom: 3rem;
+    @media (max-width: $tablet) {
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+    }
   }
   
   .Adelkreis__slider {
@@ -22,7 +33,12 @@
     width: 100vw;
     height: 60vh;
     overflow: hidden;
-    
+    @media (max-width: $tablet) {
+      height: 40vh;
+    }
+    @media (max-width: $mobile) {
+      height: 30vh;
+    }
     .Adelkreis__slide {
       position: absolute;
       width: 100%;
@@ -54,13 +70,24 @@
       justify-content: center;
       padding: 2rem;
       box-sizing: border-box;
-      
+      @media (max-width: $tablet) {
+        padding: 2rem;
+      }
+      @media (max-width: $mobile) {
+        padding: 0.5rem;
+      }
       .Adelkreis__slideText {
         color: #fff;
-        font-size: 1.5rem;
+        font-size: clamp(24px, 0.83vw, 50px);
         text-align: center;
         line-height: 170%;
         letter-spacing: -0.03em;
+        @media (max-width: $tablet) {
+          font-size: clamp(18px, 0.83vw, 50px);
+        }
+        @media (max-width: $mobile) {
+          font-size: clamp(14px, 0.83vw, 50px);
+        }
       }
     }
   }

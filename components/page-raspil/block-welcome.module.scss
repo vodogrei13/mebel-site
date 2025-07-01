@@ -23,22 +23,22 @@ $tablet: 1024px;
         width: 90%;
         align-items: center;
         justify-content: center;
-        margin-top: 3em;
+        margin-top: 3rem;
     }
     .main__blocks{
-        margin-top: 7.5em;
+        margin-top: 7.5rem;
         display: flex;
         flex-direction: row;
-        gap: 1.875em;
+        gap: 1.875rem;
         @media (max-width: 1600px) {
-            gap: 3.25em;
+            gap: 3.25rem;
         }
         @media (max-width: $tablet) {
             flex-direction: column;
             width: 100%;
             max-width: 800px;
             margin: 0 auto;
-            gap: 1.25em;
+            gap: 1.25rem;
         }
         .main__info {
             width: 33.49vw;
@@ -59,8 +59,8 @@ $tablet: 1024px;
                     text-transform: uppercase;
                     font-weight: 400;
                     font-size: clamp(16px, 2.083vw , 100px);
-                    letter-spacing: -0.05em;
-                    padding-bottom: 1.5003em;
+                    letter-spacing: -0.05rem;
+                    padding-bottom: 1.5003rem;
                     line-height: 100%;
                 }
             }
@@ -85,14 +85,14 @@ $tablet: 1024px;
                     letter-spacing: 0;
                 }
                 .main__services_list {
-                    padding-left: 2em;
-                    padding-top: 1em;
+                    padding-left: 2rem;
+                    padding-top: 1rem;
                     .main__services_item {
                         list-style-type: disc;
                         color: #606060;
                         line-height: 150%;
                         letter-spacing: 0;
-                        padding-bottom: 1em;
+                        padding-bottom: 1rem;
                         span {
                             font-weight: 700;
                             color: #606060;
@@ -111,14 +111,14 @@ $tablet: 1024px;
                     letter-spacing: 0;
                 }
                 .main__why_us_list {
-                    padding-left: 2em;
-                    padding-top: 1em;
+                    padding-left: 2rem;
+                    padding-top: 1rem;
                     .main__why_us_item {
                         list-style-type: disc;
                         color: #606060;
                         line-height: 150%;
                         letter-spacing: 0;
-                        padding-bottom: 1em;
+                        padding-bottom: 1rem;
                         span {
                             font-weight: 700;
                             color: #606060;
@@ -129,7 +129,7 @@ $tablet: 1024px;
                 }
             }
             .main__contact {
-                padding-top: 1em;
+                padding-top: 1rem;
                 p {
                     color: #606060;
                     line-height: 150%;

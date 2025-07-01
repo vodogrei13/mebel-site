@@ -60,7 +60,6 @@
             transition: transform 0.5s ease, z-index 0.5s ease;
             position: relative;
             justify-content: space-between;
-
             @media (max-width: 1600px) {
                 width: 100%;
                 min-height: 25.904vw;
@@ -140,9 +139,10 @@
                 }
                 .info__title {
                     font-weight: 500 ;
-                    font-size: clamp(14px, 1.667vw , 100px);
+                    font-size: clamp(20px, 1.667vw , 100px);
                     line-height: auto;
                     color: #fff;
+                    margin-bottom: 0.5rem;
                     @media (max-width: 600px) {
                         font-size: clamp(16px, 4vw, 24px);
                     }
@@ -177,7 +177,7 @@
                 background-repeat: no-repeat;
                 background-size: cover;
                 background-position: center;
-            @media (max-width: 1200px) {
+                @media (max-width: 1200px) {
                     width: 25vw;
                     height: 20vw;
                 }

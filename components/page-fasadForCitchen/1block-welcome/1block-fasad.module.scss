@@ -1,18 +1,62 @@
+// Breakpoints
+$mobile: 768px;
+$tablet: 1024px;
+
 .block_fasad__container {
     width: 58.75vw;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
     gap: 3.75rem ;
+    @media (max-width: 1600px) {
+        width: 75.45vw;
+    }
+    @media (max-width: 1280px) {
+        width: 85%;
+    }
+    @media (max-width: $tablet) {
+        width: 95%;
+        margin-top: 3rem;
+        gap: 0.6rem ;
+    }
+    @media (max-width: $mobile) {
+        width: 90%;
+        align-items: center;
+        justify-content: center;
+        margin-top: 3em;
+    }
     .main__blocks{
         margin-top: 7.5em;
         display: flex;
         flex-direction: row;
         gap: 8.813rem;
+        @media (max-width: 1600px) {
+            gap: 3.25rem;
+        }
+        @media (max-width: $tablet) {
+            flex-direction: column;
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            gap: 1.25rem;
+        }
         .main__info {
             margin-bottom: 3.813rem;
             width: 27.5vw;
+            @media (max-width: 1600px) {
+                width: 40vw;
+            }
+            @media (max-width: $tablet) {
+                width: 100%;
+                margin-bottom: 1rem;
+            }
             .main__title {
+                @media (max-width: 1280px) {
+                    text-align: center;
+                }
+                @media (max-width: $mobile) {
+                    text-align: center;
+                }
                 h3 {
                     text-transform: uppercase;
                     font-weight: 400;
@@ -24,18 +68,36 @@
             }
             .main__text {
                 margin-bottom: 3.75rem;
+                @media (max-width: $tablet) {
+                    width: 100%;
+                    margin: 0 auto;
+                }
                 p{
                     color: #606060;
                     line-height: 150%;
                     letter-spacing: 0;
                 }
             }
+            .main__button {
+                @media (max-width: 1300px) {
+                    button {
+                        margin: 0 auto;
+                    }
+                }
+                @media (max-width: $tablet) {
+                    button {
+                        margin-top: 2rem;
+                        width: 50% !important;
+                    }
+                }
+            }
         }
         .block__fasad_image {
             img {
-                width: 23.958vw;
+                width: 100%;
                 height: 43.7vh;
-                object-fit: cover
+                object-fit: cover;
+                border-radius: 10px;
             }
         }
     }
@@ -64,6 +126,32 @@
         height: 55vh;
         overflow-y: auto;
         position: relative;
+        @media (max-width: 1600px) {
+            width: 45vw;
+            height: 55vh;
+        }
+        @media (max-width: 1400px) {
+            width: 50vw;
+            height: 58vh;
+        }
+        @media (max-width: 1280px) {
+            width: 52vw;
+            height: 58vh;
+        }
+        @media (max-width: 1100px) {
+            width: 57vw;
+            height: 58vh;
+        }
+        @media (max-width: $tablet) {
+            width: 80%;
+            height: 57vh;
+            gap: 0;
+            padding: 15px;
+        }
+        @media (max-width: $mobile) {
+            width: 94%;
+            height: 78vw;
+        }
         .IconItem {
             background-color: #fff;
             cursor: pointer;
@@ -76,6 +164,30 @@
             margin: 0 auto;
             text-align: center;
             align-content: center;
+            @media (max-width: 1600px) {
+                width: 10.375vw;
+                height: 16.308vh;
+            }
+            @media (max-width: 1400px) {
+                width: 12.375vw;
+                height: 17.308vh;
+            }
+            @media (max-width: 1280px) {
+                width: 13.175vw;
+                height: 16.108vh;
+            }
+            @media (max-width: 1100px) {
+                width: 14.175vw;
+                height: 16.108vh;
+            }
+            @media (max-width: $tablet) {
+                width: 18.375vw;
+                height: 15.5vw;
+            }
+            @media (max-width: $mobile) {
+                width: 24.375vw;
+                height: 21.5vw;
+            }
             &:nth-child(2),
             &:nth-child(6),
             &:nth-child(7),
@@ -108,6 +220,10 @@
         cursor: pointer;
         background-color: brown;
         color: #fff;
+        @media (max-width: $mobile) {
+            top: 5px;
+            right: 5px;
+        }
         &:hover {
             background-color: #72b3cf;
             color: #fff;

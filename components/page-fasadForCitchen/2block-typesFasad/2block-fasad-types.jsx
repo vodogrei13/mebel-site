@@ -167,11 +167,13 @@ export const Block_FasadTypes = () => {
                     <Block_Slider images={sliderImages3}/>
                 </div>
             </div>
-            
+            </section>
+
             <div className={css.block_form}>
                 <Form/>
             </div>
-
+            
+            <section className={css.block_fasad_types__container}>
             <div className={css.block_fasad__cards}>
                 <div className={css.block_fasad__card}>
                     <div className={css.card__container}>
