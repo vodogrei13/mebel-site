@@ -22,7 +22,8 @@
         width: 100%;
         margin: 0 auto;
         align-items: center;
-        height: 6.96vh;
+        height: auto;
+        max-height: 7.8vh;
         justify-content: center;
         @media (max-width: 1600px) {
             justify-content: space-around;
