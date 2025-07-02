@@ -51,7 +51,7 @@ $tablet: 1024px;
     padding-bottom: 1.5rem;
     display: flex;
     flex-direction: row;
-    gap: 6rem;
+    justify-content: space-between;
     border-radius: 10px;
     border: 1px solid #444;
     @media (max-width: $tablet) {
@@ -76,6 +76,7 @@ $tablet: 1024px;
       flex: 1;
       width: 100%;
       .form__group {
+        width: 100%;
         margin: 0 auto;
         margin-left: 1rem;
         justify-content: center;
@@ -339,9 +340,7 @@ $tablet: 1024px;
       .drawing__container {
         display: flex;
         flex-direction: column;
-        width: 100%;
         position: relative;
-
         .height__warning {
           color: #ff0000;
           font-weight: bold;
