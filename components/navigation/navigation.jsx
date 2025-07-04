@@ -14,17 +14,38 @@ export const Navigation= () => {
         setIsMobile(window.innerWidth < 812);
       };
   
-      handleResize(); // Проверка при монтировании
+      handleResize();
       window.addEventListener('resize', handleResize);
       return () => window.removeEventListener('resize', handleResize);
     }, []);
-  
+    
+    useEffect(() => {
+        const handleScroll = () => {
+            if (menuOpen) {
+                setMenuOpen(false);
+            }
+        };
+
+        if (menuOpen) {
+            window.addEventListener('scroll', handleScroll);
+        }
+
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, [menuOpen]);
+
     const toggleMenu = () => {
       setMenuOpen(prev => !prev);
     };
-  
+    
+    const closeMenu = () => {
+        setMenuOpen(false);
+    };
+
     const handleAboutClick = (e) => {
       e.preventDefault();
+      closeMenu();
   
       if (window.location.pathname !== "/") {
         sessionStorage.setItem('shouldScrollToAbout', 'true');
@@ -65,7 +86,7 @@ export const Navigation= () => {
         {isMobile ? (
           <>
             <button onClick={toggleMenu} className={css.menu__button}>
-              <IconMenu width="4.5vw" height="7.8vh"/>
+              <IconMenu width="100%" height="100%"/>
             </button>
             {menuOpen && <div className={css.mobile__menu}>{navList}</div>}
           </>

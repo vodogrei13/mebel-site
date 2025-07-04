@@ -1,13 +1,23 @@
 'use client'
 import { Button_Gradient } from '@/components/ui/buttons/button-gradient/button-gradient'
 import css from './2block-size.module.scss'
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import classNames from 'classnames';
 import { basePath } from '@/utils/basePath';
-
+import { formatPhoneNumber } from "@/utils/phoneFormatter";
+import SubmitModal from "../../Form/submitModal/submitModal";
 
 export const Block_Countertops_Size = () => {
+    const [showSubmitModal, setShowSubmitModal] = useState(false);
+    const [sendSuccess, setSendSuccess] = useState(false);
+    const [isSending, setIsSending] = useState(false);
+    const [name, setName] = useState("");
+    const [surname, setSurname] = useState("");
+    const [email, setEmail] = useState("");
+    const [comment, setComment] = useState("");
+    const [phone, setPhone] = useState("");
     const [activeTab, setActiveTab] = useState('26mm');
+    const fileInputRef = useRef(null);
 
     const handleTabChange = (tab) => {
         setActiveTab(tab);
@@ -32,6 +42,45 @@ export const Block_Countertops_Size = () => {
                 return classNames(css.size__cards, css.size__cards_12mm);
             default:
                 return css.size__cards;
+        }
+    };
+
+    const handleSubmit = async () => {
+        setIsSending(true);
+        try {
+            const formData = new FormData();
+            formData.append("name", name);
+            formData.append("surname", surname);
+            formData.append("email", email);
+            formData.append("phone", phone);
+            formData.append("comment", comment);
+            formData.append("formName", "Столешница для кухни");
+
+            // Добавляем пользовательские файлы
+            const fileInput = fileInputRef.current;
+            if (fileInput && fileInput.files && fileInput.files.length > 0) {
+                for (let i = 0; i < fileInput.files.length; i++) {
+                    formData.append("files", fileInput.files[i]);
+                }
+            }
+
+            // Отправка письма
+            const res = await fetch("/api/send-order", {
+                method: "POST",
+                body: formData,
+            });
+
+            if (res.ok) {
+                setSendSuccess(true);
+                setShowSubmitModal(false);
+            } else {
+                alert("Ошибка при отправке формы");
+            }
+        } catch (err) {
+            console.error("Ошибка отправки:", err);
+            alert("Произошла ошибка при отправке формы");
+        } finally {
+            setIsSending(false);
         }
     };
 
@@ -123,16 +172,51 @@ export const Block_Countertops_Size = () => {
                     </div>
                 </div>
                 <div className={css.info__bottom}>
-                        <p>Заказывая столешницы у нас, вы получаете изделия, которые сочетают в себе надежность, эстетику и удобство. Доверьте нам создание столешниц, освободите себя для поиска новых заказов!</p>
-                        <div className={css.info__bottom_btn}>
-                            <Button_Gradient
-                            text="Заказать столешницу"
-                            width="13.854vw"
-                            height="6.042vh"
-                            href='/'
-                            />
+                    <p>Заказывая столешницы у нас, вы получаете изделия, которые сочетают в себе надежность, эстетику и удобство. Доверьте нам создание столешниц, освободите себя для поиска новых заказов!</p>
+                    <div className={css.info__bottom_btn}>
+                        <Button_Gradient
+                        text="Заказать столешницу"
+                        width="13.854vw"
+                        height="6.042vh"
+                        onClick={() => setShowSubmitModal(true)} 
+                        />
+                    </div>
+                </div>
+                {showSubmitModal && (
+                    <div className={css.submit__modal}>
+                        <SubmitModal
+                        isOpen={showSubmitModal}
+                        onClose={() => setShowSubmitModal(false)}
+                        onSubmit={handleSubmit}
+                        isSending={isSending}
+                        name={name}
+                        setName={setName}
+                        surname={surname}
+                        setSurname={setSurname}
+                        phone={phone}
+                        setPhone={setPhone}
+                        email={email}
+                        setEmail={setEmail}
+                        comment={comment}
+                        setComment={setComment}
+                        commentLabel="Комментарий к заказу"
+                        placeholder="**Укажите фирму и размер столешниц**"
+                        warning = ""
+                        />
+                    </div>
+                    )}
+
+                    {sendSuccess && (
+                    <div className={css.submit__modal}>
+                        <div className={css.submit__content}>
+                        <h3>Ваш заказ отправлен!</h3>
+                        <p>Мы свяжемся с вами в ближайшее время.</p>
+                        <button className={css.submit__button} onClick={() => setSendSuccess(false)}>
+                            Закрыть
+                        </button>
                         </div>
                     </div>
+                    )}
             </div>
         </section>
     )

@@ -13,7 +13,10 @@
         outline: none;
         padding: 2px;
         box-sizing: border-box;
-        height: 4.4vw;
+        min-width: 35px;
+        max-width: 36px;
+        min-height: 35px;
+        max-height: 36px;
         cursor: pointer;
         padding: 0;
         display: flex;

@@ -13,6 +13,7 @@ import { useState, useRef, useCallback, useEffect } from "react";
 import { Button_Gradient } from "@/components/ui/buttons/button-gradient/button-gradient";
 import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
+import { formatPhoneNumber } from "@/utils/phoneFormatter";
 
 export const Duco = () => {
   const [isFormValid, setIsFormValid] = useState(false);
@@ -23,15 +24,12 @@ export const Duco = () => {
   const [email, setEmail] = useState("");
   const [comment, setComment] = useState("");
   const [phone, setPhone] = useState("");
-  const [fileCount, setFileCount] = useState(0);
   const [isSending, setIsSending] = useState(false);
   const [sendSuccess, setSendSuccess] = useState(false);
   const [drawingItems, setDrawingItems] = useState([{ id: 1 }]);
-
-  const fileInputRef = useRef(null);
-  const formsRef = useRef(null);
   const pdfRef = useRef(null);
-
+  const fileInputRef = useRef(null);
+  
   const checkFormValidity = useCallback(() => {
   // Проверка основных полей
   const mainFields = [
@@ -90,51 +88,7 @@ useEffect(() => {
   return () => clearTimeout(timer);
 }, [drawingItems, checkFormValidity]);
 
-  const formatPhoneNumber = useCallback((value) => {
-  if (!value) return "";
-
-  const digits = value.replace(/\D/g, "").slice(0, 11);
-
-  if (digits.startsWith("7")) {
-    const match = digits.slice(1).match(/^(\d{0,3})(\d{0,3})(\d{0,2})(\d{0,2})$/);
-    return `+7${match ? ` (${match[1] || ""}) ${match[2] || ""}${match[3] ? "-" + match[3] : ""}${match[4] ? "-" + match[4] : ""}` : ""}`;
-  }
-
-  return digits;
-}, []);
-
- const handlePhoneChange = useCallback((e) => {
-  let input = e.target.value.replace(/\D/g, "");
-
-  // Если начинается с 8 — заменяем на 7
-  if (input.startsWith("8")) {
-    input = "7" + input.slice(1);
-  }
-
-  // Если начинается с 9 — добавляем 7 в начало
-  if (input.startsWith("9")) {
-    input = "7" + input;
-  }
-
-  // Ограничиваем до 11 цифр
-  input = input.slice(0, 11);
-
-  setPhone(input);
-}, []);
-
-
-
-  const handleFileChange = (e) => {
-  const files = e.target.files;
-  if (files.length > 5) {
-    alert("Можно прикрепить не более 5 файлов");
-    e.target.value = "";
-    return;
-  }
-  setFileCount(files.length);
-};
-
-  const generatePDF = async () => {
+  const generatePDF = async (fileCount) => {
   const pdf = new jsPDF({ orientation: "landscape", unit: "mm", format: "a4" });
   const pdfElement = pdfRef.current;
   if (!pdfElement) return;
@@ -154,7 +108,7 @@ useEffect(() => {
     <p><strong>Фамилия:</strong> ${surname || "-"}</p>
     <p><strong>Телефон:</strong> ${formatPhoneNumber(phone) || "-"}</p>
     <p><strong>Email:</strong> ${email || "-"}</p>
-    <p><strong>Файлов прикреплено:</strong> ${fileCount}</p>
+    <p><strong>Файлов прикреплено:</strong> ${fileCount || 0}</p>
   `;
   senderBlock.style.fontSize = "9px";
   senderBlock.style.lineHeight = "1.2";
@@ -334,11 +288,11 @@ useEffect(() => {
     }
   };
 
-  const handleSubmit = async () => {
+  const handleSubmit = async (submitData) => {
   setIsSending(true);
   try {
     console.time('pdf');
-    const pdf = await generatePDF();
+    const pdf = await generatePDF(submitData.fileCount || 0);
     console.timeEnd('pdf');
     const pdfBlob = pdf.output("blob");
 
@@ -348,17 +302,16 @@ useEffect(() => {
     formData.append("email", email);
     formData.append("phone", phone);
     formData.append("comment", comment);
-    formData.append("formName", "Duco");
+    formData.append("formName", "фасадов Duco");
     
     // Добавляем PDF
     formData.append("files", new File([pdfBlob], "order.pdf", { type: "application/pdf" }));
     
-    // Добавляем пользовательские файлы
-    const fileInput = fileInputRef.current;
-    if (fileInput && fileInput.files && fileInput.files.length > 0) {
-      for (let i = 0; i < fileInput.files.length; i++) {
-        formData.append("files", fileInput.files[i]);
-      }
+    // Добавляем пользовательские файлы (с проверкой)
+    if (submitData.files && Array.isArray(submitData.files)) {
+      submitData.files.forEach(file => {
+        formData.append("files", file);
+      });
     }
 
     // Отправка основного письма
@@ -597,16 +550,6 @@ useEffect(() => {
             setEmail={setEmail}
             comment={comment}
             setComment={setComment}
-            fileCount={fileCount}
-            handleFileChange={handleFileChange}
-            removeFiles={() => {
-            if (fileInputRef.current) {
-              fileInputRef.current.value = "";
-              setFileCount(0);
-            }}}
-            formatPhoneNumber={formatPhoneNumber}
-            handlePhoneChange={handlePhoneChange}
-            fileInputRef={fileInputRef}
           />
           </div>
         )}
