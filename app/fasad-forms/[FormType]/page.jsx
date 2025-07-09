@@ -7,7 +7,7 @@ import { Tbm } from '@/components/Form/Tbm/tbm';
 import { Evosoft } from '@/components/Form/Evosoft/evosoft';
 import { FIP } from '@/components/Form/FIP/fip';
 import { YourDay } from '@/components/Form/YourDay/yourday';
-import { FormDveriKupe } from '@/components/Form/Dveri-kupe/dverikupe';
+import { FormDveriKupe } from '@/components/Form/Dveri-kupe/dveriKupe';
 
 
 const formComponents = {
