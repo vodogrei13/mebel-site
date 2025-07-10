@@ -38,6 +38,11 @@
           textarea {
             height: 4vw;
             padding: 0.2rem;
+            &::placeholder {
+              text-align: center;
+              font-size: 16px;
+              color: rgba(186, 30, 30, 0.8);;
+            }
           }
           .text__warning {
             margin-top: 0.2rem;

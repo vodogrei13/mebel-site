@@ -1,0 +1,457 @@
+// Breakpoints
+$mobile: 768px;
+$tablet: 1024px;
+
+.dveriKupe__container {
+  width: 100%;
+  margin: 0 auto;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  .dveriKupe__logo {
+    width: 100%;
+    text-align: center;
+    @media (max-width: $mobile) {
+      margin-bottom: 0;
+    }
+    .dveriKupe__logo_item {
+      max-width: 240px;
+      height: auto;
+      margin: 0 auto;
+      margin-bottom: 1rem;
+    }
+  }
+  .dveriKupe__form_container {
+    width: 65%;
+    margin: 0 auto;
+    @media (max-width: 1600px) {
+      width: 75%;
+    }
+    @media (max-width: 1300px) {
+      width: 90%;
+    }
+    @media (max-width: 1200px) {
+      width: 95%;
+    }
+    @media (max-width: $tablet) {
+      width: 95%;
+    }
+    @media (max-width: $mobile) {
+      width: 98%;
+    }
+    .dveriKupe__form {
+      .dveriKupe__form_main {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
+        @media (max-width: $mobile) {
+          grid-template-columns: repeat(2, 1fr);
+          width: 90%;
+          margin: 0 auto;
+          gap: 0.5rem;
+        }
+        h3 {
+                text-align: center;
+                padding: 12px 20px;
+                border-radius: 8px;
+                background: linear-gradient(135deg, #1a3d37 0%, #237063 50%, #21665a 100%);
+                color: white;
+                font-weight: 600;
+                letter-spacing: 0.5px;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                margin-bottom: 1.5rem;
+                position: relative;
+                overflow: hidden;
+                
+                &::after {
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    height: 3px;
+                    background: rgba(255, 255, 255, 0.3);
+                }
+                
+                @media (max-width: $mobile) {
+                    padding: 10px 15px;
+                    font-size: 1rem;
+                }
+            }
+        .section__ParametersOfSlidingDoors {
+        
+            .form__item {
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+                justify-content: end;
+                align-items: center;
+                @media (max-width: $mobile) {
+                    &:nth-child(4) {
+                    grid-row: 2;
+                    grid-column: 1;
+                    }
+                    &:nth-child(7) {
+                    grid-row: 2;
+                    grid-column: 2;
+                    }
+                }
+                &:nth-child(10) {
+                    grid-column: 2;
+                }
+                label {
+                    font-size: clamp(14px, 0.83vw, 50px);
+                    align-items: center;
+                    text-align: center;
+                    padding-bottom: 0.5rem;
+                }
+                input,
+                select {
+                    font-size: clamp(14px, 0.83vw, 50px);
+                    align-items: center;
+                    text-align: center;
+                    width: 100%;
+                    height: 34px;
+                    border-radius: 5px;
+                    background: linear-gradient(white, white) padding-box,
+                    linear-gradient(to right, #1a2980 0%, #26d0ce 51%, #1a2980 100%)
+                        border-box;
+                    border: 2px solid transparent;
+                    outline: none;
+                    padding: 2px;
+                }
+                // Стили для input[type="number"]
+                    input[type="number"] {
+                    -webkit-appearance: none;
+                    -moz-appearance: textfield;
+                    appearance: none;
+
+                    &::-webkit-outer-spin-button,
+                    &::-webkit-inner-spin-button {
+                        -webkit-appearance: none;
+                        margin: 0;
+                    }
+                    }
+                }
+        }   
+        .section__ParametersPen {
+            .form__item {
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+                justify-content: end;
+                align-items: center;
+                @media (max-width: $mobile) {
+                    &:nth-child(4) {
+                    grid-row: 2;
+                    grid-column: 1;
+                    }
+                    &:nth-child(7) {
+                    grid-row: 2;
+                    grid-column: 2;
+                    }
+                }
+                &:nth-child(10) {
+                    grid-column: 2;
+                }
+                label {
+                    font-size: clamp(14px, 0.83vw, 50px);
+                    align-items: center;
+                    text-align: center;
+                    padding-bottom: 0.5rem;
+                }
+                input,
+                select {
+                    font-size: clamp(14px, 0.83vw, 50px);
+                    align-items: center;
+                    text-align: center;
+                    width: 100%;
+                    height: 34px;
+                    border-radius: 5px;
+                    background: linear-gradient(white, white) padding-box,
+                    linear-gradient(to right, #1a2980 0%, #26d0ce 51%, #1a2980 100%)
+                        border-box;
+                    border: 2px solid transparent;
+                    outline: none;
+                    padding: 2px;
+                }
+                // Стили для input[type="number"]
+                    input[type="number"] {
+                    -webkit-appearance: none;
+                    -moz-appearance: textfield;
+                    appearance: none;
+
+                    &::-webkit-outer-spin-button,
+                    &::-webkit-inner-spin-button {
+                        -webkit-appearance: none;
+                        margin: 0;
+                    }
+                    }
+                }
+                .dveriKupe__handle {
+                    margin: 0 auto;
+                    text-align: center;
+                }
+        }
+        .section__TypeOfSeparator {
+            .form__item {
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+                justify-content: end;
+                align-items: center;
+                @media (max-width: $mobile) {
+                    &:nth-child(4) {
+                    grid-row: 2;
+                    grid-column: 1;
+                    }
+                    &:nth-child(7) {
+                    grid-row: 2;
+                    grid-column: 2;
+                    }
+                }
+                &:nth-child(10) {
+                    grid-column: 2;
+                }
+                label {
+                    font-size: clamp(14px, 0.83vw, 50px);
+                    align-items: center;
+                    text-align: center;
+                    padding-bottom: 0.5rem;
+                }
+                input,
+                select {
+                    font-size: clamp(14px, 0.83vw, 50px);
+                    align-items: center;
+                    text-align: center;
+                    width: 100%;
+                    height: 34px;
+                    border-radius: 5px;
+                    background: linear-gradient(white, white) padding-box,
+                    linear-gradient(to right, #1a2980 0%, #26d0ce 51%, #1a2980 100%)
+                        border-box;
+                    border: 2px solid transparent;
+                    outline: none;
+                    padding: 2px;
+                }
+                // Стили для input[type="number"]
+                    input[type="number"] {
+                    -webkit-appearance: none;
+                    -moz-appearance: textfield;
+                    appearance: none;
+
+                    &::-webkit-outer-spin-button,
+                    &::-webkit-inner-spin-button {
+                        -webkit-appearance: none;
+                        margin: 0;
+                    }
+                    }
+                }
+                .dveriKupe__separator_image {
+                    margin: 0 auto;
+                    text-align: center;
+                }
+        }
+        .section__Drawing {
+
+        }
+      }
+    } //end form
+    .submit__Container {
+        margin: 0 auto;
+        align-items: center;
+        text-align: center;
+        justify-content: center;
+        padding: 1rem;
+        width: 45%;
+        .tooltipContainer {
+        position: relative;
+        display: inline-block;
+        width: 100%;
+        &:hover .tooltip {
+          visibility: visible;
+          opacity: 1;
+        }
+        button {
+          width: 100%;
+          margin: 0 auto;
+          &:hover {
+            box-shadow: 0px 2px 8px 2px rgba(141, 150, 178, 0.3);
+            transform: scale(1.05);
+            transition: 0.5s;
+          }
+        }
+      }
+      .tooltip {
+        visibility: hidden;
+        width: 200px;
+        background-color: #ff4444;
+        color: white;
+        text-align: center;
+        border-radius: 6px;
+        padding: 8px;
+        position: absolute;
+        z-index: 1;
+        bottom: 125%;
+        left: 50%;
+        transform: translateX(-50%);
+        opacity: 0;
+        transition: opacity 0.3s;
+        font-size: 14px;
+
+        &::after {
+          content: "";
+          position: absolute;
+          top: 100%;
+          left: 50%;
+          margin-left: -5px;
+          border-width: 5px;
+          border-style: solid;
+          border-color: #ff4444 transparent transparent transparent;
+        }
+      }
+      }
+  }
+  .submit__modal {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+        animation: fadeIn 0.3s ease-out;
+        .submit__content {
+          background-color: white;
+          padding: 20px;
+          border-radius: 8px;
+          width: 400px;
+          box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+          animation: slideUp 0.3s ease-out;
+          position: relative;
+          display: flex;
+          flex-direction: column;
+          gap: 0.3rem;
+          h3 {
+            color: #557a95;
+            margin-bottom: 15px;
+            text-align: center;
+          }
+          label {
+            text-align: center;
+          }
+          input {
+            margin: 0 auto;
+            width: 50%;
+            height: 30px;
+            padding-left: 8px;
+          }
+          textarea {
+            height: 4vw;
+            padding: 0.2rem;
+          }
+            .input_file span {
+                  position: relative;
+                  width: 7.729vw;
+                  display: inline-flex;
+                  justify-content: center;
+                  align-items: center;
+                  display: inline-block;
+                  cursor: pointer;
+                  outline: none;
+                  text-decoration: none;
+                  font-size: 14px;
+                  vertical-align: middle;
+                  color: rgb(255 255 255);
+                  text-align: center;
+                  border-radius: 4px;
+                  background-color: #13254d;
+                  line-height: 22px;
+                  height: 1.763vw;
+                  padding: 7px 12px;
+                  box-sizing: border-box;
+                  border: none;
+                  margin: 0;
+                  transition: background-color 0.2s;
+                }
+                .input_file input[type="file"] {
+                  position: absolute;
+                  z-index: -1;
+                  opacity: 0;
+                  display: block;
+                  width: 0;
+                  height: 0;
+                }
+
+                /* Focus */
+                .input_file input[type="file"]:focus + span {
+                  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+                }
+
+                /* Hover/Active */
+                .input_file:hover span {
+                  background-color: #2db3b3;
+                  color: black;
+                }
+                .input_file:active span {
+                  background-color: #2db3b3;
+                }
+
+                /* Disabled */
+                .input_file input[type="file"]:disabled + span {
+                  background-color: #eee;
+                }
+                .clear_files_button {
+                  background: none;
+                  border: none;
+                  color: #ff6b6b;
+                  font-size: 1.2em;
+                  cursor: pointer;
+                  padding: 0 5px;
+                  &:hover {
+                    color: #ff5252;
+                  }
+                }
+          .submit__close_button {
+            align-self: flex-end;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            z-index: 10;
+            background: none;
+            border: 3px solid;
+            border-radius: 10px;
+            padding: 0 5px;
+            font-size: 24px;
+            cursor: pointer;
+            background-color: #72b3cf;
+            color: #fff;
+            transition: background-color 0.3s;
+            &:hover {
+              background-color: lighten(brown, 10%);
+              color: #fff;
+            }
+          }
+          .submit__button {
+            width: 50%;
+            height: 40px;
+            margin: 0 auto;
+            margin-top: 1rem;
+            background-color: #557a95;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            position: relative;
+
+            &:hover {
+              background-color: darken(#cf9b48, 10%);
+            }
+          }
+        }
+      }
+}

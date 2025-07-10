@@ -45,7 +45,7 @@ export async function POST(req) {
     const mailOptions = {
       from: 'mp1fdm@mail.ru',
       to: 'mebelmastery@inbox.ru',
-      subject: `Заявка на расчет фасадов ${formName} #${String(Date.now()).slice(-6)}`,
+      subject: `Заявка на расчет ${formName} #${String(Date.now()).slice(-6)}`,
       text: mailText,
       html: `
         <div style="font-family: Arial, sans-serif; padding: 20px; color: #333;">
@@ -72,7 +72,7 @@ export async function POST(req) {
               <td style="padding: 8px; border: 1px solid #ddd;">${comment || 'нет'}</td>
             </tr>
           </table>
-          <p style="margin-top: 20px;">Детали заказа в прикрепленном PDF-файле.</p>
+          <p style="margin-top: 20px;">Детали заказа в прикрепленном PDF-файле(при наличии).</p>
         </div>
       `,
       attachments,

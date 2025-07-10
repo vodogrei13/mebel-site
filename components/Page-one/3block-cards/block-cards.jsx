@@ -46,7 +46,7 @@ export const Block_Cards = () => {
                     href='/fasad-for-kitchen'
                     width = 'calc(7.917vw + 12px)'
                     height = 'calc(5.5vh + 12px)'
-                    backgroundColor= "rgba(174, 214, 221, 0.2);" 
+                    backgroundColor= "rgba(174, 214, 221, 0.2)" 
                     color="#fff"
                     />
                 </div>
@@ -85,7 +85,7 @@ export const Block_Cards = () => {
                     href='/dveri-kupe'
                     width = 'calc(7.917vw + 12px)'
                     height = 'calc(5.5vh + 12px)'
-                    backgroundColor= "rgba(174, 214, 221, 0.2);" 
+                    backgroundColor= "rgba(174, 214, 221, 0.2)" 
                     color="#fff"
                     />
                 </div>

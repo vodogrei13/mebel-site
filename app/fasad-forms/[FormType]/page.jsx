@@ -7,6 +7,7 @@ import { Tbm } from '@/components/Form/Tbm/tbm';
 import { Evosoft } from '@/components/Form/Evosoft/evosoft';
 import { FIP } from '@/components/Form/FIP/fip';
 import { YourDay } from '@/components/Form/YourDay/yourday';
+import { FormDveriKupe } from '@/components/Form/Dveri-kupe/dveriKupe';
 
 
 const formComponents = {
@@ -19,6 +20,7 @@ const formComponents = {
   Evosoft: Evosoft,
   FIP: FIP,
   YourDay: YourDay,
+  DveriKupe: FormDveriKupe,
 };
 
 export async function generateStaticParams() {

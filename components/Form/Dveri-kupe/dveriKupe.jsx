@@ -1,19 +1,6 @@
 "use client";
-import css from "./skat.module.scss";
+import css from "./dveriKupe.module.scss";
 import { basePath } from "@/utils/basePath";
-import {
-  typeSurface,
-  colorDye,
-  colorSkin,
-  milling,
-  millingOnTheFacade,
-  millingOnTheEdge,
-  prefabricated,
-  patina,
-  thickness,
-  note,
-} from "./optionImport";
-import { DrawingItem } from "../drawingItems/drawingItem";
 import SubmitModal from "../submitModal/submitModal";
 import { useState, useRef, useCallback, useEffect } from "react";
 import { Button_Gradient } from "@/components/ui/buttons/button-gradient/button-gradient";
@@ -21,9 +8,10 @@ import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
 import { formatPhoneNumber } from "@/utils/phoneFormatter";
 
-export const Skat = () => {
+export const FormDveriKupe = () => {
   const [isFormValid, setIsFormValid] = useState(false);
   const [validationError, setValidationError] = useState("");
+  const [TypeOfSeparator, setTypeOfSeparator] = useState("frame 1");
   const [selectedTypeSurface, setSelectedTypeSurface] = useState("color");
   const [showSubmitModal, setShowSubmitModal] = useState(false);
   const [name, setName] = useState("");
@@ -37,69 +25,14 @@ export const Skat = () => {
   const pdfRef = useRef(null);
   const fileInputRef = useRef(null);
 
-  const checkFormValidity = useCallback(() => {
-  // Проверка основных полей
-  const mainFields = [
-    { name: "typeSurface", label: "Тип поверхности" },
-    { name: "textureDirection", label: "Направление текстуры" },
-    { name: "milling", label: "Фрезеровка" },
-    { name: "color", label: "Цвет" },
-    { name: "thickness", label: "Толщина" },
-    { name: "facadeMilling", label: "Фрезеровка по фасаду" },
-    { name: "patina", label: "Патина*" },
-    { name: "edgeMilling", label: "Фрезеровка по краю" },
-  ];
-
-  const missingMainField = mainFields.find(field => {
-    const element = document.querySelector(`[name="${field.name}"]`);
-    return !element?.value;
-  });
-
-  // Проверка drawing items
-  let missingDrawingField = null;
-  const hasValidItem = drawingItems.some(item => {
-    const fields = [
-      { name: `height-${item.id}`, label: "Высота" },
-      { name: `width-${item.id}`, label: "Ширина" },
-      { name: `quantity-${item.id}`, label: "Количество" }
-    ];
-
-    missingDrawingField = fields.find(field => {
-      const element = document.querySelector(`[name="${field.name}"]`);
-      return !element?.value;
-    });
-
-    return !missingDrawingField;
-  });
-
-  if (missingMainField) {
-    setValidationError(`Заполните поле "${missingMainField.label}"`);
-    setIsFormValid(false);
-    return;
-  }
-
-  if (!hasValidItem) {
-    setValidationError(`Заполните все обязательные поля хотя бы в одном элементе`);
-    setIsFormValid(false);
-    return;
-  }
-
-  setValidationError("");
-  setIsFormValid(true);
-}, [drawingItems]);
-
-useEffect(() => {
-  const timer = setTimeout(() => {
+    const handleTypeSurfaceChange = (e) => {
+    setSelectedTypeSurface(e.target.value);
     checkFormValidity();
-  }, 100);
-  
-  return () => clearTimeout(timer);
-}, [drawingItems, checkFormValidity]);
+    };
 
-const handleTypeSurfaceChange = (e) => {
-  setSelectedTypeSurface(e.target.value);
-  checkFormValidity();
-};
+    const handleSeparatorChange = (e) => {
+    setTypeOfSeparator(e.target.value);
+    };
 
   const generatePDF = async (fileCount) => {
   const pdf = new jsPDF({ orientation: "landscape", unit: "mm", format: "a4" });
@@ -198,7 +131,7 @@ const handleTypeSurfaceChange = (e) => {
       color: #000 !important;
     }
 
-    body.pdf-mode .${css.skat__form_main},
+    body.pdf-mode .${css.dveriKupe__form_main},
     body.pdf-mode .${css.form__form_drawing} {
       gap: 6px !important;
     }
@@ -315,7 +248,7 @@ const handleTypeSurfaceChange = (e) => {
     formData.append("email", email);
     formData.append("phone", phone);
     formData.append("comment", comment);
-    formData.append("formName", "фасадов СКАТ");
+    formData.append("formName", "Дверей-купе");
     
     // Добавляем PDF
     formData.append("files", new File([pdfBlob], "order.pdf", { type: "application/pdf" }));
@@ -354,227 +287,193 @@ const handleTypeSurfaceChange = (e) => {
 };
 
   return (
-    <div className={css.skat__container}>
-      <section className={css.skat__form_container}>
+    <div className={css.dveriKupe__container}>
+      <section className={css.dveriKupe__form_container}>
         <div className="pdf-adjust" ref={pdfRef}>
-          <div className={css.skat__logo}>
-            <img src={`${basePath}/png/fasads/skat.png`} className={css.skat__logo_item} alt="Логотип" />
+          <div className={css.dveriKupe__logo}>
+            <img src={`${basePath}/png/aristo.png`} className={css.dveriKupe__logo_item} alt="Логотип" />
           </div>
 
-    <form className={css.skat__form}>
-          <div className={css.skat__form_main}>
-            <div className={css.form__item}>
-              <label htmlFor="typeSurface">Тип поверхности*</label>
-              <select
-                name="typeSurface"
-                id="typeSurface"
-                className={css.form__select}
-                value={selectedTypeSurface}
-                onChange={handleTypeSurfaceChange}
-                onBlur={checkFormValidity}
-                required
-              >
-                {typeSurface.map((option) => (
-                  <option key={option.value} value={option.value}>
-                    {option.label}
-                  </option>
-                ))}
-              </select>
-            </div>
+    <form className={css.dveriKupe__form}>
+          <div className={css.dveriKupe__form_main}>
 
-            <div className={css.form__item}>
-              <label htmlFor="textureDirection">Направление текстуры*</label>
-              <select
-                name="textureDirection"
-                id="textureDirection"
-                className={css.form__select}
-                required
-                onChange={handleTypeSurfaceChange}
-                onBlur={checkFormValidity}
-              >
-                <option value="inHeight">По высоте</option>
-                <option value="inWidth">По ширине</option>
-              </select>
-            </div>
+            <section className={css.section__ParametersOfSlidingDoors}>
+                <h3>Параметры проёма и дверей-купе</h3>
+                <div className={css.form__item}>
+                <label htmlFor="HeightOfTheOpening">Высота проёма*</label>
+                <input
+                    type="number"
+                    placeholder="2500"
+                    className={css.form__input}
+                    name="HeightOfTheOpening"
+                    id="HeightOfTheOpening"
+                    required
+                    onChange={handleTypeSurfaceChange}
+                />
+                </div>
 
-            <div className={css.form__item}>
-              <label htmlFor="milling">Фрезеровка*</label>
-              <select
-                name="milling"
-                id="milling"
-                className={css.form__select}
-                required
-                onChange={handleTypeSurfaceChange}
-                onBlur={checkFormValidity}
-              >
-                {milling.map((option) => (
-                  <option key={option.value} value={option.value}>
-                    {option.label}
-                  </option>
-                ))}
-              </select>
-            </div>
+                <div className={css.form__item}>
+                <label htmlFor="WidthOfTheOpening">Ширина проёма*</label>
+                <input
+                    type="number"
+                    placeholder="1500"
+                    className={css.form__input}
+                    name="WidthOfTheOpening"
+                    id="WidthOfTheOpening"
+                    required
+                    onChange={handleTypeSurfaceChange}
+                />
+                </div>
 
-            <div className={css.form__item}>
-              <label htmlFor="color">Цвет*</label>
-              <select
-                name="color"
-                id="color"
-                className={css.form__select}
-                required
-                onChange={handleTypeSurfaceChange}
-                onBlur={checkFormValidity}
-              >
-                {selectedTypeSurface === "color"
-                  ? colorDye.map((option) => (
-                      <option key={option.value} value={option.value}>
-                        {option.label}
-                      </option>
-                    ))
-                  : colorSkin.map((option) => (
-                      <option key={option.value} value={option.value}>
-                        {option.label}
-                      </option>
-                    ))}
-              </select>
-            </div>
+                <div className={css.form__item}>
+                <label htmlFor="NumberOfDoors">Количество дверей*</label>
+                <select
+                    name="NumberOfDoors"
+                    id="NumberOfDoors"
+                    className={css.form__select}
+                    required
+                    onChange={handleTypeSurfaceChange}
+                >
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                </select>
+                </div>
 
-            <div className={css.form__item}>
-              <label htmlFor="thickness">Толщина*</label>
-              <select
-                name="thickness"
-                id="thickness"
-                className={css.form__select}
-                required
-                onChange={handleTypeSurfaceChange}
-                onBlur={checkFormValidity}
-              >
-                {thickness.map((option) => (
-                  <option key={option.value} value={option.value}>
-                    {option.label}
-                  </option>
-                ))}
-              </select>
-            </div>
+                <div className={css.form__item}>
+                <label htmlFor="SchlegelСolor">Цвет шлегеля*</label>
+                <select
+                    name="SchlegelСolor"
+                    id="SchlegelСolor"
+                    className={css.form__select}
+                    required
+                    onChange={handleTypeSurfaceChange}
+                >
+                    <option value="white">Белый</option>
+                    <option value="grey">Серый</option>
+                </select>
+                </div>
 
-            <div className={css.form__item}>
-              <label htmlFor="facadeMilling">Фрезеровка по фасаду*</label>
-              <select
-                name="facadeMilling"
-                id="facadeMilling"
-                className={css.form__select}
-                required
-                onChange={handleTypeSurfaceChange}
-                onBlur={checkFormValidity}
-              >
-                {millingOnTheFacade.map((option) => (
-                  <option key={option.value} value={option.value}>
-                    {option.label}
-                  </option>
-                ))}
-              </select>
-            </div>
+                <div className={css.form__item}>
+                <label htmlFor="LDSPColor">Цвет ЛДСП*</label>
+                <input
+                    type="number"
+                    className={css.form__input}
+                    name="LDSPColor"
+                    id="LDSPColor"
+                    required
+                    onChange={handleTypeSurfaceChange}
+                />
+                </div>
 
-            <div className={css.form__item}>
-              <input
-                type="text"
-                placeholder="Или напишите ваш вариант"
-                className={css.form__input}
-                name="myColor"
-                id="myColor"
-                required
-                onChange={handleTypeSurfaceChange}
-                onBlur={checkFormValidity}
-              />
-            </div>
+                <div className={css.form__item}>
+                <label htmlFor="Texture">Текстура*</label>
+                <select
+                    name="Texture"
+                    id="Texture"
+                    className={css.form__select}
+                    required
+                    onChange={handleTypeSurfaceChange}
+                >
+                    <option value="Vertical">Вертикальная</option>
+                    <option value="Horizontal">Горизонтальная</option>
+                </select>
+                </div>
 
-            <div className={css.form__item}>
-              <label htmlFor="patina">Патина*</label>
-              <select
-                name="patina"
-                id="patina"
-                className={css.form__select}
-                required
-                onChange={handleTypeSurfaceChange}
-                onBlur={checkFormValidity}
-              >
-                {patina.map((option) => (
-                  <option key={option.value} value={option.value}>
-                    {option.label}
-                  </option>
-                ))}
-              </select>
-            </div>
+                <div className={css.form__item}>
+                <label htmlFor="material">Материал вставки*</label>
+                <input
+                    type="number"
+                    className={css.form__input}
+                    name="material"
+                    id="material"
+                    required
+                    onChange={handleTypeSurfaceChange}
+                />
+                </div>
+            </section>
 
-            <div className={css.form__item}>
-              <label htmlFor="edgeMilling">Фрезеровка по краю*</label>
-              <select
-                name="edgeMilling"
-                id="edgeMilling"
-                className={css.form__select}
-                required
-                onChange={handleTypeSurfaceChange}
-                onBlur={checkFormValidity}
-              >
-                {millingOnTheEdge.map((option) => (
-                  <option key={option.value} value={option.value}>
-                    {option.label}
-                  </option>
-                ))}
-              </select>
-            </div>
+            <section className={css.section__ParametersPen}>
+                <h3>Параметры ручки (профиля)</h3>
+                <div className={css.form__item}>
+                <label htmlFor="SystemColor">Цвет системы*</label>
+                <select
+                    name="SystemColor"
+                    id="SystemColor"
+                    className={css.form__select}
+                    required
+                    onChange={handleTypeSurfaceChange}
+                >
+                    <option value="Dark wenge">Венге темный Эко</option>
+                    <option value="Smoky oak">Дуб дымчатый Эко</option>
+                    <option value="Matt bronze">Матовая бронза Эко</option>
+                    <option value="Matt champagne">Матовая шампань Эко</option>
+                    <option value="Matt gold">Матовое золото Эко</option>
+                    <option value="Matt chrome">Матовый хром Эко</option>
+                    <option value="French walnut">Орех французский Эко</option>
+                    <option value="White gloss">Белый глянец Эко</option>
+                </select>
+                </div>
 
-            <div className={css.form__item}>
-              <label htmlFor="teams">Сборные*</label>
-              <select
-                name="teams"
-                id="teams"
-                className={css.form__select}
-                required
-                onChange={handleTypeSurfaceChange}
-                onBlur={checkFormValidity}
-              >
-                {prefabricated.map((option) => (
-                  <option key={option.value} value={option.value}>
-                    {option.label}
-                  </option>
-                ))}
-              </select>
-            </div>
-          </div>
-          <div className={css.form__form_drawing}>
-            {drawingItems.map((item, index) => (
-              <DrawingItem 
-                key={item.id}
-                item={item}
-                index={index}
-                onRemove={() => removeDrawingItem(item.id)}
-                isRemovable={drawingItems.length > 1}
-                onFieldChange={checkFormValidity}
-              />
-            ))}
-            <button 
-            type="button" 
-            className={css.addFormButton} 
-            onClick={addDrawingItem}
-            disabled={drawingItems.length >= 30}
-            >
-            + Добавить
-            </button>
+                <div className={css.form__item}>
+                <label htmlFor="typeOfHandle">Вид ручки (профиль) - тип ручки*</label>
+                <select
+                    name="typeOfHandle"
+                    id="typeOfHandle"
+                    className={css.form__select}
+                    required
+                    onChange={handleTypeSurfaceChange}
+                >
+                    <option value="Vertical">Профиль вертикальный С</option>
+                </select>
+                </div>
+                <div className={css.dveriKupe__handle}>
+                    <img src={`${basePath}/png/handle1.png`} className={css.dveriKupe__handle_item} alt="Вид ручки профиль вертикальный" />
+                </div>
+            </section>
+            
+            <section className={css.section__TypeOfSeparator}>
+                <h3>Вид разделителя (средней рамки)</h3>
+                <div className={css.form__item}>
+                <label htmlFor="TypeOfSeparator">Разделитель (Средняя рамка)*</label>
+                <select
+                    name="TypeOfSeparator"
+                    id="TypeOfSeparator"
+                    className={css.form__select}
+                    required
+                    onChange={handleSeparatorChange}
+                >
+                    <option value="Frame 1">Рамка средняя с винтом</option>
+                    <option value="Frame 2">Рамка средняя без самореза</option>
+                </select>
+                </div>
+
+                <div className={css.dveriKupe__separator_image}>
+                    {TypeOfSeparator === "Frame 1" ? (
+                        <img src={`${basePath}/png/Frame1.png`} className={css.separator_image} alt="Вид разделителя с винтом"/>
+                    ) : (
+                        <img src={`${basePath}/png/Frame2.png`} className={css.separator_image} alt="Вид разделителя без самореза"/>
+                    )}
+                </div>
+            </section>
+
+            <section className={css.section__Drawing}>
+                <h3>Выбор наполнения дверей</h3>
+                <p>Кликните по ячейке, чтобы поменять материал наполнения.</p>
+            </section>
+            
           </div>
         </form>
         <div className={css.submit__Container}>
           <div className={css.tooltipContainer}>
             <Button_Gradient 
-              text="Оформить заказ" 
+              text="Расчёт" 
               onClick={() => setShowSubmitModal(true)} 
-              disabled={!isFormValid}
             />
-            {!isFormValid && validationError && (
-              <div className={css.tooltip}>
-                {validationError}
-              </div>
-            )}
           </div>
         </div>
         

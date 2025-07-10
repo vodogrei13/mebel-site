@@ -42,18 +42,13 @@
             justify-content: space-between;
             padding-left: 40px;
             padding-right: 40px;
-            height: 2.96vh;
-        }
-        @media (max-width: 440px) {
-            height: 1vh;
-        }
-        
-        @media (max-width: 320px) {
-            height: 0.96vh;
+            height: 50px;
         }
         .header__logo {
             width: 4.85vw;
+            min-width: 42px;
             height: 7.8vh;
+            min-height: 71px;
             margin-left: 0.26vw;
             margin-bottom: 1.6vh;
             @media (max-width: 1360px) {
@@ -61,6 +56,9 @@
             }
             @media (max-width: 1024px) {
                 margin-left: 0;
+            }
+            @media (max-width: 812px) {
+                justify-content: center;
             }
         } 
         @media (max-width: 812px) {
