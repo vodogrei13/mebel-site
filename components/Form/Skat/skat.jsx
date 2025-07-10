@@ -5,6 +5,7 @@ import {
   typeSurface,
   colorDye,
   colorSkin,
+  colorPlastic,
   milling,
   millingOnTheFacade,
   millingOnTheEdge,
@@ -353,6 +354,19 @@ const handleTypeSurfaceChange = (e) => {
   }
 };
 
+const renderOptionsWithGroups = (options) => {
+  return options.map((item) => {
+    if (item.optgroup) {
+      return <optgroup key={item.optgroup} label={item.optgroup} />;
+    }
+    return (
+      <option key={item.value} value={item.value}>
+        {item.label}
+      </option>
+    );
+  });
+};
+
   return (
     <div className={css.skat__container}>
       <section className={css.skat__form_container}>
@@ -426,17 +440,11 @@ const handleTypeSurfaceChange = (e) => {
                 onBlur={checkFormValidity}
               >
                 {selectedTypeSurface === "color"
-                  ? colorDye.map((option) => (
-                      <option key={option.value} value={option.value}>
-                        {option.label}
-                      </option>
-                    ))
-                  : colorSkin.map((option) => (
-                      <option key={option.value} value={option.value}>
-                        {option.label}
-                      </option>
-                    ))}
-              </select>
+                ? renderOptionsWithGroups(colorDye)
+                : selectedTypeSurface === "plastic"
+                ? renderOptionsWithGroups(colorPlastic)
+                : renderOptionsWithGroups(colorSkin)}
+            </select>
             </div>
 
             <div className={css.form__item}>

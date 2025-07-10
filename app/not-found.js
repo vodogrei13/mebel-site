@@ -14,7 +14,7 @@ const NotFoundPage = () => {
     let position = -800;
     const speed = 2;
     let rotation = 0;
-    const rotationSpeed = 15;
+    const rotationSpeed = 16;
 
     const animate = () => {
       position += speed;
