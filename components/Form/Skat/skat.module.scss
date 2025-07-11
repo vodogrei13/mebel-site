@@ -7,6 +7,12 @@ $tablet: 1024px;
   margin: 0 auto;
   margin-top: 1rem;
   margin-bottom: 2rem;
+  optgroup {
+    font-weight: bold;
+    background-color: #237063;
+    color: white;
+    padding: 8px;
+}
   .skat__logo {
     width: 100%;
     text-align: center;
