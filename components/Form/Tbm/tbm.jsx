@@ -29,10 +29,8 @@ export const Tbm = () => {
   // Проверка основных полей
   const mainFields = [
     { name: "thickness", label: "Толщина" },
-    { name: "typeSurface", label: "Тип поверхности" },
     { name: "color", label: "Цвет" },
     { name: "reverseSide", label: "Обратная сторона" },
-    { name: "edgeMilling", label: "Фрезеровка по краю" },
     { name: "textureDirection", label: "Направление текстуры" }
   ];
 

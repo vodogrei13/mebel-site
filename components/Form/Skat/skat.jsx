@@ -50,7 +50,7 @@ export const Skat = () => {
     { name: "thickness", label: "Толщина" },
     { name: "facadeMilling", label: "Фрезеровка по фасаду" },
     { name: "patina", label: "Патина*" },
-    { name: "edgeMilling", label: "Фрезеровка по краю" },
+    { name: "edgeMilling", label: "Фреза по краю" },
   ];
 
   const missingMainField = mainFields.find(field => {
@@ -478,7 +478,7 @@ const getColorOptions = (type) => {
             </div>
 
             <div className={css.form__item}>
-              <label htmlFor="facadeMilling">Фреза по фасаду*</label>
+              <label htmlFor="facadeMilling">Фрезеровка по фасаду*</label>
               <select
                 name="facadeMilling"
                 id="facadeMilling"
@@ -527,7 +527,7 @@ const getColorOptions = (type) => {
             </div>
 
             <div className={css.form__item}>
-              <label htmlFor="edgeMilling">Фрезеровка по краю*</label>
+              <label htmlFor="edgeMilling">Фреза по краю*</label>
               <select
                 name="edgeMilling"
                 id="edgeMilling"

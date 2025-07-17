@@ -35,7 +35,7 @@ export const YourDay = () => {
     { name: "typeSurface", label: "Тип поверхности" },
     { name: "color", label: "Цвет" },
     { name: "reverseSide", label: "Обратная сторона" },
-    { name: "edgeMilling", label: "Фрезеровка по краю" },
+    { name: "edgeMilling", label: "Фреза по краю" },
     { name: "textureDirection", label: "Направление текстуры" }
   ];
 

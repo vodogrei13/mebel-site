@@ -31,7 +31,7 @@ export const Evosoft = () => {
   const mainFields = [
     { name: "color", label: "Цвет" },
     { name: "thickness", label: "Толщина" },
-    { name: "reverseSide", label: "братная сторона" },
+    { name: "reverseSide", label: "Обратная сторона" },
   ];
 
   const missingMainField = mainFields.find(field => {
