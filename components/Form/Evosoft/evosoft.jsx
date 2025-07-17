@@ -9,6 +9,7 @@ import { Button_Gradient } from "@/components/ui/buttons/button-gradient/button-
 import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
 import { formatPhoneNumber } from "@/utils/phoneFormatter";
+import { noteClassic } from "../drawingItems/optionImport";
 
 export const Evosoft = () => {
   const [isFormValid, setIsFormValid] = useState(false);
@@ -395,7 +396,6 @@ useEffect(() => {
                 onBlur={checkFormValidity}
               >
                 <option value="color">В цвет</option>
-                <option value="white">Белая</option>
               </select>
             </div>
           </div>
@@ -408,6 +408,7 @@ useEffect(() => {
                 onRemove={() => removeDrawingItem(item.id)}
                 isRemovable={drawingItems.length > 1}
                 onFieldChange={checkFormValidity}
+                noteOptions={noteClassic}
               />
             ))}
             <button 

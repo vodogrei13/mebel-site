@@ -68,6 +68,7 @@
                 text-decoration: none;
                 color: inherit;
                 font-size: clamp(12px, 0.83vw , 50px);
+                border: 2px solid transparent;
                 &:hover {
                     text-decoration: none;
                 }
@@ -97,17 +98,9 @@
                     padding-top: 0.4rem;
                 }
             }
-            border: 2px solid transparent;
                 &:hover {
                     border-color: black;
             }
         }
     }
-    // @media (max-width: 414px) {
-
-    // }
-    
-    // @media (max-width: 320px) {
-
-    // }
 }

@@ -1,3 +1,4 @@
+@use "sass:color";
 // Breakpoints
 $mobile: 768px;
 $tablet: 1024px;
@@ -119,7 +120,7 @@ $tablet: 1024px;
           display: block;
 
           &:hover {
-            background-color: darken(#557a95, 10%);
+            background-color: color.adjust(#557a95, $lightness: -10%);
           }
           &:disabled {
             opacity: 0.5;
@@ -307,7 +308,7 @@ $tablet: 1024px;
             color: #fff;
             transition: background-color 0.3s;
             &:hover {
-              background-color: lighten(brown, 10%);
+              background-color: color.adjust(brown, $lightness: 10%);
               color: #fff;
             }
           }
@@ -326,7 +327,7 @@ $tablet: 1024px;
             position: relative;
 
             &:hover {
-              background-color: darken(#cf9b48, 10%);
+              background-color: color.adjust(#cf9b48, $lightness: -10%);
             }
           }
         }

@@ -8,11 +8,15 @@ import { Button_Gradient } from "@/components/ui/buttons/button-gradient/button-
 import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
 import { formatPhoneNumber } from "@/utils/phoneFormatter";
+import { note4 } from "../drawingItems/optionImport";
+import { ColorFip } from "./optionImport";
+import { SearchableSelect } from "../Skat/SearchableSelect";
 
 export const FIP = () => {
   const [isFormValid, setIsFormValid] = useState(false);
   const [validationError, setValidationError] = useState("");
   const [showSubmitModal, setShowSubmitModal] = useState(false);
+  const [selectedColor, setSelectedColor] = useState('');
   const [name, setName] = useState("");
   const [surname, setSurname] = useState("");
   const [email, setEmail] = useState("");
@@ -333,6 +337,15 @@ useEffect(() => {
   }
 };
 
+const handleColorChange = (e) => {
+  setSelectedColor(e.target.value);
+  checkFormValidity();
+};
+
+const getColorOptions = () => {
+    return ColorFip;
+};
+
   return (
     <div className={css.fip__container}>
       <section className={css.fip__form_container}>
@@ -346,15 +359,15 @@ useEffect(() => {
             
             <div className={css.form__item}>
               <label htmlFor="thickness">Толщина*</label>
-              <input
-                type="text"
-                className={css.form__input}
+              <select
                 name="thickness"
                 id="thickness"
+                className={css.form__select}
                 required
-                onChange={checkFormValidity}
-                onBlur={checkFormValidity}
-              />
+              >
+                <option value="16">16мм</option>
+                <option value="18">18мм</option>
+              </select>
             </div>
 
             <div className={css.form__item}>
@@ -372,15 +385,14 @@ useEffect(() => {
 
             <div className={css.form__item}>
               <label htmlFor="color">Цвет*</label>
-              <input
-                type="text"
-                className={css.form__input}
-                name="color"
-                id="color"
-                required
-                onChange={checkFormValidity}
-                onBlur={checkFormValidity}
-              />
+              <SearchableSelect
+              name="color"
+              id="color"
+              options={getColorOptions()}
+              value={selectedColor}
+              onChange={handleColorChange}
+              required
+            />
             </div>
 
             <div className={css.form__item}>
@@ -394,21 +406,9 @@ useEffect(() => {
                 onBlur={checkFormValidity}
               >
                 <option value="color">В цвет</option>
-                <option value="white">Белая</option>
+                <option value="whitePlastic">Белый без пластик</option>
+                <option value="whiteClassic">Белый с пластик</option>
               </select>
-            </div>
-
-            <div className={css.form__item}>
-              <label htmlFor="edgeMilling">Фрезеровка по краю*</label>
-              <input
-                type="text"
-                className={css.form__input}
-                name="edgeMilling"
-                id="edgeMilling"
-                required
-                onChange={checkFormValidity}
-                onBlur={checkFormValidity}
-              />
             </div>
 
             <div className={css.form__item}>
@@ -435,6 +435,7 @@ useEffect(() => {
                 onRemove={() => removeDrawingItem(item.id)}
                 isRemovable={drawingItems.length > 1}
                 onFieldChange={checkFormValidity}
+                noteOptions={note4}
               />
             ))}
             <button 

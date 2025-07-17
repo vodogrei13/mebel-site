@@ -12,20 +12,21 @@ import {
   prefabricated,
   patina,
   thickness,
-  note,
+  edge,
 } from "./optionImport";
+import { noteSkat } from "../drawingItems/optionImport";
 import { DrawingItem } from "../drawingItems/drawingItem";
 import SubmitModal from "../submitModal/submitModal";
 import { useState, useRef, useCallback, useEffect } from "react";
 import { Button_Gradient } from "@/components/ui/buttons/button-gradient/button-gradient";
-import html2canvas from "html2canvas";
-import jsPDF from "jspdf";
 import { formatPhoneNumber } from "@/utils/phoneFormatter";
+import { SearchableSelect } from "./SearchableSelect";
 
 export const Skat = () => {
   const [isFormValid, setIsFormValid] = useState(false);
   const [validationError, setValidationError] = useState("");
   const [selectedTypeSurface, setSelectedTypeSurface] = useState("color");
+  const [selectedEdge, setSelectedEdge] = useState('');
   const [showSubmitModal, setShowSubmitModal] = useState(false);
   const [name, setName] = useState("");
   const [surname, setSurname] = useState("");
@@ -37,6 +38,7 @@ export const Skat = () => {
   const [drawingItems, setDrawingItems] = useState([{ id: 1 }]);
   const pdfRef = useRef(null);
   const fileInputRef = useRef(null);
+  const [selectedColor, setSelectedColor] = useState('');
 
   const checkFormValidity = useCallback(() => {
   // Проверка основных полей
@@ -98,11 +100,29 @@ useEffect(() => {
 }, [drawingItems, checkFormValidity]);
 
 const handleTypeSurfaceChange = (e) => {
-  setSelectedTypeSurface(e.target.value);
+  const { name, value } = e.target;
+  
+  if (name === "typeSurface") {
+    setSelectedTypeSurface(value);
+    setSelectedColor('');
+  }
+  
+  checkFormValidity();
+};
+
+const handleColorChange = (e) => {
+  setSelectedColor(e.target.value);
+  checkFormValidity();
+};
+
+const handleEdgeChange = (e) => {
+  setSelectedEdge(e.target.value);
   checkFormValidity();
 };
 
   const generatePDF = async (fileCount) => {
+  const { default: html2canvas } = await import('html2canvas');
+  const { default: jsPDF } = await import('jspdf');
   const pdf = new jsPDF({ orientation: "landscape", unit: "mm", format: "a4" });
   const pdfElement = pdfRef.current;
   if (!pdfElement) return;
@@ -354,17 +374,15 @@ const handleTypeSurfaceChange = (e) => {
   }
 };
 
-const renderOptionsWithGroups = (options) => {
-  return options.map((item) => {
-    if (item.optgroup) {
-      return <optgroup key={item.optgroup} label={item.optgroup} />;
-    }
-    return (
-      <option key={item.value} value={item.value}>
-        {item.label}
-      </option>
-    );
-  });
+
+const getColorOptions = (type) => {
+  if (type === "color") {
+    return colorDye;
+  } else if (type === "plastic") {
+    return colorPlastic;
+  } else {
+    return colorSkin;
+  }
 };
 
   return (
@@ -431,20 +449,14 @@ const renderOptionsWithGroups = (options) => {
 
             <div className={css.form__item}>
               <label htmlFor="color">Цвет*</label>
-              <select
+              <SearchableSelect
                 name="color"
                 id="color"
-                className={css.form__select}
+                options={getColorOptions(selectedTypeSurface)}
+                value={selectedColor}
+                onChange={handleColorChange}
                 required
-                onChange={handleTypeSurfaceChange}
-                onBlur={checkFormValidity}
-              >
-                {selectedTypeSurface === "color"
-                ? renderOptionsWithGroups(colorDye)
-                : selectedTypeSurface === "plastic"
-                ? renderOptionsWithGroups(colorPlastic)
-                : renderOptionsWithGroups(colorSkin)}
-            </select>
+              />
             </div>
 
             <div className={css.form__item}>
@@ -466,7 +478,7 @@ const renderOptionsWithGroups = (options) => {
             </div>
 
             <div className={css.form__item}>
-              <label htmlFor="facadeMilling">Фрезеровка по фасаду*</label>
+              <label htmlFor="facadeMilling">Фреза по фасаду*</label>
               <select
                 name="facadeMilling"
                 id="facadeMilling"
@@ -531,6 +543,21 @@ const renderOptionsWithGroups = (options) => {
                 ))}
               </select>
             </div>
+            
+            {selectedTypeSurface === "plastic" && (
+              <div className={css.form__item}>
+                <label htmlFor="edge">Кромка*</label>
+                <SearchableSelect
+                  name="edge"
+                  id="edge"
+                  options={edge.filter(item => !item.optgroup)}
+                  value={selectedEdge}
+                  onChange={handleEdgeChange}
+                  placeholder="Выберите кромку..."
+                  required
+                />
+              </div>
+            )}
 
             <div className={css.form__item}>
               <label htmlFor="teams">Сборные*</label>
@@ -559,6 +586,7 @@ const renderOptionsWithGroups = (options) => {
                 onRemove={() => removeDrawingItem(item.id)}
                 isRemovable={drawingItems.length > 1}
                 onFieldChange={checkFormValidity}
+                noteOptions={noteSkat}
               />
             ))}
             <button 

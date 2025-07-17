@@ -1,3 +1,4 @@
+@use "sass:color";
 // Breakpoints
 $mobile: 768px;
 $mini-mobile: 500px;
@@ -92,7 +93,7 @@ $tablet: 1024px;
           flex-direction: row;
           gap: 2rem;
           width: 100%;
-          align-items: end;
+          align-items: flex-end;
           justify-content: center;
           @media (max-width: $tablet) {
             gap: 0.5rem;
@@ -585,7 +586,7 @@ $tablet: 1024px;
     z-index: 10;
 
     &:hover {
-      background-color: darken(#cf9b48, 10%);
+      background-color: color.adjust(#cf9b48, $lightness: -10%);
     }
   }
   .help__main_modal {
@@ -631,7 +632,7 @@ $tablet: 1024px;
         position: relative;
 
         &:hover {
-          background-color: darken(#cf9b48, 10%);
+          background-color: color.adjust(#cf9b48, $lightness: -10%);
         }
       }
     }
@@ -656,7 +657,7 @@ $tablet: 1024px;
     z-index: 10;
 
     &:hover {
-      background-color: darken(#cf9b48, 10%);
+      background-color: color.adjust(#cf9b48, $lightness: -10%);
     }
   }
 
@@ -707,7 +708,7 @@ $tablet: 1024px;
     position: relative;
 
     &:hover {
-      background-color: darken(#cf9b48, 10%);
+      background-color: color.adjust(#cf9b48, $lightness: -10%);
     }
   }
 .addFormButton {
@@ -722,7 +723,7 @@ $tablet: 1024px;
     display: block;
 
     &:hover {
-      background-color: darken(#557a95, 10%);
+      background-color: color.adjust(#557a95, $lightness: -10%);
     }
   }
 .removeFormContainer {
@@ -743,7 +744,7 @@ $tablet: 1024px;
     z-index: 10;
     display: block;
     &:hover {
-      background-color: darken(#ff6b6b, 10%);
+      background-color: color.adjust(#ff6b6b, $lightness: -10%);
     }
   }
 }
@@ -829,7 +830,7 @@ $tablet: 1024px;
       color: #fff;
       transition: background-color 0.3s;
       &:hover {
-          background-color: lighten(brown, 10%);
+          background-color: color.adjust(brown, $lightness: 10%);
           color: #fff;
       }
     }
@@ -848,7 +849,7 @@ $tablet: 1024px;
         position: relative;
 
         &:hover {
-          background-color: darken(#cf9b48, 10%);
+          background-color: color.adjust(#cf9b48, $lightness: -10%);
         }
       }
     }

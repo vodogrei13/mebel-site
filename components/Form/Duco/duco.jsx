@@ -14,11 +14,13 @@ import { Button_Gradient } from "@/components/ui/buttons/button-gradient/button-
 import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
 import { formatPhoneNumber } from "@/utils/phoneFormatter";
+import { noteClassic } from "../drawingItems/optionImport";
 
 export const Duco = () => {
   const [isFormValid, setIsFormValid] = useState(false);
   const [validationError, setValidationError] = useState("");
   const [showSubmitModal, setShowSubmitModal] = useState(false);
+  const [selectedTypeSurface, setSelectedTypeSurface] = useState("Duco1");
   const [name, setName] = useState("");
   const [surname, setSurname] = useState("");
   const [email, setEmail] = useState("");
@@ -29,14 +31,13 @@ export const Duco = () => {
   const [drawingItems, setDrawingItems] = useState([{ id: 1 }]);
   const pdfRef = useRef(null);
   const fileInputRef = useRef(null);
+  const [selectedColor, setSelectedColor] = useState(ColorDuco1[0].value);
   
   const checkFormValidity = useCallback(() => {
   // Проверка основных полей
   const mainFields = [
     { name: "collection", label: "Коллекция" },
-    { name: "colorDuco1", label: "Цвет Duco 1" },
-    { name: "colorDuco2", label: "colorDuco 2" },
-    { name: "colorDuco3", label: "colorDuco 3" },
+    { name: "colorDuco", label: "Цвет Duco" },
     { name: "thickness", label: "Толщина" },
     { name: "reverseSide", label: "Обратная сторона" },
     { name: "textureDirection", label: "Направление текстуры" },
@@ -79,6 +80,22 @@ export const Duco = () => {
   setValidationError("");
   setIsFormValid(true);
 }, [drawingItems]);
+
+const handleTypeSurfaceChange = (e) => {
+  const { name, value } = e.target;
+  
+  if (name === "collection") {
+    setSelectedTypeSurface(value);
+    setSelectedColor('');
+  }
+  
+  checkFormValidity();
+};
+
+const handleColorChange = (e) => {
+  setSelectedColor(e.target.value);
+  checkFormValidity();
+};
 
 useEffect(() => {
   const timer = setTimeout(() => {
@@ -340,6 +357,17 @@ useEffect(() => {
   }
 };
 
+const getColorOptions = (type) => {
+  if (!type) return ColorDuco1;
+  if (type === "Duco1") {
+    return ColorDuco1;
+  } else if (type === "Duco2") {
+    return ColorDuco2;
+  } else {
+    return ColorDuco3;
+  }
+};
+
   return (
     <div className={css.duco__container}>
       <section className={css.duco__form_container}>
@@ -357,7 +385,8 @@ useEffect(() => {
                 id="collection"
                 className={css.form__select}
                 required
-                onChange={checkFormValidity}
+                value={selectedTypeSurface}
+                onChange={handleTypeSurfaceChange}
                 onBlur={checkFormValidity}
               >
                 {collection.map((option) => (
@@ -369,52 +398,18 @@ useEffect(() => {
             </div>
 
             <div className={css.form__item}>
-              <label htmlFor="colorDuco1">Цвет Duco 1*</label>
+              <label htmlFor="colorDuco">Цвет Duco*</label>
               <select
-                name="colorDuco1"
-                id="colorDuco1"
+                name="colorDuco"
+                id="colorDuco"
                 className={css.form__select}
                 required
-                onChange={checkFormValidity}
+                options={getColorOptions(selectedTypeSurface).filter(item => !item.optgroup)}
+                onChange={handleColorChange}
+                value={selectedColor}
                 onBlur={checkFormValidity}
               >
-                {ColorDuco1.map((option) => (
-                  <option key={option.value} value={option.value}>
-                    {option.label}
-                  </option>
-                ))}
-              </select>
-            </div>
-
-            <div className={css.form__item}>
-              <label htmlFor="colorDuco2">Цвет Duco 2*</label>
-              <select
-                name="colorDuco2"
-                id="colorDuco2"
-                className={css.form__select}
-                required
-                onChange={checkFormValidity}
-                onBlur={checkFormValidity}
-              >
-                {ColorDuco2.map((option) => (
-                  <option key={option.value} value={option.value}>
-                    {option.label}
-                  </option>
-                ))}
-              </select>
-            </div>
-
-            <div className={css.form__item}>
-              <label htmlFor="colorDuco3">Цвет Duco 3*</label>
-              <select
-                name="colorDuco3"
-                id="colorDuco3"
-                className={css.form__select}
-                required
-                onChange={checkFormValidity}
-                onBlur={checkFormValidity}
-              >
-                {ColorDuco3.map((option) => (
+                {getColorOptions(selectedTypeSurface).map((option) => (
                   <option key={option.value} value={option.value}>
                     {option.label}
                   </option>
@@ -453,7 +448,7 @@ useEffect(() => {
             <div className={css.form__item}>
               <input
                 type="text"
-                placeholder="Или напишите ваш вариант"
+                placeholder="Или напишите ваш вариант цвета"
                 className={css.form__input}
                 name="myColor"
                 id="myColor"
@@ -485,6 +480,7 @@ useEffect(() => {
                 onRemove={() => removeDrawingItem(item.id)}
                 isRemovable={drawingItems.length > 1}
                 onFieldChange={checkFormValidity}
+                noteOptions={noteClassic}
               />
             ))}
             <button 

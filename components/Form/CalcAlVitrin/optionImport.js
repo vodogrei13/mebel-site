@@ -24,7 +24,7 @@ export const glassMirror = [
     { value: 'mirror-notStandart', label: 'Зеркало (2750*1605) М1 Не стандарт' },
     { value: 'glass-M1-4mm', label: 'Стекло М1 4мм' },
     { value: 'glass-bronze', label: 'Стекло М1 4мм бронза' },
-    { value: 'glass-enlightened', label: 'Стекло 4мм просветленное' },
+    { value: 'glass-encolor.adjusted', label: 'Стекло 4мм просветленное' },
     { value: 'glass-grafit', label: 'Стекло 4мм Графит (серое) прозрачное' },
     { value: 'glass-fluted-Moga', label: 'Стекло рифленное Мога (волна бесцветное)' },
     { value: 'metalux-satin-glass', label: 'Металюкс (сатин бесцветное стекло) 2550*1605' },

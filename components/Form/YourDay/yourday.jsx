@@ -8,11 +8,15 @@ import { Button_Gradient } from "@/components/ui/buttons/button-gradient/button-
 import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
 import { formatPhoneNumber } from "@/utils/phoneFormatter";
+import { patina, frezEdge, color, frez, } from "./optionImport";
+import { SearchableSelect } from "../Skat/SearchableSelect";
+import { noteYourDay } from "../drawingItems/optionImport";
 
 export const YourDay = () => {
   const [isFormValid, setIsFormValid] = useState(false);
   const [validationError, setValidationError] = useState("");
   const [showSubmitModal, setShowSubmitModal] = useState(false);
+  const [selectedColor, setSelectedColor] = useState('');
   const [name, setName] = useState("");
   const [surname, setSurname] = useState("");
   const [email, setEmail] = useState("");
@@ -333,6 +337,15 @@ useEffect(() => {
   }
 };
 
+const handleColorChange = (e) => {
+  setSelectedColor(e.target.value);
+  checkFormValidity();
+};
+
+const getColorOptions = () => {
+    return color;
+};
+
   return (
     <div className={css.yourday__container}>
       <section className={css.yourday__form_container}>
@@ -346,15 +359,19 @@ useEffect(() => {
             
             <div className={css.form__item}>
               <label htmlFor="thickness">Толщина*</label>
-              <input
-                type="text"
-                className={css.form__input}
+              <select
                 name="thickness"
                 id="thickness"
+                className={css.form__select}
                 required
-                onChange={checkFormValidity}
-                onBlur={checkFormValidity}
-              />
+              >
+                <option value="10">10мм</option>
+                <option value="16">16мм</option>
+                <option value="19">19мм</option>
+                <option value="22">22мм</option>
+                <option value="25">25мм</option>
+                <option value="28">28мм</option>
+              </select>
             </div>
 
             <div className={css.form__item}>
@@ -372,15 +389,14 @@ useEffect(() => {
 
             <div className={css.form__item}>
               <label htmlFor="color">Цвет*</label>
-              <input
-                type="text"
-                className={css.form__input}
-                name="color"
-                id="color"
-                required
-                onChange={checkFormValidity}
-                onBlur={checkFormValidity}
-              />
+              <SearchableSelect
+              name="color"
+              id="color"
+              options={getColorOptions()}
+              value={selectedColor}
+              onChange={handleColorChange}
+              required
+            />
             </div>
 
             <div className={css.form__item}>
@@ -399,16 +415,54 @@ useEffect(() => {
             </div>
 
             <div className={css.form__item}>
-              <label htmlFor="edgeMilling">Фрезеровка по краю*</label>
-              <input
-                type="text"
-                className={css.form__input}
+              <label htmlFor="edgeMilling">Фреза по краю*</label>
+              <select
                 name="edgeMilling"
                 id="edgeMilling"
+                className={css.form__select}
                 required
-                onChange={checkFormValidity}
                 onBlur={checkFormValidity}
-              />
+              >
+              {frezEdge.map((option) => (
+                <option key={option.value} value={option.value}>
+                  {option.label}
+                </option>
+              ))}
+              </select>
+            </div>
+
+            <div className={css.form__item}>
+              <label htmlFor="patina">Патина*</label>
+              <select
+                name="patina"
+                id="patina"
+                className={css.form__select}
+                required
+                onBlur={checkFormValidity}
+              >
+              {patina.map((option) => (
+                <option key={option.value} value={option.value}>
+                  {option.label}
+                </option>
+              ))}
+              </select>
+            </div>
+
+            <div className={css.form__item}>
+              <label htmlFor="milling">Фрезеровка*</label>
+              <select
+                name="milling"
+                id="milling"
+                className={css.form__select}
+                required
+                onBlur={checkFormValidity}
+              >
+                {frez.map((option) => (
+                <option key={option.value} value={option.value}>
+                  {option.label}
+                </option>
+              ))}
+              </select>
             </div>
 
             <div className={css.form__item}>
@@ -435,6 +489,7 @@ useEffect(() => {
                 onRemove={() => removeDrawingItem(item.id)}
                 isRemovable={drawingItems.length > 1}
                 onFieldChange={checkFormValidity}
+                noteOptions={noteYourDay}
               />
             ))}
             <button 

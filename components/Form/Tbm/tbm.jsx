@@ -8,6 +8,7 @@ import { Button_Gradient } from "@/components/ui/buttons/button-gradient/button-
 import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
 import { formatPhoneNumber } from "@/utils/phoneFormatter";
+import { noteClassic } from "../drawingItems/optionImport";
 
 export const Tbm = () => {
   const [isFormValid, setIsFormValid] = useState(false);
@@ -346,28 +347,14 @@ useEffect(() => {
             
             <div className={css.form__item}>
               <label htmlFor="thickness">Толщина*</label>
-              <input
-                type="text"
-                className={css.form__input}
+              <select
                 name="thickness"
                 id="thickness"
+                className={css.form__select}
                 required
-                onChange={checkFormValidity}
-                onBlur={checkFormValidity}
-              />
-            </div>
-
-            <div className={css.form__item}>
-              <label htmlFor="typeSurface">Тип поверхности*</label>
-              <input
-                type="text"
-                className={css.form__input}
-                name="typeSurface"
-                id="typeSurface"
-                required
-                onChange={checkFormValidity}
-                onBlur={checkFormValidity}
-              />
+              >
+                <option value="18">18мм</option>
+              </select>
             </div>
 
             <div className={css.form__item}>
@@ -392,21 +379,7 @@ useEffect(() => {
                 required
               >
                 <option value="color">В цвет</option>
-                <option value="white">Белая</option>
               </select>
-            </div>
-
-            <div className={css.form__item}>
-              <label htmlFor="edgeMilling">Фрезеровка по краю*</label>
-              <input
-                type="text"
-                className={css.form__input}
-                name="edgeMilling"
-                id="edgeMilling"
-                required
-                onChange={checkFormValidity}
-                onBlur={checkFormValidity}
-              />
             </div>
 
             <div className={css.form__item}>
@@ -433,6 +406,7 @@ useEffect(() => {
                 onRemove={() => removeDrawingItem(item.id)}
                 isRemovable={drawingItems.length > 1}
                 onFieldChange={checkFormValidity}
+                noteOptions={noteClassic}
               />
             ))}
             <button 

@@ -6,7 +6,7 @@ $tablet: 1024px;
   display: flex;
   flex-direction: row;
   gap: 0.4rem;
-  align-items: end;
+  align-items: flex-end;
   text-align: center;
   position: relative;
   @media (max-width: 1000px) {
@@ -23,7 +23,7 @@ $tablet: 1024px;
         border-box;
     border: 3px solid transparent;
     outline: none;
-    align-items: end;
+    align-items: flex-end;
     text-align: center;
     box-sizing: border-box;
     display: flex;
@@ -83,6 +83,7 @@ $tablet: 1024px;
       box-sizing: border-box;
       display: flex;
       align-items: center;
+      text-align: center;
       justify-content: center;
       overflow: hidden;
     }

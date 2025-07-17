@@ -1,3 +1,4 @@
+@use "sass:color";
 // Breakpoints
 $mobile: 768px;
 $tablet: 1024px;
@@ -83,7 +84,7 @@ $tablet: 1024px;
                 display: flex;
                 flex-direction: column;
                 width: 100%;
-                justify-content: end;
+                justify-content: flex-end;
                 align-items: center;
                 @media (max-width: $mobile) {
                     &:nth-child(4) {
@@ -138,7 +139,7 @@ $tablet: 1024px;
                 display: flex;
                 flex-direction: column;
                 width: 100%;
-                justify-content: end;
+                justify-content: flex-end;
                 align-items: center;
                 @media (max-width: $mobile) {
                     &:nth-child(4) {
@@ -197,7 +198,7 @@ $tablet: 1024px;
                 display: flex;
                 flex-direction: column;
                 width: 100%;
-                justify-content: end;
+                justify-content: flex-end;
                 align-items: center;
                 @media (max-width: $mobile) {
                     &:nth-child(4) {
@@ -430,7 +431,7 @@ $tablet: 1024px;
             color: #fff;
             transition: background-color 0.3s;
             &:hover {
-              background-color: lighten(brown, 10%);
+              background-color: color.adjust(brown, $lightness: 10%);
               color: #fff;
             }
           }
@@ -449,7 +450,7 @@ $tablet: 1024px;
             position: relative;
 
             &:hover {
-              background-color: darken(#cf9b48, 10%);
+              background-color: color.adjust(#cf9b48, $lightness: -10%);
             }
           }
         }

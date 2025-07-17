@@ -1,3 +1,4 @@
+@use "sass:color";
 // Breakpoints
 $mobile: 768px;
 $tablet: 1024px;
@@ -120,7 +121,7 @@ $tablet: 1024px;
         transition: background 0.3s ease;
         cursor: pointer;
         &:hover {
-          background-color: darken(#cf9b48, 10%);
+          background-color: color.adjust(#cf9b48, $lightness: -10%);
         }
         .ArborNova__link {
           color: inherit;

@@ -57,7 +57,6 @@ export const Button_Gradient = ({
                     href={href} 
                     scroll={false} 
                     passHref 
-                    legacyBehavior 
                     target={target} 
                     rel={rel}
                 >

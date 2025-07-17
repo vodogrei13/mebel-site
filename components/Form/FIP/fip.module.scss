@@ -1,3 +1,4 @@
+@use "sass:color";
 // Breakpoints
 $mobile: 768px;
 $tablet: 1024px;
@@ -59,8 +60,8 @@ $tablet: 1024px;
           @media (max-width: $mobile) {
             align-items: center;
           }
-          &:nth-child(10) {
-            grid-column: 2;
+          &:nth-child(5) {
+            grid-column: 3;
           }
           label {
             font-size: clamp(14px, 0.83vw, 50px);
@@ -70,7 +71,8 @@ $tablet: 1024px;
             margin-bottom: 0.2rem;
           }
           input,
-          select {
+          select,
+          .form__select {
             font-size: clamp(14px, 0.83vw, 50px);
             align-items: center;
             text-align: center;
@@ -116,7 +118,7 @@ $tablet: 1024px;
           display: block;
 
           &:hover {
-            background-color: darken(#557a95, 10%);
+            background-color: color.adjust(#557a95, $lightness: -10%);
           }
           &:disabled {
             opacity: 0.5;
@@ -304,7 +306,7 @@ $tablet: 1024px;
             color: #fff;
             transition: background-color 0.3s;
             &:hover {
-              background-color: lighten(brown, 10%);
+              background-color: color.adjust(brown, $lightness: 10%);
               color: #fff;
             }
           }
@@ -323,7 +325,7 @@ $tablet: 1024px;
             position: relative;
 
             &:hover {
-              background-color: darken(#cf9b48, 10%);
+              background-color: color.adjust(#cf9b48, $lightness: -10%);
             }
           }
         }

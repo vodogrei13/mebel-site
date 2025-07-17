@@ -39,7 +39,7 @@ export const priceConfig = {
     //Стекло М1 4мм бронза
     'glass-bronze': 2785.00,  
     //Стекло 4мм просветленное
-    'glass-enlightened': 400,
+    'glass-encolor.adjusted': 400,
     //Стекло 4мм Графит (серое) прозрачное
     'glass-grafit': 300,
     //Стекло рифленное Мога (волна бесцветное)

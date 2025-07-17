@@ -8,18 +8,18 @@ import { Evosoft } from '@/components/Form/Evosoft/evosoft';
 import { FIP } from '@/components/Form/FIP/fip';
 import { YourDay } from '@/components/Form/YourDay/yourday';
 import { FormDveriKupe } from '@/components/Form/Dveri-kupe/dveriKupe';
-
+import { Suspense } from 'react';
 
 const formComponents = {
-  Skat: Skat,
+  Skat,
   AlVitrin: CalcAlVitrin,
-  ArborNova: ArborNova,
-  Adelkreis: Adelkreis,
-  Duco: Duco,
-  Tbm: Tbm,
-  Evosoft: Evosoft,
-  FIP: FIP,
-  YourDay: YourDay,
+  ArborNova,
+  Adelkreis,
+  Duco,
+  Tbm,
+  Evosoft,
+  FIP,
+  YourDay,
   DveriKupe: FormDveriKupe,
 };
 
@@ -29,12 +29,30 @@ export async function generateStaticParams() {
   }));
 }
 
-export default function FormPage({ params }) {
-  const FormComponent = formComponents[params.FormType];
+export async function generateMetadata({ params }) {
+  const { FormType } = await params;
+  
+  return {
+    title: `Form ${FormType}`,
+  };
+}
+
+function FormContent({ FormType }) {
+  const FormComponent = formComponents[FormType];
   
   if (!FormComponent) {
     return <div>Форма не найдена</div>;
   }
 
   return <FormComponent />;
+}
+
+export default async function FormPage({ params }) {
+  const { FormType } = await params;
+
+  return (
+    <Suspense fallback={<div>Загрузка формы...</div>}>
+      <FormContent FormType={FormType} />
+    </Suspense>
+  );
 }

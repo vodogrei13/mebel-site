@@ -3,7 +3,7 @@
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
 
 module.exports = {
-  output: 'export',
+  // output: 'export',
   basePath,
   assetPrefix: basePath + '/',
   pageExtensions: ['js', 'jsx', 'mdx', 'ts', 'tsx'],
