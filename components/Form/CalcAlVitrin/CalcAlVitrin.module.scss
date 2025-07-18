@@ -350,6 +350,7 @@ $tablet: 1024px;
           border: 1px solid #fb7e14;
           width: 60%;
           order: -1;
+          margin: 0 auto;
         }
 
         .drawing__image {
@@ -359,7 +360,7 @@ $tablet: 1024px;
           border: 7px solid #cf9b48;
           margin-bottom: 1rem;
           order: 1;
-
+          margin: 0 auto;
           p {
             margin-top: 1rem;
             text-align: center;
