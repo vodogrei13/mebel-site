@@ -11,10 +11,10 @@ const VitrinaDrawing = ({ millingCount, hingeSide, distanceToTheCenter, handles,
   const parsedCount = parseInt(millingCount) || 0;
   const parsedDistance = parseInt(distanceToTheCenter) || 0;
 
-  // Проверка превышения высоты петель
+  // Проверка превышения высоты петель для каждого значения
   useEffect(() => {
-    const totalDistance = Object.values(hingeDistances).reduce((sum, dist) => sum + (dist || 0), 0);
-    setHeightExceeded(totalDistance > height);
+    const hasExceeded = Object.values(hingeDistances).some(dist => (dist || 0) > height);
+    setHeightExceeded(hasExceeded);
   }, [hingeDistances, height]);
 
   // Генерация позиций петель
@@ -57,7 +57,7 @@ const VitrinaDrawing = ({ millingCount, hingeSide, distanceToTheCenter, handles,
     <div className={styles.drawing__container} >
       {heightExceeded && (
       <div className={styles.height__warning}>
-        Сумма расстояний петель больше указанной высоты витрины!
+        Одно или несколько расстояний петель превышают указанную высоту витрины!
       </div>
     )}
     <div className={styles.drawing__image}>
