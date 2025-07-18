@@ -405,8 +405,8 @@ const getColorOptions = () => {
                 onBlur={checkFormValidity}
               >
                 <option value="color">В цвет</option>
-                <option value="whitePlastic">Белый без пластик</option>
-                <option value="whiteClassic">Белый с пластик</option>
+                <option value="whitePlastic">Белая без пластика</option>
+                <option value="whiteClassic">Белая с пластиком</option>
               </select>
             </div>
 

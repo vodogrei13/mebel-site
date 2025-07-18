@@ -31,7 +31,7 @@ export const CalcAlVitrin = () => {
         height: 200,
         width: 200,
         units: 1,
-        distanceToTheCenter: 70,
+        distanceToTheCenter: 0,
         millingForHinges: "None",
         hingeSide: "left",
         handles: "None",
@@ -841,7 +841,7 @@ const handlePhoneChange = (e) => {
                     </label>
                     <input
                       type="number"
-                      placeholder="70"
+                      placeholder="0"
                       min={70}
                       className={css.form__input}
                       max={99999}

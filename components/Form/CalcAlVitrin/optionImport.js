@@ -59,6 +59,7 @@ export const handles = [
 ];
 
 export const handleHoles = [
+    { value: '0', label: '0' },
     { value: '96', label: '96' },
     { value: '128', label: '128' },
     { value: '160', label: '160' },

@@ -1,4 +1,5 @@
 export const patina = [
+    { value: 'none', label: 'Нет' },
     { value: 'gold', label: 'Золото' },
     { value: 'bronza', label: 'Бронза' },
     { value: 'copper', label: 'Медь' },
