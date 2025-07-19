@@ -435,6 +435,10 @@ const getColorOptions = () => {
                 isRemovable={drawingItems.length > 1}
                 onFieldChange={checkFormValidity}
                 noteOptions={note4}
+                minHeight={100}
+                minWidth={40}
+                maxHeight={2750}
+                maxWidth={1250}
               />
             ))}
             <button 

@@ -409,6 +409,10 @@ useEffect(() => {
                 isRemovable={drawingItems.length > 1}
                 onFieldChange={checkFormValidity}
                 noteOptions={noteClassic}
+                minHeight={130}
+                minWidth={50}
+                maxHeight={2770}
+                maxWidth={1190}
               />
             ))}
             <button 

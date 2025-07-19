@@ -1608,14 +1608,14 @@ export const patina = [
 
 export const thickness = [
     { value: 'None', label: 'нет' },
-    { value: '6', label: '6 мм' },
-    { value: '8', label: '8 мм' },
-    { value: '10 shlif', label: '10 мм шлиф' },
-    { value: '10 lam', label: '10 мм ламинированная' },
-    { value: '16', label: '16 мм' },
-    { value: '19', label: '19 мм' },
-    { value: '22', label: '22 мм' },
-    { value: '28', label: '28 мм' },
+    { value: '6mm', label: '6 мм' },
+    { value: '8mm', label: '8 мм' },
+    { value: '10mm shlif', label: '10 мм шлиф' },
+    { value: '10mm lam', label: '10 мм ламинированная' },
+    { value: '16mm', label: '16 мм' },
+    { value: '19mm', label: '19 мм' },
+    { value: '22mm', label: '22 мм' },
+    { value: '28mm', label: '28 мм' },
 ];
 
 export const edge = [

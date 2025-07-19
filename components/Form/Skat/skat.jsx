@@ -39,6 +39,9 @@ export const Skat = () => {
   const pdfRef = useRef(null);
   const fileInputRef = useRef(null);
   const [selectedColor, setSelectedColor] = useState('');
+  const [, forceUpdate] = useState();
+  const [edgeMilling, setEdgeMilling] = useState('');
+  const [thicknessValue, setThickness] = useState('');
 
   const checkFormValidity = useCallback(() => {
   // Проверка основных полей
@@ -385,6 +388,108 @@ const getColorOptions = (type) => {
   }
 };
 
+// Min value
+const calculateMinDimensions = () => {
+  const thicknessSelect = document.querySelector('[name="thickness"]');
+  
+  const thickness = thicknessSelect?.value;
+  const edgeMillingValue = edgeMilling; 
+  
+  let minWidth = 20;
+  let minHeight = 100;
+  
+  // Проверка толщины
+  if (thickness === "19mm" || thickness === "22mm") {
+    minWidth = 35;
+  } else if (thickness === "28mm") {
+    minWidth = 40;
+  }
+  
+  // Проверка фрезеровки края
+  const smallEdgeMills = ["№011", "№012", "№022", "№033", "№Ф3", "№Ф5"];
+  const mediumEdgeMills = ["№0", "№1", "№Ф8"];
+  
+  if (edgeMillingValue && smallEdgeMills.some(mill => edgeMillingValue.includes(mill))) {
+    minWidth = 20;
+  } else if (edgeMillingValue && mediumEdgeMills.some(mill => edgeMillingValue.includes(mill))) {
+    minWidth = 30;
+  }
+  
+  return { minWidth, minHeight };
+};
+
+// Max value
+const calculateMaxDimensions = () => {
+  const thicknessSelect = document.querySelector('[name="thickness"]');
+  const typeSurfaceSelect = document.querySelector('[name="typeSurface"]');
+  
+  const thickness = thicknessSelect?.value;
+  const typeSurface = typeSurfaceSelect?.value;
+  
+  let maxWidth = 1170;
+  let maxHeight = 2750;
+  
+  if (thickness === "22mm" || thickness === "28mm") {
+    maxWidth = 1100;
+  }
+  
+  if (typeSurface === "color") {
+    maxWidth = 900;
+  }
+  
+  return { maxWidth, maxHeight };
+};
+
+const handleThicknessChange = (e) => {
+  setThickness(e.target.value);
+  forceUpdate();
+};
+
+const handleEdgeMillingChange = (e) => {
+  setEdgeMilling(e.target.value);
+  forceUpdate();
+};
+
+const [dimensions, setDimensions] = useState({
+  minWidth: 20,
+  minHeight: 100,
+  maxWidth: 1170,
+  maxHeight: 2750
+});
+
+useEffect(() => {
+  const newDims = {
+    minWidth: calculateMinDimensions().minWidth,
+    minHeight: calculateMinDimensions().minHeight,
+    maxWidth: calculateMaxDimensions().maxWidth,
+    maxHeight: calculateMaxDimensions().maxHeight
+  };
+  setDimensions(newDims);
+}, [selectedTypeSurface, selectedEdge, thicknessValue, edgeMilling]);
+
+useEffect(() => {
+  const dependentFields = ['thickness', 'edgeMilling', 'typeSurface'];
+  const inputs = dependentFields.map(name => document.querySelector(`[name="${name}"]`));
+  
+  const handleDependentChange = () => {
+    forceUpdate();
+  };
+  
+  inputs.forEach(input => {
+    if (input) {
+      input.addEventListener('change', handleDependentChange);
+    }
+  });
+  
+  return () => {
+    inputs.forEach(input => {
+      if (input) {
+        input.removeEventListener('change', handleDependentChange);
+      }
+    });
+  };
+}, []);
+
   return (
     <div className={css.skat__container}>
       <section className={css.skat__form_container}>
@@ -466,7 +571,11 @@ const getColorOptions = (type) => {
                 id="thickness"
                 className={css.form__select}
                 required
-                onChange={handleTypeSurfaceChange}
+                value={thicknessValue}
+                onChange={(e) => {
+                  handleThicknessChange(e);
+                  handleTypeSurfaceChange(e);
+                }}
                 onBlur={checkFormValidity}
               >
                 {thickness.map((option) => (
@@ -533,7 +642,10 @@ const getColorOptions = (type) => {
                 id="edgeMilling"
                 className={css.form__select}
                 required
-                onChange={handleTypeSurfaceChange}
+                onChange={(e) => {
+                  setEdgeMilling(e.target.value);
+                  handleTypeSurfaceChange(e);
+                }}
                 onBlur={checkFormValidity}
               >
                 {millingOnTheEdge.map((option) => (
@@ -585,8 +697,40 @@ const getColorOptions = (type) => {
                 index={index}
                 onRemove={() => removeDrawingItem(item.id)}
                 isRemovable={drawingItems.length > 1}
-                onFieldChange={checkFormValidity}
-                noteOptions={noteSkat}
+                onFieldChange={(e) => {
+                checkFormValidity(e);
+                
+                // Добавляем проверку на существование e.target и e.target.name
+                if (!e?.target?.name) return;
+                
+                if (e.target.name.includes('height') || e.target.name.includes('width')) {
+                  const newDims = {
+                    minWidth: calculateMinDimensions().minWidth,
+                    minHeight: calculateMinDimensions().minHeight,
+                    maxWidth: calculateMaxDimensions().maxWidth,
+                    maxHeight: calculateMaxDimensions().maxHeight
+                  };
+                  setDimensions(newDims);
+                  
+                  const input = e.target;
+                  let value = parseInt(input.value, 10);
+                  
+                  if (isNaN(value)) return;
+                  
+                  if (e.target.name.includes('height')) {
+                    value = Math.max(newDims.minHeight, Math.min(newDims.maxHeight, value));
+                  } else if (e.target.name.includes('width')) {
+                    value = Math.max(newDims.minWidth, Math.min(newDims.maxWidth, value));
+                  }
+                  
+                  input.value = value.toString();
+                }
+              }}
+              noteOptions={noteSkat}
+              minHeight={dimensions.minHeight}
+              maxHeight={dimensions.maxHeight}
+              minWidth={dimensions.minWidth}
+              maxWidth={dimensions.maxWidth}
               />
             ))}
             <button 

@@ -71,8 +71,8 @@ export const Block_Dveri_Kupe = () => {
               text="Заказать двери-купе"
               width="13.594vw"
               height="6.042vh"
-              href="/fasad-forms/DveriKupe"
-              // onClick={() => setShowSubmitModal(true)} 
+              // href="/fasad-forms/DveriKupe"
+              onClick={() => setShowSubmitModal(true)} 
               />
             </div>
             {showSubmitModal && (
